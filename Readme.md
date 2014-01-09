@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](https://github.com/Hom19910422)
 * Version : v0.0 ( 設計中... )
-* Update  : 2014/01/07
+* Update  : 2014/01/09
 
 Description
 ========
@@ -14,7 +14,7 @@ Hardware
 * 感測器　 : [MPU-9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [MS5611](http://www.meas-spec.com/product/pressure/MS5611-01BA03.aspx) )
 * 外接介面 : 1*UART、1*SPI、1*I2C
 * PCB 尺寸 : ?? * ??mm
-* 設計軟體 [Altium Designer 13](http://www.altium.com/en/products/altium-designer) ( [PcbLib](https://github.com/CYACAcademic/AltiumDesigner_PcbLibrary) use AD PcbLib v0.? )
+* 設計軟體 [Altium Designer 13](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
 
 Related Documents
 ========
