@@ -33,11 +33,8 @@ Hardware
 
 Related Documents
 ========
-* [Google Drive](https://drive.google.com/folderview?id=0BzL2wwAot6oPN05nMklQQW0zVHc&usp=drive_web)
+* [Update Records - Hackpad](https://hom.hackpad.com/SmartIMU-E9zzbSI7QyK)
+* [Datasheet & BOM - Google Drive](https://drive.google.com/folderview?id=0BzL2wwAot6oPN05nMklQQW0zVHc&usp=drive_web)
 
 Program
 ========
-
-Update Records
-========
-* [Hackpad](https://hom.hackpad.com/SmartIMU-E9zzbSI7QyK)
