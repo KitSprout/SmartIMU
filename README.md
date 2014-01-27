@@ -31,6 +31,8 @@ Hardware
 * PCB 尺寸 : ?? * ??mm
 * 設計軟體 [Altium Designer 13](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
 
+<<img src="https://lh6.googleusercontent.com/-Efg270DMhuY/UubE8NVr7cI/AAAAAAAAGXI/KF_gRyW1oJI/s800/System.png" />
+
 Related Documents
 ========
 * [Update Records - Hackpad](https://hom.hackpad.com/SmartIMU-E9zzbSI7QyK)
