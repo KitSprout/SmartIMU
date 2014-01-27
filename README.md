@@ -37,3 +37,7 @@ Related Documents
 
 Program
 ========
+
+Update Records
+========
+* [Hackpad](https://hom.hackpad.com/SmartIMU-E9zzbSI7QyK)
