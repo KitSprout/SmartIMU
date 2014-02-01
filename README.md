@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
 * Version : v1.0 設計中...
-* Update  : 2014/01/27
+* Update  : 2014/02/01
 
 Description
 ========
@@ -31,12 +31,26 @@ Hardware
 * PCB 尺寸 : ?? * ??mm
 * 設計軟體 [Altium Designer 13](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
 
-<<img src="https://lh6.googleusercontent.com/-Efg270DMhuY/UubE8NVr7cI/AAAAAAAAGXI/KF_gRyW1oJI/s800/System.png" />
+<img src="https://lh6.googleusercontent.com/-Efg270DMhuY/UubE8NVr7cI/AAAAAAAAGXI/KF_gRyW1oJI/s800/System.png" />
+
+Software
+========
 
 Related Documents
 ========
 * [Update Records - Hackpad](https://hom.hackpad.com/SmartIMU-E9zzbSI7QyK)
 * [Datasheet & BOM - Google Drive](https://drive.google.com/folderview?id=0BzL2wwAot6oPN05nMklQQW0zVHc&usp=drive_web)
 
-Program
+View
 ========
+
+<br />
+更多圖片 [Google+ albums](https://plus.google.com/photos/112822505513154783828/albums/5973678489492691265)
+
+Config
+========
+
+
+Schematic
+========
+<img src="https://lh5.googleusercontent.com/-gzdxPzMeE8E/UuzTkvNSzxI/AAAAAAAAGZE/C8zIxg0O-vY/s1200/SmartIMU%2520v1.0_Sch.png">
