@@ -53,4 +53,4 @@ Config
 
 Schematic
 ========
-<img src="https://lh5.googleusercontent.com/-gzdxPzMeE8E/UuzTkvNSzxI/AAAAAAAAGZE/C8zIxg0O-vY/s1200/SmartIMU%2520v1.0_Sch.png">
+<img src="https://lh5.googleusercontent.com/-mSlDrmvaTH4/UvCouV3nKHI/AAAAAAAAGeA/XkEk8mpY_lU/s800/SmartIMU%2520v1.0_Sch.png" />
