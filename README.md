@@ -2,11 +2,11 @@
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
 * Version : v1.0 設計中...
-* Update  : 2014/02/01
+* Update  : 2014/02/15
 
 Description
 ========
-SmartIMU 是一個集成微控制器 ( STM32F103T )、感測器 ( MPU-9250、MS5611 ) 於一體的模組，透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
+SmartIMU 是一個集成微控制器 ( STM32F401C )、感測器 ( MPU-9250、MS5611 ) 於一體的模組，透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
 > 預計建立兩種模式：  
 > 1. 透過 SPI 讀取 Sensor  
 > 　 此方案不須使用到 MCU，可以比 模式2 更接近實時，同時 MCU 也可以做其他處理。  
@@ -25,11 +25,11 @@ License
 
 Hardware
 ========
-* 控制器　 : [STM32F103T](http://www.st.com/web/catalog/mmc/FM141/SC1169/SS1031/LN1565/PF250484) 36Pin 72MHz DSP
+* 控制器　 : [STM32F401C](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1810/PF258491) 48Pin 84MHz DSP FPU
 * 感測器　 : [MPU-9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [MS5611](http://www.meas-spec.com/product/pressure/MS5611-01BA03.aspx)
-* 外接介面 : 1*UART/I2C、1*SPI、1*USB
-* PCB 尺寸 : ?? * ??mm
-* 設計軟體 [Altium Designer 13](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
+* 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
+* PCB 尺寸 : 12.95 * 15.49mm
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
 
 <img src="https://lh6.googleusercontent.com/-Efg270DMhuY/UubE8NVr7cI/AAAAAAAAGXI/KF_gRyW1oJI/s800/System.png" />
 
