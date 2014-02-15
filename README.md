@@ -27,6 +27,7 @@ Hardware
 ========
 * 控制器　 : [STM32F401C](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1810/PF258491) 48Pin 84MHz DSP FPU
 * 感測器　 : [MPU-9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [MS5611](http://www.meas-spec.com/product/pressure/MS5611-01BA03.aspx)
+* 其他　　 : 1*LED
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
 * PCB 尺寸 : 12.95 * 15.49mm
 * 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
@@ -53,4 +54,4 @@ Config
 
 Schematic
 ========
-<img src="https://lh5.googleusercontent.com/-mSlDrmvaTH4/UvCouV3nKHI/AAAAAAAAGeA/XkEk8mpY_lU/s800/SmartIMU%2520v1.0_Sch.png" />
+<img src="https://lh3.googleusercontent.com/-uvd6rxRszvg/Uv9vdGuD_hI/AAAAAAAAGgY/UioHU4tn270/s1600/SmartIMU%2520v1.0_Sch.png" />
