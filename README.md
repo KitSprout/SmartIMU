@@ -2,14 +2,14 @@
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
 * Version : v1.0 設計中...
-* Update  : 2014/02/15
+* Update  : 2014/02/19
 
 Description
 ========
-SmartIMU 是一個集成微控制器 ( STM32F401C )、感測器 ( MPU-9250、MS5611 ) 於一體的模組，透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
+SmartIMU 是一個集成微控制器 ( STM32F401C )、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤、氣壓計等感測器 ( MPU-9250、MS5611 ) 於一體的模組，可以透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
 > 預計建立兩種模式：  
 > 1. 透過 SPI 讀取 Sensor  
-> 　 此方案不須使用到 MCU，可以比 模式2 更接近實時，同時 MCU 也可以做其他處理。  
+> 　 此方案不須使用到 MCU，可以比"模式2"更接近實時，同時 MCU 也可以做其他處理。  
 > 2. 透過 MCU 讀取 Sensor  
 > 　 此方案可以預先計算姿態來節省飛控負擔，同時會加載 IAP 功能，  
 > 　 可以直接透過飛控板來更新程式碼，不需要再做燒錄的動作。  
@@ -32,7 +32,7 @@ Hardware
 * PCB 尺寸 : 12.95 * 15.49mm
 * 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
 
-<img src="https://lh6.googleusercontent.com/-Efg270DMhuY/UubE8NVr7cI/AAAAAAAAGXI/KF_gRyW1oJI/s800/System.png" />
+<img src="https://lh4.googleusercontent.com/-2dhtdJlWDpw/UwPCjckTGPI/AAAAAAAAGjM/T2tRhIRYJ_M/s800/System.png" /></a>
 
 Software
 ========
