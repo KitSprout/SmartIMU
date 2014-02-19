@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.0 設計中...
-* Update  : 2014/02/19
+* Version : v1.0 驗證中 ... 
+* Update  : 2014/02/20
 
 Description
 ========
@@ -26,11 +26,11 @@ License
 Hardware
 ========
 * 控制器　 : [STM32F401C](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1810/PF258491) 48Pin 84MHz DSP FPU
-* 感測器　 : [MPU-9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [MS5611](http://www.meas-spec.com/product/pressure/MS5611-01BA03.aspx)
+* 感測器　 : [MPU9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [MS5611](http://www.meas-spec.com/product/pressure/MS5611-01BA03.aspx)
 * 其他　　 : 1*LED
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
 * PCB 尺寸 : 12.95 * 15.49mm
-* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v?](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary) )
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.4](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.4) )
 
 <img src="https://lh4.googleusercontent.com/-2dhtdJlWDpw/UwPCjckTGPI/AAAAAAAAGjM/T2tRhIRYJ_M/s800/System.png" /></a>
 
