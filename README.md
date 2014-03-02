@@ -50,8 +50,9 @@ View
 
 Config
 ========
-
+<img src="https://lh3.googleusercontent.com/-GEPv3sS1TEE/UxOHtGFfnrI/AAAAAAAAG04/MVGZC7RnYFM/s800/SmartIMU_Config_PIN_v1.0.png" />
+<img src="https://lh4.googleusercontent.com/-AVyc_eI9NRk/UxOHs4apPhI/AAAAAAAAG00/GV9ovnCyotI/s1200/SmartIMU_Config_AF_v1.0.png" />
 
 Schematic
 ========
-<a href="https://picasaweb.google.com/lh/photo/rVbsdZSoTVlU50coAumyE9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-7BYwWTC8zWY/UxN-ZDzAzXI/AAAAAAAAGzU/2hhzC7d-H88/s800/SmartIMU%2520v1.0_Sch.png" />
+<img src="https://lh4.googleusercontent.com/-7BYwWTC8zWY/UxN-ZDzAzXI/AAAAAAAAGzU/2hhzC7d-H88/s1200/SmartIMU%2520v1.0_Sch.png" />
