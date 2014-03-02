@@ -1,12 +1,12 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.0 驗證中 ... 
-* Update  : 2014/02/20
+* Version : v1.0 待送廠製作 ... 
+* Update  : 2014/03/03
 
 Description
 ========
-SmartIMU 是一個集成微控制器 ( STM32F401C )、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤、氣壓計等感測器 ( MPU-9250、MS5611 ) 於一體的模組，可以透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
+SmartIMU 是一個集成微控制器 ( STM32F401C )、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤、氣壓計等感測器 ( MPU9250、MS5611 ) 於一體的模組，可以透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
 > 預計建立兩種模式：  
 > 1. 透過 SPI 讀取 Sensor  
 > 　 此方案不須使用到 MCU，可以比"模式2"更接近實時，同時 MCU 也可以做其他處理。  
@@ -30,7 +30,7 @@ Hardware
 * 其他　　 : 1*LED
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
 * PCB 尺寸 : 12.95 * 15.49mm
-* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.4](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.4) )
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.6](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.6) )
 
 <img src="https://lh4.googleusercontent.com/-2dhtdJlWDpw/UwPCjckTGPI/AAAAAAAAGjM/T2tRhIRYJ_M/s800/System.png" /></a>
 
@@ -54,4 +54,4 @@ Config
 
 Schematic
 ========
-<img src="https://lh3.googleusercontent.com/-uvd6rxRszvg/Uv9vdGuD_hI/AAAAAAAAGgY/UioHU4tn270/s1600/SmartIMU%2520v1.0_Sch.png" />
+<a href="https://picasaweb.google.com/lh/photo/rVbsdZSoTVlU50coAumyE9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-7BYwWTC8zWY/UxN-ZDzAzXI/AAAAAAAAGzU/2hhzC7d-H88/s800/SmartIMU%2520v1.0_Sch.png" />
