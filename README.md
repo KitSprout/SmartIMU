@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.0 待送廠製作 ... 
-* Update  : 2014/03/03
+* Version : v1.0 已送測試板打樣 ...
+* Update  : 2014/03/11
 
 Description
 ========
