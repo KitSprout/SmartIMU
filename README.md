@@ -1,12 +1,12 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.0 已送測試板打樣 ...
-* Update  : 2014/03/11
+* Version : v1.0 可以正確讀到 DeviceID，資料讀取測試中... 
+* Update  : 2014/03/19
 
 Description
 ========
-SmartIMU 是一個集成微控制器 ( STM32F401C )、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤、氣壓計等感測器 ( MPU9250、MS5611 ) 於一體的模組，可以透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊。  
+SmartIMU 是一個集成微控制器 ( STM32F401C )、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤、氣壓計等感測器 ( MPU9250、MS5611 ) 於一體的模組，可以透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊，除了上述，SmartIMU 也另外引出了第二個 SPI 和 4CH PWM，可以獨立成一片飛控板，微型四軸飛行器 [QCopterNano](https://github.com/QCopter/QCopterNano) 即預計使用 SmartIMU 作為飛控。 
 > 預計建立兩種模式：  
 > 1. 透過 SPI 讀取 Sensor  
 > 　 此方案不須使用到 MCU，可以比"模式2"更接近實時，同時 MCU 也可以做其他處理。  
