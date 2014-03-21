@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.0 可以正確讀到 DeviceID，資料讀取測試中... 
-* Update  : 2014/03/19
+* Version : v1.0 ( MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
+* Update  : 2014/03/21
 
 Description
 ========
