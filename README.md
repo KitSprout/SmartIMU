@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.0 ( MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
-* Update  : 2014/03/21
+* Version : v1.2 設計中 ... ( v1.0 MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
+* Update  : 2014/04/12
 
 Description
 ========
@@ -32,6 +32,10 @@ Hardware
 * PCB 尺寸 : 12.95 * 15.49mm
 * 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.6](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.6) )
 
+***** TestBoard *****
+* PCB 尺寸 : 26.16 * 31.75mm
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.10](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.10) )
+
 <img src="https://lh4.googleusercontent.com/-2dhtdJlWDpw/UwPCjckTGPI/AAAAAAAAGjM/T2tRhIRYJ_M/s800/System.png" /></a>
 
 Software
@@ -55,4 +59,4 @@ Config
 
 Schematic
 ========
-<img src="https://lh4.googleusercontent.com/-7BYwWTC8zWY/UxN-ZDzAzXI/AAAAAAAAGzU/2hhzC7d-H88/s1200/SmartIMU%2520v1.0_Sch.png" />
+<img src="https://lh6.googleusercontent.com/-6o92R9nMLUs/U0gmRnnfEqI/AAAAAAAAHW8/uWabDi0ps3Y/s1200/SmartIMU%2520v1.2_Sch.png" />
