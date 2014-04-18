@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
 * Version : v1.2 設計中 ... ( v1.0 MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
-* Update  : 2014/04/13
+* Update  : 2014/04/19
 
 Description
 ========
@@ -40,6 +40,7 @@ Hardware
 
 Software
 ========
+TEST_SmartIMU_LED
 
 Related Documents
 ========
