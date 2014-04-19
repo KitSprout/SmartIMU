@@ -41,6 +41,8 @@ Hardware
 Software
 ========
 TEST_SmartIMU_LED
+TEST_SmartIMU_PWM
+TEST_SmartIMU_Systick
 
 Related Documents
 ========
