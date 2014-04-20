@@ -40,10 +40,11 @@ Hardware
 
 Software
 ========
-TEST_SmartIMU_LED
-TEST_SmartIMU_PWM
-TEST_SmartIMU_Systick
-TEST_SmartIMU_UART
+TEST_SmartIMU_ADC  
+TEST_SmartIMU_LED  
+TEST_SmartIMU_PWM  
+TEST_SmartIMU_Systick  
+TEST_SmartIMU_UART  
 
 Related Documents
 ========
