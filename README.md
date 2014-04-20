@@ -42,6 +42,7 @@ Software
 ========
 TEST_SmartIMU_ADC  
 TEST_SmartIMU_LED  
+TEST_SmartIMU_MPU9250  
 TEST_SmartIMU_PWM  
 TEST_SmartIMU_Systick  
 TEST_SmartIMU_UART  
