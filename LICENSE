@@ -1,27 +1,29 @@
 ==========================================================================================
 
-*** SmartIMU Hardware License ***
+*** SmartIMU v1.2 Hardware License ***
 
-CC BY-SA 3.0 TW
-(http://creativecommons.org/licenses/by-sa/3.0/tw/deed.zh_TW)
+CC BY-SA 4.0
+(http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW)
 
 
 你可自由：
 
-分享 — 以任何媒介或格式重製及散布本素材
-修改 — 重混、轉換本素材、及依本素材建立新素材
-
+分享 — 以任何媒介或格式重製及散布本素材。
+修改 — 重混、轉換本素材、及依本素材建立新素材。
 且為任何目的，包含商業性質之使用。
-
+只要你遵守授權條款規定，授權人不能撤回你使用本素材的自由。
 
 惟需遵照下列條件：
 
 姓名標示 —
-你必須給予適當表彰、提供指向本授權條款的連結，以及指出本素材是否已被變更。
-你可以任何合理方式為前述表彰，但不得以任何方式暗示授權人為你或你的使用方式背書。
+你必須給予適當表彰、提供指向本授權條款的連結，以及指出本素材是否已被變更。你可以任何合理方式為前述表彰，但不得以任何方式暗示授權人為你或你的使用方式背書。
 
 相同方式分享 —
 若你重混、轉換本素材，或依本素材建立新素材，你必須依本素材的授權條款來散布你的貢獻物。
+
+不得增加額外限制 —
+你不能增設法律條款或科技措施，來限制別人依授權條款本已許可的作為。
+
 
 ------------------------------------------------------------------------------------------
 
@@ -30,7 +32,7 @@ CC BY-SA 3.0 TW
 The MIT License (MIT)
 (http://opensource.org/licenses/MIT)
 
-Copyright (c) 2013-2014 Wen-Hung Wang
+Copyright (c) 2014 Hom
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
