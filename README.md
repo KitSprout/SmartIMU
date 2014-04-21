@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang)
 ========
 * Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.2 設計中 ... ( v1.0 MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
-* Update  : 2014/04/20
+* Version : v1.2 送廠製作中 ... ( v1.0 MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
+* Update  : 2014/04/21
 
 Description
 ========
@@ -30,7 +30,7 @@ Hardware
 * 其他　　 : 1*LED
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
 * PCB 尺寸 : 12.95 * 15.49mm
-* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.6](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.6) )
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.11](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.11) )
 
 ***** TestBoard *****
 * PCB 尺寸 : 26.16 * 31.75mm
