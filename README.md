@@ -60,10 +60,8 @@ View
 
 Config
 ========
-<img src="https://lh4.googleusercontent.com/-HK_TAZm_NEY/U1PQfM7u5mI/AAAAAAAAHpQ/SJ-SuhdjOGc/w840-h843-no/SmartIMU_v1.2_Config_CHIP.png" />
-<img src="https://lh6.googleusercontent.com/-95ublXhWd48/U1PQfwcGhPI/AAAAAAAAHp0/hx4adyIoptM/w1367-h843-no/SmartIMU_v1.2_Config_PIN.png" />
-<img src="https://lh5.googleusercontent.com/-Kxun-eKL8j4/U1PQfB7SGrI/AAAAAAAAHpU/fu1MyTtCUUE/w1512-h843-no/SmartIMU_v1.2_Config_AF.png" />
-<img src="https://lh6.googleusercontent.com/-PQ02iK9h6BI/U1PQfGdMllI/AAAAAAAAHpc/YpYp3_Tuee8/w1263-h843-no/SmartIMU_v1.2_Config_DMA.png" />
+<img src="https://lh4.googleusercontent.com/-0kiH8y0ofiE/U1fKZqJWaiI/AAAAAAAAHyg/xEjalQ_90ys/s1600/Mechanical.png" />
+<img src="https://lh5.googleusercontent.com/-FpYZ8tXODhA/U1fLJ-uaGeI/AAAAAAAAHyo/h47H-ExeNYw/s1600/PIN.png" />
 
 Schematic
 ========
