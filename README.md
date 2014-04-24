@@ -60,7 +60,7 @@ View
 
 Config
 ========
-<img src="https://lh4.googleusercontent.com/-0kiH8y0ofiE/U1fKZqJWaiI/AAAAAAAAHyg/xEjalQ_90ys/s1600/Mechanical.png" />
+<img src="https://lh6.googleusercontent.com/-5sgVKczQSUY/U1hhQ_Tmn-I/AAAAAAAAHzs/n9RnwNxmSiE/s1600/Mechanical.png" />
 <img src="https://lh5.googleusercontent.com/-FpYZ8tXODhA/U1fLJ-uaGeI/AAAAAAAAHyo/h47H-ExeNYw/s1600/PIN.png" />
 
 Schematic
