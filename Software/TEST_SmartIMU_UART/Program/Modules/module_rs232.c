@@ -6,20 +6,20 @@
 #include "algorithm_string.h"
 /*====================================================================================================*/
 /*====================================================================================================*/
-#define USARTx                USART1
-#define USARTx_CLK            RCC_APB2Periph_USART1
+#define USARTx                USART2
+#define USARTx_CLK            RCC_APB1Periph_USART2
 
-#define USARTx_TX_PIN         GPIO_Pin_6
-#define USARTx_TX_GPIO_PORT   GPIOB
-#define USARTx_TX_GPIO_CLK    RCC_AHB1Periph_GPIOB
-#define USARTx_TX_SOURCE      GPIO_PinSource6
-#define USARTx_TX_AF          GPIO_AF_USART1
+#define USARTx_TX_PIN         GPIO_Pin_2
+#define USARTx_TX_GPIO_PORT   GPIOA
+#define USARTx_TX_GPIO_CLK    RCC_AHB1Periph_GPIOA
+#define USARTx_TX_SOURCE      GPIO_PinSource2
+#define USARTx_TX_AF          GPIO_AF_USART2
 
-#define USARTx_RX_PIN         GPIO_Pin_7
-#define USARTx_RX_GPIO_PORT   GPIOB
-#define USARTx_RX_GPIO_CLK    RCC_AHB1Periph_GPIOB
-#define USARTx_RX_SOURCE      GPIO_PinSource7
-#define USARTx_RX_AF          GPIO_AF_USART1
+#define USARTx_RX_PIN         GPIO_Pin_3
+#define USARTx_RX_GPIO_PORT   GPIOA
+#define USARTx_RX_GPIO_CLK    RCC_AHB1Periph_GPIOA
+#define USARTx_RX_SOURCE      GPIO_PinSource3
+#define USARTx_RX_AF          GPIO_AF_USART2
 
 #define USARTx_BAUDRATE       115200
 #define USARTx_BYTESIZE       USART_WordLength_8b
@@ -42,19 +42,19 @@ void RS232_Config( void )
 
   /* UART Clk Init *************************************************************/
   RCC_AHB1PeriphClockCmd(USARTx_TX_GPIO_CLK | USARTx_RX_GPIO_CLK, ENABLE);
-  RCC_APB2PeriphClockCmd(USARTx_CLK, ENABLE);
+  RCC_APB1PeriphClockCmd(USARTx_CLK, ENABLE);
 
   GPIO_PinAFConfig(USARTx_TX_GPIO_PORT, USARTx_TX_SOURCE, USARTx_TX_AF);
   GPIO_PinAFConfig(USARTx_TX_GPIO_PORT, USARTx_RX_SOURCE, USARTx_RX_AF);
 
-  /* USARTx Tx PB10 */
+  /* USARTx Tx PA2 */
   GPIO_InitStruct.GPIO_Pin = USARTx_TX_PIN;
   GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_UP;
   GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_Init(USARTx_TX_GPIO_PORT, &GPIO_InitStruct);
-  /* USARTx Rx PB11 */
+  /* USARTx Rx PA3 */
   GPIO_InitStruct.GPIO_Pin = USARTx_RX_PIN;
   GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
