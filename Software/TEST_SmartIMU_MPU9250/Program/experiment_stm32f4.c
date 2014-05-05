@@ -7,14 +7,14 @@
 /*====================================================================================================*/
 int main( void )
 {
-  int Status = ERROR;
-
   SystemInit();
   GPIO_Config();
 
   MPU9250_Config();
-
+  Delay_10ms(1);
+  MPU9250_Init();
   Delay_100ms(1);
+
   while(MPU9250_Check() != SUCCESS);
 
   while(1) {

@@ -8,7 +8,7 @@
 #define SPIx                  SPI1
 #define SPIx_CLK              RCC_APB2Periph_SPI1
 
-#define SPIx_CSM_PIN          GPIO_Pin_3
+#define SPIx_CSM_PIN          GPIO_Pin_4
 #define SPIx_CSM_GPIO_PORT    GPIOA
 #define SPIx_CSM_GPIO_CLK     RCC_AHB1Periph_GPIOA
 
@@ -30,7 +30,7 @@
 #define SPIx_SDI_SOURCE       GPIO_PinSource7
 #define SPIx_SDI_AF           GPIO_AF_SPI1
 
-#define IMU_CSM   PAO(3)
+#define IMU_CSM   PAO(4)
 /*====================================================================================================*/
 /*====================================================================================================*
 **函數 : MPU9250_ReadReg
@@ -160,7 +160,7 @@ void MPU9250_Config( void )
 **使用 : MPU9250_Init();
 **====================================================================================================*/
 /*====================================================================================================*/
-#define MPU9250_InitRegNum 10
+#define MPU9250_InitRegNum 14
 void MPU9250_Init( void )
 {
   u8 i = 0;
@@ -175,6 +175,12 @@ void MPU9250_Init( void )
       {0x30, MPU6500_INT_PIN_CFG},    // 
       {0x40, MPU6500_I2C_MST_CTRL},   // I2C Speed 348 kHz
       {0x20, MPU6500_USER_CTRL},      // Enable AUX
+
+      // Set Slave to Read AK8963
+      {0x8C, MPU6500_I2C_SLV0_ADDR},  // AK8963_I2C_ADDR ( 7'b000_1100 )
+      {0x00, MPU6500_I2C_SLV0_REG},   // AK8963_WIA ( 0x00 )
+      {0x81, MPU6500_I2C_SLV0_CTRL},  // Enable
+      {0x01, MPU6500_I2C_MST_DELAY_CTRL}
     };
 
   for(i=0; i<MPU9250_InitRegNum; i++) {
@@ -193,12 +199,23 @@ void MPU9250_Init( void )
 /*====================================================================================================*/
 u8 MPU9250_Check( void )
 {
-  u8 DeviceID;
+  u8 DeviceID = 0x00;
 
   /* MPU6500 */
   DeviceID = 0x00;
   MPU9250_ReadReg(MPU6500_WHO_AM_I, &DeviceID);
   if(DeviceID != MPU6500_Device_ID)
+    return ERROR;
+
+  /* AK8975 */
+  DeviceID = 0x00;
+  MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, 0x8C);          // Set AK8963_I2C_ADDR = 7'b000_1100
+  Delay_1us(10);
+  MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_WIA);     // Set Write Reg
+  MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, 0x81);          // Start Read
+  Delay_1ms(1);
+  MPU9250_ReadReg(MPU6500_EXT_SENS_DATA_00, &DeviceID);   // Read Data
+  if(DeviceID != AK8963_Device_ID)
     return ERROR;
 
   return SUCCESS;
