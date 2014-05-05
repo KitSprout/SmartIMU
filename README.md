@@ -1,8 +1,8 @@
-﻿[SmartIMU](https://github.com/Hom-Wang)
+﻿[SmartIMU](https://github.com/Hom-Wang/SmartIMU)
 ========
-* Author  : [Hom](https://github.com/Hom-Wang)
-* Version : v1.2 送廠製作中 ... ( v1.0 MPU6500 部分沒有問題，測試 AK8963 中 ... ) 
-* Update  : 2014/04/21
+* Author  : [Hom](http://about.me/Hom)
+* Version : v1.2 ( 測試 MS5611 中 ... ) 
+* Update  : 2014/05/05
 
 Description
 ========
@@ -30,11 +30,11 @@ Hardware
 * 其他　　 : 1*LED
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
 * PCB 尺寸 : 12.95 * 15.49mm
-* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.11](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.11) )
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.12](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.12) )
 
-***** TestBoard *****
+**** TestBoard  
 * PCB 尺寸 : 26.16 * 31.75mm
-* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.10](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.10) )
+* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.12](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.12) )
 
 <img src="https://lh3.googleusercontent.com/-utxuzgyjc8o/U1PQgXltkQI/AAAAAAAAHpw/5_EWkP11yPE/w1200-h618-no/System_v1.2.png" />
 
@@ -54,6 +54,10 @@ Related Documents
 
 View
 ========
+<img src="https://lh4.googleusercontent.com/-D_xvblRS01U/U2cgfyH5foI/AAAAAAAAIOA/RJmb9rC6jjs/s1600/DSC_2175.jpg" />
+<img src="https://lh3.googleusercontent.com/-IDrVWKv29KM/U2cge4Dcw-I/AAAAAAAAIOI/Mdec4T33aDY/s1600/DSC_2152.jpg" />
+<img src="https://lh5.googleusercontent.com/-STk0VoAsyt8/U2cgfYZAiFI/AAAAAAAAIN4/LG56PU2AU6Y/s1600/DSC_2162.jpg" />
+<img src="https://lh4.googleusercontent.com/-ENO7XYzZRIc/U2cgeEFghGI/AAAAAAAAIOo/irh-smYJEDI/s1600/DSC_2142.jpg"/>
 
 <br />
 更多圖片 [Google+ albums](https://plus.google.com/photos/112822505513154783828/albums/5973678489492691265)
@@ -61,7 +65,7 @@ View
 Config
 ========
 <img src="https://lh6.googleusercontent.com/-5sgVKczQSUY/U1hhQ_Tmn-I/AAAAAAAAHzs/n9RnwNxmSiE/s1600/Mechanical.png" />
-<img src="https://lh5.googleusercontent.com/-FpYZ8tXODhA/U1fLJ-uaGeI/AAAAAAAAHyo/h47H-ExeNYw/s1600/PIN.png" />
+<img src="https://lh6.googleusercontent.com/-pN5fDkxP3rI/U2cq-HLubQI/AAAAAAAAIPs/8gJRMgayoDU/s1600/PIN.png" />
 
 Schematic
 ========

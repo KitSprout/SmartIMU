@@ -1,6 +1,0 @@
-DRC Rules Export File for PCB: E:\My_Research\My Product\SmartIMU\Hardware\Schematic v1.2_M\SmartIMU_M_Pcb.PcbDoc
-RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=1.50
-RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
-RuleKind=Clearance|RuleName=ClearancePolygon|Scope=Board|Minimum=8.00
-RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
-RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=6.00
