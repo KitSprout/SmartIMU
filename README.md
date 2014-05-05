@@ -29,7 +29,7 @@ Hardware
 * 感測器　 : [MPU9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [MS5611](http://www.meas-spec.com/product/pressure/MS5611-01BA03.aspx)
 * 其他　　 : 1*LED
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
-* PCB 尺寸 : 12.95 * 15.49mm
+* PCB 尺寸 : 12.70 * 15.24mm
 * 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.12](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.12) )
 
 **** TestBoard  
