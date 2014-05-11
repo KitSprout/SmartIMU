@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang/SmartIMU)
 ========
 * Author  : [Hom](http://about.me/Hom)
-* Version : v1.2 ( 測試 MS5611 中 ... ) 
-* Update  : 2014/05/05
+* Version : v1.2 ( 測試外部讀取 MPU9250 ... ) 
+* Update  : 2014/05/11
 
 Description
 ========
@@ -41,8 +41,8 @@ Hardware
 Software
 ========
 TEST_SmartIMU_ADC  
+TEST_SmartIMU_IMU  
 TEST_SmartIMU_LED  
-TEST_SmartIMU_MPU9250  
 TEST_SmartIMU_PWM  
 TEST_SmartIMU_Systick  
 TEST_SmartIMU_UART  

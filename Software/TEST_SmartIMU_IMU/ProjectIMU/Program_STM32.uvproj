@@ -435,6 +435,11 @@
               <FilePath>..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c</FilePath>
             </File>
             <File>
+              <FileName>stm32f4xx_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f4xx_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c</FilePath>
@@ -455,6 +460,11 @@
               <FilePath>..\Program\Dirvers\stm32f4_delay.c</FilePath>
             </File>
             <File>
+              <FileName>stm32f4_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Dirvers\stm32f4_usart.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f4_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\Dirvers\stm32f4_spi.c</FilePath>
@@ -469,15 +479,55 @@
               <FileType>1</FileType>
               <FilePath>..\Program\experiment_stm32f4.c</FilePath>
             </File>
+            <File>
+              <FileName>experiment_stm32f4_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\experiment_stm32f4_it.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Module</GroupName>
           <Files>
             <File>
+              <FileName>module_rs232.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Modules\module_rs232.c</FilePath>
+            </File>
+            <File>
+              <FileName>module_imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Modules\module_imu.c</FilePath>
+            </File>
+            <File>
               <FileName>module_mpu9250.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\Modules\module_mpu9250.c</FilePath>
+            </File>
+            <File>
+              <FileName>module_ms5611.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Modules\module_ms5611.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Algorithm</GroupName>
+          <Files>
+            <File>
+              <FileName>algorithm_string.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Algorithms\algorithm_string.c</FilePath>
+            </File>
+            <File>
+              <FileName>algorithm_ahrs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Algorithms\algorithm_ahrs.c</FilePath>
+            </File>
+            <File>
+              <FileName>algorithm_quaternion.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\Algorithms\algorithm_quaternion.c</FilePath>
             </File>
           </Files>
         </Group>

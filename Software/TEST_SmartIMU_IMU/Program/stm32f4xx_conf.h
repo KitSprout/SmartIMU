@@ -57,8 +57,8 @@
 //#include "stm32f4xx_sdio.h"
 #include "stm32f4xx_spi.h"
 //#include "stm32f4xx_syscfg.h"
-#include "stm32f4xx_tim.h"
-//#include "stm32f4xx_usart.h"
+//#include "stm32f4xx_tim.h"
+#include "stm32f4xx_usart.h"
 //#include "stm32f4xx_wwdg.h"
 
 /* Exported macro ------------------------------------------------------------*/
