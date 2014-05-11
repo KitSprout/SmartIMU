@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](http://about.me/Hom)
 * Version : v1.2 ( 測試外部讀取 MPU9250 ... ) 
-* Update  : 2014/05/11
+* Update  : 2014/05/12
 
 Description
 ========
@@ -31,6 +31,11 @@ Hardware
 * 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
 * PCB 尺寸 : 12.70 * 15.24mm
 * 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.12](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.12) )
+
+SmartIMU v1.4 預計修改：  
+>1. 修改部分腳位以兼容 MPU6500。  
+>2. 修改部分元件 footprint 以方便焊接。
+>3. 將 MS5611 與 MPU9250 共用 SPI ( 待確定 )。
 
 **** TestBoard  
 * PCB 尺寸 : 26.16 * 31.75mm
@@ -69,4 +74,4 @@ Config
 
 Schematic
 ========
-<img src="https://lh4.googleusercontent.com/-bp71xaYUoaU/U0mPUlZmWEI/AAAAAAAAHX4/PclqwTD8XBg/w1518-h804-no/SmartIMU+v1.2_Sch.png" />
+<img src="https://lh6.googleusercontent.com/-CRq6l6qid6w/U2-8oZvleaI/AAAAAAAAIUo/3bCh0tpPpEo/s1600/SmartIMU%2520v1.2_Sch.png" />
