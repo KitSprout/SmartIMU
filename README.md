@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang/SmartIMU)
 ========
 * Author  : [Hom](http://about.me/Hom)
-* Version : v1.2 ( 測試外部讀取 MPU9250 ... ) 
-* Update  : 2014/05/12
+* Version : v1.2
+* Update  : 2014/06/10
 
 Description
 ========
