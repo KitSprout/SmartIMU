@@ -218,7 +218,7 @@ u8 MPU9250_Check( void )
   if(DeviceID != AK8963_Device_ID)
     return ERROR;
 
-  return SUCCESS;
+  return MPU9250_Mag_Init();
 }
 /*====================================================================================================*/
 /*====================================================================================================*
@@ -232,6 +232,67 @@ u8 MPU9250_Check( void )
 void MPU9250_Read( u8 *ReadBuf )
 {
   MPU9250_ReadRegs(MPU6500_ACCEL_XOUT_H, ReadBuf, 14);
+#ifdef USE_SENSOR_MAG
+	MPU9250_ReadMag(&ReadBuf[14]);
+#endif
+
 }
 /*====================================================================================================*/
 /*====================================================================================================*/
+#define AK8963_CNTL1_Value 0x16
+void MPU9250_ReadMag(u8 * buf)
+{
+	u8 i;
+	u8 tmp;
+	for(i=0;i<6;i++)
+		buf[i]=0;
+
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, 0x8C);          // Set AK8963_I2C_ADDR = 7'b000_1100
+	Delay_us(10);
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_ST1);     // Set Read Reg
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, 0x81);          // Start Read, 6 bytes
+	//Delay_ms(1);
+	Delay_us(10);
+	MPU9250_ReadReg(MPU6500_EXT_SENS_DATA_00,&tmp);   // Read Data
+	if((tmp | 0x01)==0x00)	//数据未准备好
+		return;
+
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, 0x8C);          // Set AK8963_I2C_ADDR = 7'b000_1100
+	Delay_us(10);
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_HXL);     // Set Read Reg
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, 0x86);          // Start Read, 6 bytes
+	//Delay_ms(1);
+	Delay_us(1);
+	MPU9250_ReadRegs(MPU6500_EXT_SENS_DATA_00, buf,6);   // Read Data
+
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, 0x8C);          // Set AK8963_I2C_ADDR = 7'b000_1100
+	Delay_us(10);
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_ST2);     // Set Read Reg
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, 0x81);          // Start Read, 1 bytes
+	//Delay_ms(1);
+	Delay_us(10);
+	MPU9250_ReadReg(MPU6500_EXT_SENS_DATA_00,&tmp);   // Read Data
+
+}
+u8 MPU9250_Mag_Init(void)
+{
+	u8 buf;
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, 0x0C);  //write I2C addr 
+	Delay_us(10);
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_DO,AK8963_CNTL1_Value);
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_CNTL1);     // Set Write Reg
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, 0x81);          // Start Write, 1 bytes
+	// read back to check
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, 0x8C);//read I2C addr   
+	Delay_us(10);
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_CNTL1);     // Set Write Reg
+	MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, 0x81);          // Start Read, 6 bytes
+	Delay_ms(1);
+	MPU9250_ReadReg(MPU6500_EXT_SENS_DATA_00, &buf);   // Read Data
+	if(buf!=AK8963_CNTL1_Value)
+	{
+		return ERROR;
+	}
+	else
+		return SUCCESS;
+}

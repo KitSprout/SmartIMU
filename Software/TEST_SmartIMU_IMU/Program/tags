@@ -1,0 +1,543 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACC_X_OFFSET	.\Modules\module_imu.h	15;"	d
+ACC_Y_OFFSET	.\Modules\module_imu.h	16;"	d
+ACC_Z_OFFSET	.\Modules\module_imu.h	17;"	d
+AHRS_Init	.\Algorithms\algorithm_ahrs.c	/^void AHRS_Init( Quaternion *pNumQ, EulerAngle *pAngE )$/;"	f	signature:( Quaternion *pNumQ, EulerAngle *pAngE )
+AHRS_Init	.\Algorithms\algorithm_ahrs.h	/^void AHRS_Init( Quaternion *pNumQ, EulerAngle *pAngE );$/;"	p	signature:( Quaternion *pNumQ, EulerAngle *pAngE )
+AHRS_Update	.\Algorithms\algorithm_ahrs.c	/^void AHRS_Update( void )$/;"	f	signature:( void )
+AHRS_Update	.\Algorithms\algorithm_ahrs.h	/^void AHRS_Update( void );$/;"	p	signature:( void )
+AK8963_ASAX	.\Modules\module_mpu9250.h	197;"	d
+AK8963_ASAY	.\Modules\module_mpu9250.h	198;"	d
+AK8963_ASAZ	.\Modules\module_mpu9250.h	199;"	d
+AK8963_ASTC	.\Modules\module_mpu9250.h	192;"	d
+AK8963_CNTL1	.\Modules\module_mpu9250.h	190;"	d
+AK8963_CNTL2	.\Modules\module_mpu9250.h	191;"	d
+AK8963_Device_ID	.\Modules\module_mpu9250.h	176;"	d
+AK8963_HXH	.\Modules\module_mpu9250.h	183;"	d
+AK8963_HXL	.\Modules\module_mpu9250.h	182;"	d
+AK8963_HYH	.\Modules\module_mpu9250.h	185;"	d
+AK8963_HYL	.\Modules\module_mpu9250.h	184;"	d
+AK8963_HZH	.\Modules\module_mpu9250.h	187;"	d
+AK8963_HZL	.\Modules\module_mpu9250.h	186;"	d
+AK8963_I2CDIS	.\Modules\module_mpu9250.h	195;"	d
+AK8963_I2C_ADDR	.\Modules\module_mpu9250.h	175;"	d
+AK8963_INFO	.\Modules\module_mpu9250.h	180;"	d
+AK8963_ST1	.\Modules\module_mpu9250.h	181;"	d
+AK8963_ST2	.\Modules\module_mpu9250.h	188;"	d
+AK8963_TS1	.\Modules\module_mpu9250.h	193;"	d
+AK8963_TS2	.\Modules\module_mpu9250.h	194;"	d
+AK8963_WIA	.\Modules\module_mpu9250.h	179;"	d
+Acc	.\Modules\module_imu.c	/^SensorAcc Acc = {0};$/;"	v
+AdjustX	.\Modules\module_imu.h	/^  u16 AdjustX;$/;"	m	struct:__anon5	access:public
+AdjustY	.\Modules\module_imu.h	/^  u16 AdjustY;$/;"	m	struct:__anon5	access:public
+AdjustZ	.\Modules\module_imu.h	/^  u16 AdjustZ;$/;"	m	struct:__anon5	access:public
+AngE	.\Algorithms\algorithm_quaternion.c	/^EulerAngle AngE = {0};$/;"	v
+Baro	.\Modules\module_imu.c	/^SensorBaro Baro = {0};$/;"	v
+Bit_Addr	.\Dirvers\stm32f4_system.h	12;"	d
+Bit_Band	.\Dirvers\stm32f4_system.h	10;"	d
+BusFault_Handler	.\experiment_stm32f4_it.c	/^void BusFault_Handler( void )$/;"	f	signature:( void )
+Byte16	.\Dirvers\stm32f4_system.h	56;"	d
+Byte32	.\Dirvers\stm32f4_system.h	55;"	d
+Byte8H	.\Dirvers\stm32f4_system.h	57;"	d
+Byte8L	.\Dirvers\stm32f4_system.h	58;"	d
+C	.\Modules\module_ms5611.c	/^  u16 C[7];$/;"	m	struct:MS5611_ST	file:	access:public
+CF_A	.\Algorithms\algorithm_ahrs.c	108;"	d	file:
+CF_B	.\Algorithms\algorithm_ahrs.c	109;"	d	file:
+COEFF	.\Modules\module_ms5611.c	/^} COEFF;$/;"	v	typeref:struct:MS5611_ST	file:
+D	.\Modules\module_ms5611.c	/^  u32 D[3];$/;"	m	struct:MS5611_ST	file:	access:public
+DebugMon_Handler	.\experiment_stm32f4_it.c	/^void DebugMon_Handler( void )$/;"	f	signature:( void )
+Delay_100ms	.\Dirvers\stm32f4_delay.c	/^void Delay_100ms( u32 nCnt_100ms )$/;"	f	signature:( u32 nCnt_100ms )
+Delay_100ms	.\Dirvers\stm32f4_delay.h	/^void Delay_100ms( u32 nCnt_100ms );$/;"	p	signature:( u32 nCnt_100ms )
+Delay_100us	.\Dirvers\stm32f4_delay.c	/^void Delay_100us( u32 nCnt_100us )$/;"	f	signature:( u32 nCnt_100us )
+Delay_100us	.\Dirvers\stm32f4_delay.h	/^void Delay_100us( u32 nCnt_100us );$/;"	p	signature:( u32 nCnt_100us )
+Delay_10ms	.\Dirvers\stm32f4_delay.c	/^void Delay_10ms( u32 nCnt_10ms )$/;"	f	signature:( u32 nCnt_10ms )
+Delay_10ms	.\Dirvers\stm32f4_delay.h	/^void Delay_10ms( u32 nCnt_10ms );$/;"	p	signature:( u32 nCnt_10ms )
+Delay_10us	.\Dirvers\stm32f4_delay.c	/^void Delay_10us( u32 nCnt_10us )$/;"	f	signature:( u32 nCnt_10us )
+Delay_10us	.\Dirvers\stm32f4_delay.h	/^void Delay_10us( u32 nCnt_10us );$/;"	p	signature:( u32 nCnt_10us )
+Delay_1ms	.\Dirvers\stm32f4_delay.c	/^void Delay_1ms( u32 nCnt_1ms )$/;"	f	signature:( u32 nCnt_1ms )
+Delay_1ms	.\Dirvers\stm32f4_delay.h	/^void Delay_1ms( u32 nCnt_1ms );$/;"	p	signature:( u32 nCnt_1ms )
+Delay_1us	.\Dirvers\stm32f4_delay.c	/^void Delay_1us( u32 nCnt_1us )$/;"	f	signature:( u32 nCnt_1us )
+Delay_1us	.\Dirvers\stm32f4_delay.h	/^void Delay_1us( u32 nCnt_1us );$/;"	p	signature:( u32 nCnt_1us )
+Delay_nop	.\Dirvers\stm32f4_delay.c	/^void Delay_nop( u32 nCnt )$/;"	f	signature:( u32 nCnt )
+Delay_nop	.\Dirvers\stm32f4_delay.h	/^void Delay_nop( u32 nCnt );$/;"	p	signature:( u32 nCnt )
+EllipseA	.\Modules\module_imu.h	/^  fp32 EllipseA;$/;"	m	struct:__anon5	access:public
+EllipseB	.\Modules\module_imu.h	/^  fp32 EllipseB;$/;"	m	struct:__anon5	access:public
+EllipseSita	.\Modules\module_imu.h	/^  fp32 EllipseSita;$/;"	m	struct:__anon5	access:public
+EllipseX0	.\Modules\module_imu.h	/^  fp32 EllipseX0;$/;"	m	struct:__anon5	access:public
+EllipseY0	.\Modules\module_imu.h	/^  fp32 EllipseY0;$/;"	m	struct:__anon5	access:public
+EulerAngle	.\Algorithms\algorithm_quaternion.h	/^} EulerAngle;$/;"	t	typeref:struct:__anon1
+GPIOA_IDR_Addr	.\Dirvers\stm32f4_system.h	21;"	d
+GPIOA_ODR_Addr	.\Dirvers\stm32f4_system.h	14;"	d
+GPIOB_IDR_Addr	.\Dirvers\stm32f4_system.h	22;"	d
+GPIOB_ODR_Addr	.\Dirvers\stm32f4_system.h	15;"	d
+GPIOC_IDR_Addr	.\Dirvers\stm32f4_system.h	23;"	d
+GPIOC_ODR_Addr	.\Dirvers\stm32f4_system.h	16;"	d
+GPIOD_IDR_Addr	.\Dirvers\stm32f4_system.h	24;"	d
+GPIOD_ODR_Addr	.\Dirvers\stm32f4_system.h	17;"	d
+GPIOE_IDR_Addr	.\Dirvers\stm32f4_system.h	25;"	d
+GPIOE_ODR_Addr	.\Dirvers\stm32f4_system.h	18;"	d
+GPIOF_IDR_Addr	.\Dirvers\stm32f4_system.h	26;"	d
+GPIOF_ODR_Addr	.\Dirvers\stm32f4_system.h	19;"	d
+GPIOG_IDR_Addr	.\Dirvers\stm32f4_system.h	27;"	d
+GPIOG_ODR_Addr	.\Dirvers\stm32f4_system.h	20;"	d
+GPIO_Config	.\experiment_stm32f4.c	/^void GPIO_Config( void )$/;"	f	signature:( void )
+GPIO_Config	.\experiment_stm32f4.h	/^void GPIO_Config( void );$/;"	p	signature:( void )
+GYR_X_OFFSET	.\Modules\module_imu.h	18;"	d
+GYR_Y_OFFSET	.\Modules\module_imu.h	19;"	d
+GYR_Z_OFFSET	.\Modules\module_imu.h	20;"	d
+Gyr	.\Modules\module_imu.c	/^SensorGyr Gyr = {0};$/;"	v
+HardFault_Handler	.\experiment_stm32f4_it.c	/^void HardFault_Handler( void )$/;"	f	signature:( void )
+Height	.\Modules\module_imu.h	/^  fp32 Height;$/;"	m	struct:__anon7	access:public
+IMU_CSB	.\Modules\module_ms5611.c	33;"	d	file:
+IMU_CSM	.\Modules\module_mpu9250.c	33;"	d	file:
+Ki	.\Algorithms\algorithm_ahrs.c	11;"	d	file:
+Kp	.\Algorithms\algorithm_ahrs.c	10;"	d	file:
+LED	.\experiment_stm32f4.h	9;"	d
+MAG_X_OFFSET	.\Modules\module_imu.h	21;"	d
+MAG_Y_OFFSET	.\Modules\module_imu.h	22;"	d
+MAG_Z_OFFSET	.\Modules\module_imu.h	23;"	d
+MPU6500_ACCEL_CONFIG	.\Modules\module_mpu9250.h	87;"	d
+MPU6500_ACCEL_CONFIG_2	.\Modules\module_mpu9250.h	88;"	d
+MPU6500_ACCEL_XOUT_H	.\Modules\module_mpu9250.h	114;"	d
+MPU6500_ACCEL_XOUT_L	.\Modules\module_mpu9250.h	115;"	d
+MPU6500_ACCEL_YOUT_H	.\Modules\module_mpu9250.h	116;"	d
+MPU6500_ACCEL_YOUT_L	.\Modules\module_mpu9250.h	117;"	d
+MPU6500_ACCEL_ZOUT_H	.\Modules\module_mpu9250.h	118;"	d
+MPU6500_ACCEL_ZOUT_L	.\Modules\module_mpu9250.h	119;"	d
+MPU6500_CONFIG	.\Modules\module_mpu9250.h	85;"	d
+MPU6500_Device_ID	.\Modules\module_mpu9250.h	70;"	d
+MPU6500_EXT_SENS_DATA_00	.\Modules\module_mpu9250.h	128;"	d
+MPU6500_EXT_SENS_DATA_01	.\Modules\module_mpu9250.h	129;"	d
+MPU6500_EXT_SENS_DATA_02	.\Modules\module_mpu9250.h	130;"	d
+MPU6500_EXT_SENS_DATA_03	.\Modules\module_mpu9250.h	131;"	d
+MPU6500_EXT_SENS_DATA_04	.\Modules\module_mpu9250.h	132;"	d
+MPU6500_EXT_SENS_DATA_05	.\Modules\module_mpu9250.h	133;"	d
+MPU6500_EXT_SENS_DATA_06	.\Modules\module_mpu9250.h	134;"	d
+MPU6500_EXT_SENS_DATA_07	.\Modules\module_mpu9250.h	135;"	d
+MPU6500_EXT_SENS_DATA_08	.\Modules\module_mpu9250.h	136;"	d
+MPU6500_EXT_SENS_DATA_09	.\Modules\module_mpu9250.h	137;"	d
+MPU6500_EXT_SENS_DATA_10	.\Modules\module_mpu9250.h	138;"	d
+MPU6500_EXT_SENS_DATA_11	.\Modules\module_mpu9250.h	139;"	d
+MPU6500_EXT_SENS_DATA_12	.\Modules\module_mpu9250.h	140;"	d
+MPU6500_EXT_SENS_DATA_13	.\Modules\module_mpu9250.h	141;"	d
+MPU6500_EXT_SENS_DATA_14	.\Modules\module_mpu9250.h	142;"	d
+MPU6500_EXT_SENS_DATA_15	.\Modules\module_mpu9250.h	143;"	d
+MPU6500_EXT_SENS_DATA_16	.\Modules\module_mpu9250.h	144;"	d
+MPU6500_EXT_SENS_DATA_17	.\Modules\module_mpu9250.h	145;"	d
+MPU6500_EXT_SENS_DATA_18	.\Modules\module_mpu9250.h	146;"	d
+MPU6500_EXT_SENS_DATA_19	.\Modules\module_mpu9250.h	147;"	d
+MPU6500_EXT_SENS_DATA_20	.\Modules\module_mpu9250.h	148;"	d
+MPU6500_EXT_SENS_DATA_21	.\Modules\module_mpu9250.h	149;"	d
+MPU6500_EXT_SENS_DATA_22	.\Modules\module_mpu9250.h	150;"	d
+MPU6500_EXT_SENS_DATA_23	.\Modules\module_mpu9250.h	151;"	d
+MPU6500_FIFO_COUNTH	.\Modules\module_mpu9250.h	162;"	d
+MPU6500_FIFO_COUNTL	.\Modules\module_mpu9250.h	163;"	d
+MPU6500_FIFO_EN	.\Modules\module_mpu9250.h	91;"	d
+MPU6500_FIFO_R_W	.\Modules\module_mpu9250.h	164;"	d
+MPU6500_GYRO_CONFIG	.\Modules\module_mpu9250.h	86;"	d
+MPU6500_GYRO_XOUT_H	.\Modules\module_mpu9250.h	122;"	d
+MPU6500_GYRO_XOUT_L	.\Modules\module_mpu9250.h	123;"	d
+MPU6500_GYRO_YOUT_H	.\Modules\module_mpu9250.h	124;"	d
+MPU6500_GYRO_YOUT_L	.\Modules\module_mpu9250.h	125;"	d
+MPU6500_GYRO_ZOUT_H	.\Modules\module_mpu9250.h	126;"	d
+MPU6500_GYRO_ZOUT_L	.\Modules\module_mpu9250.h	127;"	d
+MPU6500_I2C_ADDR	.\Modules\module_mpu9250.h	69;"	d
+MPU6500_I2C_MST_CTRL	.\Modules\module_mpu9250.h	92;"	d
+MPU6500_I2C_MST_DELAY_CTRL	.\Modules\module_mpu9250.h	156;"	d
+MPU6500_I2C_MST_STATUS	.\Modules\module_mpu9250.h	110;"	d
+MPU6500_I2C_SLV0_ADDR	.\Modules\module_mpu9250.h	93;"	d
+MPU6500_I2C_SLV0_CTRL	.\Modules\module_mpu9250.h	95;"	d
+MPU6500_I2C_SLV0_DO	.\Modules\module_mpu9250.h	152;"	d
+MPU6500_I2C_SLV0_REG	.\Modules\module_mpu9250.h	94;"	d
+MPU6500_I2C_SLV1_ADDR	.\Modules\module_mpu9250.h	96;"	d
+MPU6500_I2C_SLV1_CTRL	.\Modules\module_mpu9250.h	98;"	d
+MPU6500_I2C_SLV1_DO	.\Modules\module_mpu9250.h	153;"	d
+MPU6500_I2C_SLV1_REG	.\Modules\module_mpu9250.h	97;"	d
+MPU6500_I2C_SLV2_ADDR	.\Modules\module_mpu9250.h	99;"	d
+MPU6500_I2C_SLV2_CTRL	.\Modules\module_mpu9250.h	101;"	d
+MPU6500_I2C_SLV2_DO	.\Modules\module_mpu9250.h	154;"	d
+MPU6500_I2C_SLV2_REG	.\Modules\module_mpu9250.h	100;"	d
+MPU6500_I2C_SLV3_ADDR	.\Modules\module_mpu9250.h	102;"	d
+MPU6500_I2C_SLV3_CTRL	.\Modules\module_mpu9250.h	104;"	d
+MPU6500_I2C_SLV3_DO	.\Modules\module_mpu9250.h	155;"	d
+MPU6500_I2C_SLV3_REG	.\Modules\module_mpu9250.h	103;"	d
+MPU6500_I2C_SLV4_ADDR	.\Modules\module_mpu9250.h	105;"	d
+MPU6500_I2C_SLV4_CTRL	.\Modules\module_mpu9250.h	108;"	d
+MPU6500_I2C_SLV4_DI	.\Modules\module_mpu9250.h	109;"	d
+MPU6500_I2C_SLV4_DO	.\Modules\module_mpu9250.h	107;"	d
+MPU6500_I2C_SLV4_REG	.\Modules\module_mpu9250.h	106;"	d
+MPU6500_INT_ENABLE	.\Modules\module_mpu9250.h	112;"	d
+MPU6500_INT_PIN_CFG	.\Modules\module_mpu9250.h	111;"	d
+MPU6500_INT_STATUS	.\Modules\module_mpu9250.h	113;"	d
+MPU6500_LP_ACCEL_ODR	.\Modules\module_mpu9250.h	89;"	d
+MPU6500_MOT_DETECT_CTRL	.\Modules\module_mpu9250.h	158;"	d
+MPU6500_MOT_THR	.\Modules\module_mpu9250.h	90;"	d
+MPU6500_PWR_MGMT_1	.\Modules\module_mpu9250.h	160;"	d
+MPU6500_PWR_MGMT_2	.\Modules\module_mpu9250.h	161;"	d
+MPU6500_SELF_TEST_XA	.\Modules\module_mpu9250.h	75;"	d
+MPU6500_SELF_TEST_XG	.\Modules\module_mpu9250.h	72;"	d
+MPU6500_SELF_TEST_YA	.\Modules\module_mpu9250.h	76;"	d
+MPU6500_SELF_TEST_YG	.\Modules\module_mpu9250.h	73;"	d
+MPU6500_SELF_TEST_ZA	.\Modules\module_mpu9250.h	77;"	d
+MPU6500_SELF_TEST_ZG	.\Modules\module_mpu9250.h	74;"	d
+MPU6500_SIGNAL_PATH_RESET	.\Modules\module_mpu9250.h	157;"	d
+MPU6500_SMPLRT_DIV	.\Modules\module_mpu9250.h	84;"	d
+MPU6500_TEMP_OUT_H	.\Modules\module_mpu9250.h	120;"	d
+MPU6500_TEMP_OUT_L	.\Modules\module_mpu9250.h	121;"	d
+MPU6500_USER_CTRL	.\Modules\module_mpu9250.h	159;"	d
+MPU6500_WHO_AM_I	.\Modules\module_mpu9250.h	165;"	d
+MPU6500_XA_OFFSET_H	.\Modules\module_mpu9250.h	166;"	d
+MPU6500_XA_OFFSET_L	.\Modules\module_mpu9250.h	167;"	d
+MPU6500_XG_OFFSET_H	.\Modules\module_mpu9250.h	78;"	d
+MPU6500_XG_OFFSET_L	.\Modules\module_mpu9250.h	79;"	d
+MPU6500_YA_OFFSET_H	.\Modules\module_mpu9250.h	168;"	d
+MPU6500_YA_OFFSET_L	.\Modules\module_mpu9250.h	169;"	d
+MPU6500_YG_OFFSET_H	.\Modules\module_mpu9250.h	80;"	d
+MPU6500_YG_OFFSET_L	.\Modules\module_mpu9250.h	81;"	d
+MPU6500_ZA_OFFSET_H	.\Modules\module_mpu9250.h	170;"	d
+MPU6500_ZA_OFFSET_L	.\Modules\module_mpu9250.h	171;"	d
+MPU6500_ZG_OFFSET_H	.\Modules\module_mpu9250.h	82;"	d
+MPU6500_ZG_OFFSET_L	.\Modules\module_mpu9250.h	83;"	d
+MPU9250A_16g	.\Modules\module_mpu9250.h	56;"	d
+MPU9250A_2g	.\Modules\module_mpu9250.h	53;"	d
+MPU9250A_4g	.\Modules\module_mpu9250.h	54;"	d
+MPU9250A_8g	.\Modules\module_mpu9250.h	55;"	d
+MPU9250G_1000dps	.\Modules\module_mpu9250.h	60;"	d
+MPU9250G_2000dps	.\Modules\module_mpu9250.h	61;"	d
+MPU9250G_250dps	.\Modules\module_mpu9250.h	58;"	d
+MPU9250G_500dps	.\Modules\module_mpu9250.h	59;"	d
+MPU9250M_4800uT	.\Modules\module_mpu9250.h	63;"	d
+MPU9250T_85degC	.\Modules\module_mpu9250.h	65;"	d
+MPU9250_Check	.\Modules\module_mpu9250.c	/^u8 MPU9250_Check( void )$/;"	f	signature:( void )
+MPU9250_Check	.\Modules\module_mpu9250.h	/^u8   MPU9250_Check( void );$/;"	p	signature:( void )
+MPU9250_Config	.\Modules\module_mpu9250.c	/^void MPU9250_Config( void )$/;"	f	signature:( void )
+MPU9250_Config	.\Modules\module_mpu9250.h	/^void MPU9250_Config( void );$/;"	p	signature:( void )
+MPU9250_Init	.\Modules\module_mpu9250.c	/^void MPU9250_Init( void )$/;"	f	signature:( void )
+MPU9250_Init	.\Modules\module_mpu9250.h	/^void MPU9250_Init( void );$/;"	p	signature:( void )
+MPU9250_InitRegNum	.\Modules\module_mpu9250.c	163;"	d	file:
+MPU9250_Read	.\Modules\module_mpu9250.c	/^void MPU9250_Read( u8 *ReadBuf )$/;"	f	signature:( u8 *ReadBuf )
+MPU9250_Read	.\Modules\module_mpu9250.h	/^void MPU9250_Read( u8 *ReadBuf );$/;"	p	signature:( u8 *ReadBuf )
+MPU9250_ReadReg	.\Modules\module_mpu9250.c	/^static void MPU9250_ReadReg( u8 ReadAddr, u8 *ReadData )$/;"	f	file:	signature:( u8 ReadAddr, u8 *ReadData )
+MPU9250_ReadRegs	.\Modules\module_mpu9250.c	/^static void MPU9250_ReadRegs( u8 ReadAddr, u8 *ReadBuf, u8 Bytes )$/;"	f	file:	signature:( u8 ReadAddr, u8 *ReadBuf, u8 Bytes )
+MPU9250_WriteReg	.\Modules\module_mpu9250.c	/^static void MPU9250_WriteReg( u8 WriteAddr, u8 WriteData )$/;"	f	file:	signature:( u8 WriteAddr, u8 WriteData )
+MS5611_ADC	.\Modules\module_ms5611.h	11;"	d
+MS5611_ADC_D1	.\Modules\module_ms5611.h	32;"	d
+MS5611_ADC_D2	.\Modules\module_ms5611.h	33;"	d
+MS5611_Calculate	.\Modules\module_ms5611.c	/^static void MS5611_Calculate( void )$/;"	f	file:	signature:( void )
+MS5611_Calculate	.\Modules\module_ms5611.c	/^static void MS5611_Calculate( void );$/;"	p	file:	signature:( void )
+MS5611_Config	.\Modules\module_ms5611.c	/^void MS5611_Config( void )$/;"	f	signature:( void )
+MS5611_Config	.\Modules\module_ms5611.h	/^void MS5611_Config( void );$/;"	p	signature:( void )
+MS5611_ConvADC	.\Modules\module_ms5611.c	/^static void MS5611_ConvADC( u8 ADC_ConvMode )$/;"	f	file:	signature:( u8 ADC_ConvMode )
+MS5611_ConvADC	.\Modules\module_ms5611.c	/^static void MS5611_ConvADC( u8 ADC_ConvMode );$/;"	p	file:	signature:( u8 ADC_ConvMode )
+MS5611_ConvD1	.\Modules\module_ms5611.h	/^  MS5611_ConvD1,$/;"	e	enum:__anon8
+MS5611_ConvD2	.\Modules\module_ms5611.h	/^  MS5611_ConvD2$/;"	e	enum:__anon8
+MS5611_ConvInit	.\Modules\module_ms5611.h	/^  MS5611_ConvInit,$/;"	e	enum:__anon8
+MS5611_D1_OSR_1024	.\Modules\module_ms5611.h	16;"	d
+MS5611_D1_OSR_2048	.\Modules\module_ms5611.h	17;"	d
+MS5611_D1_OSR_256	.\Modules\module_ms5611.h	14;"	d
+MS5611_D1_OSR_4096	.\Modules\module_ms5611.h	18;"	d
+MS5611_D1_OSR_512	.\Modules\module_ms5611.h	15;"	d
+MS5611_D2_OSR_1024	.\Modules\module_ms5611.h	21;"	d
+MS5611_D2_OSR_2048	.\Modules\module_ms5611.h	22;"	d
+MS5611_D2_OSR_256	.\Modules\module_ms5611.h	19;"	d
+MS5611_D2_OSR_4096	.\Modules\module_ms5611.h	23;"	d
+MS5611_D2_OSR_512	.\Modules\module_ms5611.h	20;"	d
+MS5611_I2C_ADDR	.\Modules\module_ms5611.h	9;"	d
+MS5611_Init	.\Modules\module_ms5611.c	/^void MS5611_Init( void )$/;"	f	signature:( void )
+MS5611_Init	.\Modules\module_ms5611.h	/^void MS5611_Init( void );$/;"	p	signature:( void )
+MS5611_PROM_COEFF_1	.\Modules\module_ms5611.h	25;"	d
+MS5611_PROM_COEFF_2	.\Modules\module_ms5611.h	26;"	d
+MS5611_PROM_COEFF_3	.\Modules\module_ms5611.h	27;"	d
+MS5611_PROM_COEFF_4	.\Modules\module_ms5611.h	28;"	d
+MS5611_PROM_COEFF_5	.\Modules\module_ms5611.h	29;"	d
+MS5611_PROM_COEFF_6	.\Modules\module_ms5611.h	30;"	d
+MS5611_RESET	.\Modules\module_ms5611.h	12;"	d
+MS5611_Read	.\Modules\module_ms5611.c	/^void MS5611_Read( s32 *Baro_Buf, u8 ADC_ConvMode )$/;"	f	signature:( s32 *Baro_Buf, u8 ADC_ConvMode )
+MS5611_Read	.\Modules\module_ms5611.h	/^void MS5611_Read( s32 *Baro_Buf, u8 ADC_ConvMode );$/;"	p	signature:( s32 *Baro_Buf, u8 ADC_ConvMode )
+MS5611_ReadADC	.\Modules\module_ms5611.c	/^static void MS5611_ReadADC( u8 ADC_Sel )$/;"	f	file:	signature:( u8 ADC_Sel )
+MS5611_ReadADC	.\Modules\module_ms5611.c	/^static void MS5611_ReadADC( u8 ADC_Sel );$/;"	p	file:	signature:( u8 ADC_Sel )
+MS5611_ReadData	.\Modules\module_ms5611.c	/^static void MS5611_ReadData( u8 *ReadData, u8 ReadNum )$/;"	f	file:	signature:( u8 *ReadData, u8 ReadNum )
+MS5611_ReadPROM	.\Modules\module_ms5611.c	/^static void MS5611_ReadPROM( void )$/;"	f	file:	signature:( void )
+MS5611_ReadPROM	.\Modules\module_ms5611.c	/^static void MS5611_ReadPROM( void );$/;"	p	file:	signature:( void )
+MS5611_Reset	.\Modules\module_ms5611.c	/^static void MS5611_Reset( void )$/;"	f	file:	signature:( void )
+MS5611_Reset	.\Modules\module_ms5611.c	/^static void MS5611_Reset( void );$/;"	p	file:	signature:( void )
+MS5611_RespFreq_1024	.\Modules\module_ms5611.h	37;"	d
+MS5611_RespFreq_2048	.\Modules\module_ms5611.h	38;"	d
+MS5611_RespFreq_256	.\Modules\module_ms5611.h	35;"	d
+MS5611_RespFreq_4096	.\Modules\module_ms5611.h	39;"	d
+MS5611_RespFreq_512	.\Modules\module_ms5611.h	36;"	d
+MS5611_ST	.\Modules\module_ms5611.c	/^static __IO struct MS5611_ST {$/;"	s	file:
+MS5611_ST::C	.\Modules\module_ms5611.c	/^  u16 C[7];$/;"	m	struct:MS5611_ST	file:	access:public
+MS5611_ST::D	.\Modules\module_ms5611.c	/^  u32 D[3];$/;"	m	struct:MS5611_ST	file:	access:public
+MS5611_ST::Press	.\Modules\module_ms5611.c	/^  s32 Press;$/;"	m	struct:MS5611_ST	file:	access:public
+MS5611_ST::Temp	.\Modules\module_ms5611.c	/^  s32 Temp;$/;"	m	struct:MS5611_ST	file:	access:public
+MS5611_STATUS	.\Modules\module_ms5611.h	/^} MS5611_STATUS;$/;"	t	typeref:enum:__anon8
+MS5611_WriteCMD	.\Modules\module_ms5611.c	/^static void MS5611_WriteCMD( u8 WriteCMD )$/;"	f	file:	signature:( u8 WriteCMD )
+Mag	.\Modules\module_imu.c	/^SensorMag Mag = {0};$/;"	v
+MemManage_Handler	.\experiment_stm32f4_it.c	/^void MemManage_Handler( void )$/;"	f	signature:( void )
+Mem_Addr	.\Dirvers\stm32f4_system.h	11;"	d
+NMI_Handler	.\experiment_stm32f4_it.c	/^void NMI_Handler( void )$/;"	f	signature:( void )
+NULL	.\Dirvers\stm32f4_system.h	60;"	d
+NumQ	.\Algorithms\algorithm_quaternion.c	/^Quaternion NumQ = {1, 0, 0, 0};$/;"	v
+OffsetT	.\Modules\module_imu.h	/^  s16 OffsetT;$/;"	m	struct:__anon6	access:public
+OffsetX	.\Modules\module_imu.h	/^  s16 OffsetX;$/;"	m	struct:__anon3	access:public
+OffsetX	.\Modules\module_imu.h	/^  s16 OffsetX;$/;"	m	struct:__anon4	access:public
+OffsetY	.\Modules\module_imu.h	/^  s16 OffsetY;$/;"	m	struct:__anon3	access:public
+OffsetY	.\Modules\module_imu.h	/^  s16 OffsetY;$/;"	m	struct:__anon4	access:public
+OffsetZ	.\Modules\module_imu.h	/^  s16 OffsetZ;$/;"	m	struct:__anon3	access:public
+OffsetZ	.\Modules\module_imu.h	/^  s16 OffsetZ;$/;"	m	struct:__anon4	access:public
+Other_Config	.\experiment_stm32f4.h	/^void Other_Config( void );$/;"	p	signature:( void )
+PAI	.\Dirvers\stm32f4_system.h	30;"	d
+PAO	.\Dirvers\stm32f4_system.h	29;"	d
+PBI	.\Dirvers\stm32f4_system.h	32;"	d
+PBO	.\Dirvers\stm32f4_system.h	31;"	d
+PCI	.\Dirvers\stm32f4_system.h	34;"	d
+PCO	.\Dirvers\stm32f4_system.h	33;"	d
+PDI	.\Dirvers\stm32f4_system.h	36;"	d
+PDO	.\Dirvers\stm32f4_system.h	35;"	d
+PEI	.\Dirvers\stm32f4_system.h	38;"	d
+PEO	.\Dirvers\stm32f4_system.h	37;"	d
+PFI	.\Dirvers\stm32f4_system.h	40;"	d
+PFO	.\Dirvers\stm32f4_system.h	39;"	d
+PGI	.\Dirvers\stm32f4_system.h	42;"	d
+PGO	.\Dirvers\stm32f4_system.h	41;"	d
+PendSV_Handler	.\experiment_stm32f4_it.c	/^void PendSV_Handler( void )$/;"	f	signature:( void )
+Pitch	.\Algorithms\algorithm_quaternion.h	/^  fp32 Pitch;$/;"	m	struct:__anon1	access:public
+Press	.\Modules\module_imu.h	/^  fp32 Press;$/;"	m	struct:__anon7	access:public
+Press	.\Modules\module_ms5611.c	/^  s32 Press;$/;"	m	struct:MS5611_ST	file:	access:public
+Quaternion	.\Algorithms\algorithm_quaternion.h	/^} Quaternion;$/;"	t	typeref:struct:__anon2
+Quaternion_Multiply	.\Algorithms\algorithm_quaternion.c	/^Quaternion Quaternion_Multiply( Quaternion NowQ, Quaternion OldQ )$/;"	f	signature:( Quaternion NowQ, Quaternion OldQ )
+Quaternion_Multiply	.\Algorithms\algorithm_quaternion.h	/^Quaternion Quaternion_Multiply( Quaternion NowQ, Quaternion OldQ );$/;"	p	signature:( Quaternion NowQ, Quaternion OldQ )
+Quaternion_Normalize	.\Algorithms\algorithm_quaternion.c	/^void Quaternion_Normalize( Quaternion *pNumQ )$/;"	f	signature:( Quaternion *pNumQ )
+Quaternion_Normalize	.\Algorithms\algorithm_quaternion.h	/^void Quaternion_Normalize( Quaternion *pNumQ );$/;"	p	signature:( Quaternion *pNumQ )
+Quaternion_RungeKutta	.\Algorithms\algorithm_quaternion.c	/^void Quaternion_RungeKutta( Quaternion *pNumQ, fp32 GyrX, fp32 GyrY, fp32 GyrZ, fp32 helfTimes )$/;"	f	signature:( Quaternion *pNumQ, fp32 GyrX, fp32 GyrY, fp32 GyrZ, fp32 helfTimes )
+Quaternion_RungeKutta	.\Algorithms\algorithm_quaternion.h	/^void Quaternion_RungeKutta( Quaternion *pNumQ, fp32 GyrX, fp32 GyrY, fp32 GyrZ, fp32 helfTimes );$/;"	p	signature:( Quaternion *pNumQ, fp32 GyrX, fp32 GyrY, fp32 GyrZ, fp32 helfTimes )
+Quaternion_ToAngE	.\Algorithms\algorithm_quaternion.c	/^void Quaternion_ToAngE( Quaternion *pNumQ, EulerAngle *pAngE )$/;"	f	signature:( Quaternion *pNumQ, EulerAngle *pAngE )
+Quaternion_ToAngE	.\Algorithms\algorithm_quaternion.h	/^void Quaternion_ToAngE( Quaternion *pNumQ, EulerAngle *pAngE );$/;"	p	signature:( Quaternion *pNumQ, EulerAngle *pAngE )
+Quaternion_ToNumQ	.\Algorithms\algorithm_quaternion.c	/^void Quaternion_ToNumQ( Quaternion *pNumQ, EulerAngle *pAngE )$/;"	f	signature:( Quaternion *pNumQ, EulerAngle *pAngE )
+Quaternion_ToNumQ	.\Algorithms\algorithm_quaternion.h	/^void Quaternion_ToNumQ( Quaternion *pNumQ, EulerAngle *pAngE );$/;"	p	signature:( Quaternion *pNumQ, EulerAngle *pAngE )
+RS232_Config	.\Modules\module_rs232.c	/^void RS232_Config( void )$/;"	f	signature:( void )
+RS232_Config	.\Modules\module_rs232.h	/^void RS232_Config( void );$/;"	p	signature:( void )
+RS232_RecvData	.\Modules\module_rs232.c	/^void RS232_RecvData( u8 *RecvData, u16 DataLen )$/;"	f	signature:( u8 *RecvData, u16 DataLen )
+RS232_RecvData	.\Modules\module_rs232.h	/^void RS232_RecvData( u8 *RecvData, u16 DataLen );$/;"	p	signature:( u8 *RecvData, u16 DataLen )
+RS232_RecvStr	.\Modules\module_rs232.c	/^void RS232_RecvStr( u8 *pWord )$/;"	f	signature:( u8 *pWord )
+RS232_RecvStr	.\Modules\module_rs232.h	/^void RS232_RecvStr( u8 *pWord );$/;"	p	signature:( u8 *pWord )
+RS232_SendData	.\Modules\module_rs232.c	/^void RS232_SendData( u8 *SendData, u16 DataLen )$/;"	f	signature:( u8 *SendData, u16 DataLen )
+RS232_SendData	.\Modules\module_rs232.h	/^void RS232_SendData( u8 *SendData, u16 DataLen );$/;"	p	signature:( u8 *SendData, u16 DataLen )
+RS232_SendNum	.\Modules\module_rs232.c	/^void RS232_SendNum( u8 Type, u8 NumLen, s32 SendData )$/;"	f	signature:( u8 Type, u8 NumLen, s32 SendData )
+RS232_SendNum	.\Modules\module_rs232.h	/^void RS232_SendNum( u8 Type, u8 NumLen, s32 SendData );$/;"	p	signature:( u8 Type, u8 NumLen, s32 SendData )
+RS232_SendStr	.\Modules\module_rs232.c	/^void RS232_SendStr( u8 *pWord )$/;"	f	signature:( u8 *pWord )
+RS232_SendStr	.\Modules\module_rs232.h	/^void RS232_SendStr( u8 *pWord );$/;"	p	signature:( u8 *pWord )
+RS232_VisualScope	.\Modules\module_rs232.c	/^void RS232_VisualScope( u8 *SendBuf )$/;"	f	signature:( u8 *SendBuf )
+RS232_VisualScope	.\Modules\module_rs232.h	/^void RS232_VisualScope( u8 *SendBuf );$/;"	p	signature:( u8 *SendBuf )
+RS232_VisualScope_CRC16	.\Modules\module_rs232.c	/^static u16 RS232_VisualScope_CRC16( u8 *SendData, u8 DataLen )$/;"	f	file:	signature:( u8 *SendData, u8 DataLen )
+Roll	.\Algorithms\algorithm_quaternion.h	/^  fp32 Roll;$/;"	m	struct:__anon1	access:public
+S16_MAX	.\Dirvers\stm32f4_system.h	49;"	d
+S16_MIN	.\Dirvers\stm32f4_system.h	50;"	d
+S32_MAX	.\Dirvers\stm32f4_system.h	52;"	d
+S32_MIN	.\Dirvers\stm32f4_system.h	53;"	d
+S8_MAX	.\Dirvers\stm32f4_system.h	46;"	d
+S8_MIN	.\Dirvers\stm32f4_system.h	47;"	d
+SPI_RW	.\Dirvers\stm32f4_spi.c	/^u8 SPI_RW( SPI_TypeDef* SPIx, u8 WriteByte )$/;"	f	signature:( SPI_TypeDef* SPIx, u8 WriteByte )
+SPI_RW	.\Dirvers\stm32f4_spi.h	/^u8 SPI_RW( SPI_TypeDef* SPIx, u8 WriteByte );$/;"	p	signature:( SPI_TypeDef* SPIx, u8 WriteByte )
+SPIx	.\Modules\module_mpu9250.c	8;"	d	file:
+SPIx	.\Modules\module_ms5611.c	8;"	d	file:
+SPIx_CLK	.\Modules\module_mpu9250.c	9;"	d	file:
+SPIx_CLK	.\Modules\module_ms5611.c	9;"	d	file:
+SPIx_CSB_GPIO_CLK	.\Modules\module_ms5611.c	13;"	d	file:
+SPIx_CSB_GPIO_PORT	.\Modules\module_ms5611.c	12;"	d	file:
+SPIx_CSB_PIN	.\Modules\module_ms5611.c	11;"	d	file:
+SPIx_CSM_GPIO_CLK	.\Modules\module_mpu9250.c	13;"	d	file:
+SPIx_CSM_GPIO_PORT	.\Modules\module_mpu9250.c	12;"	d	file:
+SPIx_CSM_PIN	.\Modules\module_mpu9250.c	11;"	d	file:
+SPIx_SCK_AF	.\Modules\module_mpu9250.c	19;"	d	file:
+SPIx_SCK_AF	.\Modules\module_ms5611.c	19;"	d	file:
+SPIx_SCK_GPIO_CLK	.\Modules\module_mpu9250.c	17;"	d	file:
+SPIx_SCK_GPIO_CLK	.\Modules\module_ms5611.c	17;"	d	file:
+SPIx_SCK_GPIO_PORT	.\Modules\module_mpu9250.c	16;"	d	file:
+SPIx_SCK_GPIO_PORT	.\Modules\module_ms5611.c	16;"	d	file:
+SPIx_SCK_PIN	.\Modules\module_mpu9250.c	15;"	d	file:
+SPIx_SCK_PIN	.\Modules\module_ms5611.c	15;"	d	file:
+SPIx_SCK_SOURCE	.\Modules\module_mpu9250.c	18;"	d	file:
+SPIx_SCK_SOURCE	.\Modules\module_ms5611.c	18;"	d	file:
+SPIx_SDI_AF	.\Modules\module_mpu9250.c	31;"	d	file:
+SPIx_SDI_AF	.\Modules\module_ms5611.c	31;"	d	file:
+SPIx_SDI_GPIO_CLK	.\Modules\module_mpu9250.c	29;"	d	file:
+SPIx_SDI_GPIO_CLK	.\Modules\module_ms5611.c	29;"	d	file:
+SPIx_SDI_GPIO_PORT	.\Modules\module_mpu9250.c	28;"	d	file:
+SPIx_SDI_GPIO_PORT	.\Modules\module_ms5611.c	28;"	d	file:
+SPIx_SDI_PIN	.\Modules\module_mpu9250.c	27;"	d	file:
+SPIx_SDI_PIN	.\Modules\module_ms5611.c	27;"	d	file:
+SPIx_SDI_SOURCE	.\Modules\module_mpu9250.c	30;"	d	file:
+SPIx_SDI_SOURCE	.\Modules\module_ms5611.c	30;"	d	file:
+SPIx_SDO_AF	.\Modules\module_mpu9250.c	25;"	d	file:
+SPIx_SDO_AF	.\Modules\module_ms5611.c	25;"	d	file:
+SPIx_SDO_GPIO_CLK	.\Modules\module_mpu9250.c	23;"	d	file:
+SPIx_SDO_GPIO_CLK	.\Modules\module_ms5611.c	23;"	d	file:
+SPIx_SDO_GPIO_PORT	.\Modules\module_mpu9250.c	22;"	d	file:
+SPIx_SDO_GPIO_PORT	.\Modules\module_ms5611.c	22;"	d	file:
+SPIx_SDO_PIN	.\Modules\module_mpu9250.c	21;"	d	file:
+SPIx_SDO_PIN	.\Modules\module_ms5611.c	21;"	d	file:
+SPIx_SDO_SOURCE	.\Modules\module_mpu9250.c	24;"	d	file:
+SPIx_SDO_SOURCE	.\Modules\module_ms5611.c	24;"	d	file:
+SVC_Handler	.\experiment_stm32f4_it.c	/^void SVC_Handler( void )$/;"	f	signature:( void )
+SampleRate	.\Algorithms\algorithm_ahrs.h	14;"	d
+SampleRate	.\Algorithms\algorithm_ahrs.h	20;"	d
+SampleRateFreg	.\Algorithms\algorithm_ahrs.h	13;"	d
+SampleRateFreg	.\Algorithms\algorithm_ahrs.h	19;"	d
+SampleRateHelf	.\Algorithms\algorithm_ahrs.h	15;"	d
+SampleRateHelf	.\Algorithms\algorithm_ahrs.h	21;"	d
+SensorAcc	.\Modules\module_imu.h	/^} SensorAcc;$/;"	t	typeref:struct:__anon3
+SensorBaro	.\Modules\module_imu.h	/^} SensorBaro;$/;"	t	typeref:struct:__anon7
+SensorGyr	.\Modules\module_imu.h	/^} SensorGyr;$/;"	t	typeref:struct:__anon4
+SensorMag	.\Modules\module_imu.h	/^} SensorMag;$/;"	t	typeref:struct:__anon5
+SensorTemp	.\Modules\module_imu.h	/^} SensorTemp;$/;"	t	typeref:struct:__anon6
+Sensor_Config	.\Modules\module_imu.c	/^void Sensor_Config( void )$/;"	f	signature:( void )
+Sensor_Config	.\Modules\module_imu.h	/^void Sensor_Config( void );$/;"	p	signature:( void )
+Sensor_Init	.\Modules\module_imu.c	/^void Sensor_Init( void )$/;"	f	signature:( void )
+Sensor_Init	.\Modules\module_imu.h	/^void Sensor_Init( void );$/;"	p	signature:( void )
+Sensor_Read	.\Modules\module_imu.c	/^void Sensor_Read( u16 ReadFreg )$/;"	f	signature:( u16 ReadFreg )
+Sensor_Read	.\Modules\module_imu.h	/^void Sensor_Read( u16 ReadFreg );$/;"	p	signature:( u16 ReadFreg )
+Str_LenOfStr	.\Algorithms\algorithm_string.c	/^u16 Str_LenOfStr( u8* inputStr )$/;"	f	signature:( u8* inputStr )
+Str_LenOfStr	.\Algorithms\algorithm_string.h	/^u16  Str_LenOfStr( u8 *inputStr );$/;"	p	signature:( u8 *inputStr )
+Str_NumToChar	.\Algorithms\algorithm_string.c	/^void Str_NumToChar( u8 Type, u8 NumLen, u8 *CharData, s32 NumData )$/;"	f	signature:( u8 Type, u8 NumLen, u8 *CharData, s32 NumData )
+Str_NumToChar	.\Algorithms\algorithm_string.h	/^void Str_NumToChar( u8 Type, u8 NumLen, u8 *CharData, s32 NumData );$/;"	p	signature:( u8 Type, u8 NumLen, u8 *CharData, s32 NumData )
+SysTick_Handler	.\experiment_stm32f4_it.c	/^void SysTick_Handler( void )$/;"	f	signature:( void )
+System_Init	.\experiment_stm32f4.c	/^void System_Init( void )$/;"	f	signature:( void )
+T	.\Modules\module_imu.h	/^  s16 T;$/;"	m	struct:__anon6	access:public
+TEMP_OFFSET	.\Modules\module_imu.h	24;"	d
+Temp	.\Modules\module_imu.c	/^SensorTemp Temp = {0};$/;"	v
+Temp	.\Modules\module_imu.h	/^  fp32 Temp;$/;"	m	struct:__anon7	access:public
+Temp	.\Modules\module_ms5611.c	/^  s32 Temp;$/;"	m	struct:MS5611_ST	file:	access:public
+TrueT	.\Modules\module_imu.h	/^  fp32 TrueT;$/;"	m	struct:__anon6	access:public
+TrueX	.\Modules\module_imu.h	/^  fp32 TrueX;$/;"	m	struct:__anon3	access:public
+TrueX	.\Modules\module_imu.h	/^  fp32 TrueX;$/;"	m	struct:__anon4	access:public
+TrueX	.\Modules\module_imu.h	/^  fp32 TrueX;$/;"	m	struct:__anon5	access:public
+TrueY	.\Modules\module_imu.h	/^  fp32 TrueY;$/;"	m	struct:__anon3	access:public
+TrueY	.\Modules\module_imu.h	/^  fp32 TrueY;$/;"	m	struct:__anon4	access:public
+TrueY	.\Modules\module_imu.h	/^  fp32 TrueY;$/;"	m	struct:__anon5	access:public
+TrueZ	.\Modules\module_imu.h	/^  fp32 TrueZ;$/;"	m	struct:__anon3	access:public
+TrueZ	.\Modules\module_imu.h	/^  fp32 TrueZ;$/;"	m	struct:__anon4	access:public
+TrueZ	.\Modules\module_imu.h	/^  fp32 TrueZ;$/;"	m	struct:__anon5	access:public
+Type_B	.\Algorithms\algorithm_string.h	9;"	d
+Type_D	.\Algorithms\algorithm_string.h	11;"	d
+Type_F	.\Algorithms\algorithm_string.h	14;"	d
+Type_H	.\Algorithms\algorithm_string.h	12;"	d
+Type_I	.\Algorithms\algorithm_string.h	13;"	d
+Type_O	.\Algorithms\algorithm_string.h	10;"	d
+U16_MAX	.\Dirvers\stm32f4_system.h	48;"	d
+U32_MAX	.\Dirvers\stm32f4_system.h	51;"	d
+U8_MAX	.\Dirvers\stm32f4_system.h	45;"	d
+UART_RecvByte	.\Dirvers\stm32f4_usart.c	/^u8 UART_RecvByte( USART_TypeDef *USARTx )$/;"	f	signature:( USART_TypeDef *USARTx )
+UART_RecvByte	.\Dirvers\stm32f4_usart.h	/^u8   UART_RecvByte( USART_TypeDef *USARTx );$/;"	p	signature:( USART_TypeDef *USARTx )
+UART_RecvData	.\Dirvers\stm32f4_usart.c	/^void UART_RecvData( USART_TypeDef *USARTx, u8 *RecvData, u16 DataLen )$/;"	f	signature:( USART_TypeDef *USARTx, u8 *RecvData, u16 DataLen )
+UART_RecvData	.\Dirvers\stm32f4_usart.h	/^void UART_RecvData( USART_TypeDef *USARTx, u8 *RecvData, u16 DataLen );$/;"	p	signature:( USART_TypeDef *USARTx, u8 *RecvData, u16 DataLen )
+UART_SendByte	.\Dirvers\stm32f4_usart.c	/^void UART_SendByte( USART_TypeDef *USARTx, u8 SendData )$/;"	f	signature:( USART_TypeDef *USARTx, u8 SendData )
+UART_SendByte	.\Dirvers\stm32f4_usart.h	/^void UART_SendByte( USART_TypeDef *USARTx, u8 SendData );$/;"	p	signature:( USART_TypeDef *USARTx, u8 SendData )
+UART_SendData	.\Dirvers\stm32f4_usart.c	/^void UART_SendData( USART_TypeDef *USARTx, u8 *SendData, u16 DataLen )$/;"	f	signature:( USART_TypeDef *USARTx, u8 *SendData, u16 DataLen )
+UART_SendData	.\Dirvers\stm32f4_usart.h	/^void UART_SendData( USART_TypeDef *USARTx, u8 *SendData, u16 DataLen );$/;"	p	signature:( USART_TypeDef *USARTx, u8 *SendData, u16 DataLen )
+USARTx	.\Modules\module_rs232.c	9;"	d	file:
+USARTx_BAUDRATE	.\Modules\module_rs232.c	24;"	d	file:
+USARTx_BYTESIZE	.\Modules\module_rs232.c	25;"	d	file:
+USARTx_CLK	.\Modules\module_rs232.c	10;"	d	file:
+USARTx_HARDWARECTRL	.\Modules\module_rs232.c	28;"	d	file:
+USARTx_PARITY	.\Modules\module_rs232.c	27;"	d	file:
+USARTx_RX_AF	.\Modules\module_rs232.c	22;"	d	file:
+USARTx_RX_GPIO_CLK	.\Modules\module_rs232.c	20;"	d	file:
+USARTx_RX_GPIO_PORT	.\Modules\module_rs232.c	19;"	d	file:
+USARTx_RX_PIN	.\Modules\module_rs232.c	18;"	d	file:
+USARTx_RX_SOURCE	.\Modules\module_rs232.c	21;"	d	file:
+USARTx_STOPBITS	.\Modules\module_rs232.c	26;"	d	file:
+USARTx_TX_AF	.\Modules\module_rs232.c	16;"	d	file:
+USARTx_TX_GPIO_CLK	.\Modules\module_rs232.c	14;"	d	file:
+USARTx_TX_GPIO_PORT	.\Modules\module_rs232.c	13;"	d	file:
+USARTx_TX_PIN	.\Modules\module_rs232.c	12;"	d	file:
+USARTx_TX_SOURCE	.\Modules\module_rs232.c	15;"	d	file:
+UsageFault_Handler	.\experiment_stm32f4_it.c	/^void UsageFault_Handler( void )$/;"	f	signature:( void )
+X	.\Modules\module_imu.h	/^  s16 X;$/;"	m	struct:__anon3	access:public
+X	.\Modules\module_imu.h	/^  s16 X;$/;"	m	struct:__anon4	access:public
+X	.\Modules\module_imu.h	/^  s16 X;$/;"	m	struct:__anon5	access:public
+Y	.\Modules\module_imu.h	/^  s16 Y;$/;"	m	struct:__anon3	access:public
+Y	.\Modules\module_imu.h	/^  s16 Y;$/;"	m	struct:__anon4	access:public
+Y	.\Modules\module_imu.h	/^  s16 Y;$/;"	m	struct:__anon5	access:public
+Yaw	.\Algorithms\algorithm_quaternion.h	/^  fp32 Yaw;$/;"	m	struct:__anon1	access:public
+Z	.\Modules\module_imu.h	/^  s16 Z;$/;"	m	struct:__anon3	access:public
+Z	.\Modules\module_imu.h	/^  s16 Z;$/;"	m	struct:__anon4	access:public
+Z	.\Modules\module_imu.h	/^  s16 Z;$/;"	m	struct:__anon5	access:public
+_SampleRateFreg_500Hz_	.\Algorithms\algorithm_ahrs.h	10;"	d
+__ALGORITHM_AHRS_H	.\Algorithms\algorithm_ahrs.h	4;"	d
+__ALGORITHM_MATHUNIt_H	.\Algorithms\algorithm_mathUnit.h	4;"	d
+__ALGORITHM_QUATERNION_H	.\Algorithms\algorithm_quaternion.h	4;"	d
+__ALGORITHM_STRING_H	.\Algorithms\algorithm_string.h	4;"	d
+__EXPERIMENT_STM32F4_H	.\experiment_stm32f4.h	4;"	d
+__MODULE_IMU_H	.\Modules\module_imu.h	4;"	d
+__MODULE_MPU9250_H	.\Modules\module_mpu9250.h	4;"	d
+__MODULE_MS5611_H	.\Modules\module_ms5611.h	4;"	d
+__MODULE_RS232_H	.\Modules\module_rs232.h	4;"	d
+__STM32F4_DELAY_H	.\Dirvers\stm32f4_delay.h	4;"	d
+__STM32F4_SPI_H	.\Dirvers\stm32f4_spi.h	4;"	d
+__STM32F4_SYSTEM_H	.\Dirvers\stm32f4_system.h	4;"	d
+__STM32F4_USART_H	.\Dirvers\stm32f4_usart.h	4;"	d
+__STM32F4xx_CONF_H	.\stm32f4xx_conf.h	30;"	d
+__anon1::Pitch	.\Algorithms\algorithm_quaternion.h	/^  fp32 Pitch;$/;"	m	struct:__anon1	access:public
+__anon1::Roll	.\Algorithms\algorithm_quaternion.h	/^  fp32 Roll;$/;"	m	struct:__anon1	access:public
+__anon1::Yaw	.\Algorithms\algorithm_quaternion.h	/^  fp32 Yaw;$/;"	m	struct:__anon1	access:public
+__anon2::q0	.\Algorithms\algorithm_quaternion.h	/^  fp32 q0;$/;"	m	struct:__anon2	access:public
+__anon2::q1	.\Algorithms\algorithm_quaternion.h	/^  fp32 q1;$/;"	m	struct:__anon2	access:public
+__anon2::q2	.\Algorithms\algorithm_quaternion.h	/^  fp32 q2;$/;"	m	struct:__anon2	access:public
+__anon2::q3	.\Algorithms\algorithm_quaternion.h	/^  fp32 q3;$/;"	m	struct:__anon2	access:public
+__anon3::OffsetX	.\Modules\module_imu.h	/^  s16 OffsetX;$/;"	m	struct:__anon3	access:public
+__anon3::OffsetY	.\Modules\module_imu.h	/^  s16 OffsetY;$/;"	m	struct:__anon3	access:public
+__anon3::OffsetZ	.\Modules\module_imu.h	/^  s16 OffsetZ;$/;"	m	struct:__anon3	access:public
+__anon3::TrueX	.\Modules\module_imu.h	/^  fp32 TrueX;$/;"	m	struct:__anon3	access:public
+__anon3::TrueY	.\Modules\module_imu.h	/^  fp32 TrueY;$/;"	m	struct:__anon3	access:public
+__anon3::TrueZ	.\Modules\module_imu.h	/^  fp32 TrueZ;$/;"	m	struct:__anon3	access:public
+__anon3::X	.\Modules\module_imu.h	/^  s16 X;$/;"	m	struct:__anon3	access:public
+__anon3::Y	.\Modules\module_imu.h	/^  s16 Y;$/;"	m	struct:__anon3	access:public
+__anon3::Z	.\Modules\module_imu.h	/^  s16 Z;$/;"	m	struct:__anon3	access:public
+__anon4::OffsetX	.\Modules\module_imu.h	/^  s16 OffsetX;$/;"	m	struct:__anon4	access:public
+__anon4::OffsetY	.\Modules\module_imu.h	/^  s16 OffsetY;$/;"	m	struct:__anon4	access:public
+__anon4::OffsetZ	.\Modules\module_imu.h	/^  s16 OffsetZ;$/;"	m	struct:__anon4	access:public
+__anon4::TrueX	.\Modules\module_imu.h	/^  fp32 TrueX;$/;"	m	struct:__anon4	access:public
+__anon4::TrueY	.\Modules\module_imu.h	/^  fp32 TrueY;$/;"	m	struct:__anon4	access:public
+__anon4::TrueZ	.\Modules\module_imu.h	/^  fp32 TrueZ;$/;"	m	struct:__anon4	access:public
+__anon4::X	.\Modules\module_imu.h	/^  s16 X;$/;"	m	struct:__anon4	access:public
+__anon4::Y	.\Modules\module_imu.h	/^  s16 Y;$/;"	m	struct:__anon4	access:public
+__anon4::Z	.\Modules\module_imu.h	/^  s16 Z;$/;"	m	struct:__anon4	access:public
+__anon5::AdjustX	.\Modules\module_imu.h	/^  u16 AdjustX;$/;"	m	struct:__anon5	access:public
+__anon5::AdjustY	.\Modules\module_imu.h	/^  u16 AdjustY;$/;"	m	struct:__anon5	access:public
+__anon5::AdjustZ	.\Modules\module_imu.h	/^  u16 AdjustZ;$/;"	m	struct:__anon5	access:public
+__anon5::EllipseA	.\Modules\module_imu.h	/^  fp32 EllipseA;$/;"	m	struct:__anon5	access:public
+__anon5::EllipseB	.\Modules\module_imu.h	/^  fp32 EllipseB;$/;"	m	struct:__anon5	access:public
+__anon5::EllipseSita	.\Modules\module_imu.h	/^  fp32 EllipseSita;$/;"	m	struct:__anon5	access:public
+__anon5::EllipseX0	.\Modules\module_imu.h	/^  fp32 EllipseX0;$/;"	m	struct:__anon5	access:public
+__anon5::EllipseY0	.\Modules\module_imu.h	/^  fp32 EllipseY0;$/;"	m	struct:__anon5	access:public
+__anon5::TrueX	.\Modules\module_imu.h	/^  fp32 TrueX;$/;"	m	struct:__anon5	access:public
+__anon5::TrueY	.\Modules\module_imu.h	/^  fp32 TrueY;$/;"	m	struct:__anon5	access:public
+__anon5::TrueZ	.\Modules\module_imu.h	/^  fp32 TrueZ;$/;"	m	struct:__anon5	access:public
+__anon5::X	.\Modules\module_imu.h	/^  s16 X;$/;"	m	struct:__anon5	access:public
+__anon5::Y	.\Modules\module_imu.h	/^  s16 Y;$/;"	m	struct:__anon5	access:public
+__anon5::Z	.\Modules\module_imu.h	/^  s16 Z;$/;"	m	struct:__anon5	access:public
+__anon6::OffsetT	.\Modules\module_imu.h	/^  s16 OffsetT;$/;"	m	struct:__anon6	access:public
+__anon6::T	.\Modules\module_imu.h	/^  s16 T;$/;"	m	struct:__anon6	access:public
+__anon6::TrueT	.\Modules\module_imu.h	/^  fp32 TrueT;$/;"	m	struct:__anon6	access:public
+__anon7::Height	.\Modules\module_imu.h	/^  fp32 Height;$/;"	m	struct:__anon7	access:public
+__anon7::Press	.\Modules\module_imu.h	/^  fp32 Press;$/;"	m	struct:__anon7	access:public
+__anon7::Temp	.\Modules\module_imu.h	/^  fp32 Temp;$/;"	m	struct:__anon7	access:public
+assert_failed	.\stm32f4xx_conf.h	/^  void assert_failed(uint8_t* file, uint32_t line);$/;"	p	signature:(uint8_t* file, uint32_t line)
+assert_param	.\stm32f4xx_conf.h	75;"	d
+assert_param	.\stm32f4xx_conf.h	79;"	d
+invSqrtf	.\Algorithms\algorithm_mathUnit.h	10;"	d
+main	.\experiment_stm32f4.c	/^int main( void )$/;"	f	signature:( void )
+q0	.\Algorithms\algorithm_quaternion.h	/^  fp32 q0;$/;"	m	struct:__anon2	access:public
+q1	.\Algorithms\algorithm_quaternion.h	/^  fp32 q1;$/;"	m	struct:__anon2	access:public
+q2	.\Algorithms\algorithm_quaternion.h	/^  fp32 q2;$/;"	m	struct:__anon2	access:public
+q3	.\Algorithms\algorithm_quaternion.h	/^  fp32 q3;$/;"	m	struct:__anon2	access:public
+squa	.\Algorithms\algorithm_mathUnit.h	11;"	d
+toDeg	.\Algorithms\algorithm_mathUnit.h	13;"	d
+toRad	.\Algorithms\algorithm_mathUnit.h	12;"	d
