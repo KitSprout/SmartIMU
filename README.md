@@ -75,3 +75,6 @@ Config
 Schematic
 ========
 <img src="https://lh6.googleusercontent.com/-CRq6l6qid6w/U2-8oZvleaI/AAAAAAAAIUo/3bCh0tpPpEo/s1600/SmartIMU%2520v1.2_Sch.png" />
+
+** ERROR  
+電路圖上的 VCAP ( C1 ) 應接至 GND，但接至 3V3 版本目前使用尚未出現問題。
