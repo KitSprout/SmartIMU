@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](http://about.me/Hom)
 * Version : v1.2
-* Update  : 2014/06/10
+* Update  : 2014/11/17
 
 Description
 ========
@@ -36,6 +36,8 @@ SmartIMU v1.4 預計修改：
 >1. 修改部分腳位以兼容 MPU6500。  
 >2. 修改部分元件 footprint 以方便焊接。
 >3. 將 MS5611 與 MPU9250 共用 SPI ( 待確定 )。
+>4. 將 STM32F401 更換成 STM32F411 增加處理效能。
+>5. 修正 VCAP 電路問題。
 
 **** TestBoard  
 * PCB 尺寸 : 26.16 * 31.75mm
