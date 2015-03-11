@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](http://about.me/Hom)
 * Version : v1.2
-* Update  : 2014/11/17
+* Update  : 2015/03/11
 
 Description
 ========
@@ -33,11 +33,14 @@ Hardware
 * 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.12](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.12) )
 
 SmartIMU v1.4 預計修改：  
->1. 修改部分腳位以兼容 MPU6500。  
+>1. 修改部分腳位以兼容 MPU65x0。
 >2. 修改部分元件 footprint 以方便焊接。
->3. 將 MS5611 與 MPU9250 共用 SPI ( 待確定 )。
+>3. 將氣壓計與慣性元件共用 SPI ( 待確定 )。
 >4. 將 STM32F401 更換成 STM32F411 增加處理效能。
->5. 修正 VCAP 電路問題。
+>5. 將 MPU9250 更換成 MPU9255 ( 待確定 )。
+>6. 將 MS5611 更換成 LPS25HB ( 待確定 )。
+>7. 修正 VCAP 電路問題。
+>8. 設計新的測試座，以方便測試半孔板。
 
 **** TestBoard  
 * PCB 尺寸 : 26.16 * 31.75mm
