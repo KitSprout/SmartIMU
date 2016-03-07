@@ -1,12 +1,12 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang/SmartIMU)
 ========
 * Author  : [Hom](http://about.me/Hom)
-* Version : v2.0 (update...), [v1.2(Old)](https://github.com/Hom-Wang/SmartIMU/tree/0b4853c32ce107648c82dfed67a566d61b5bb8b1)
-* Update  : 2015/11/07
+* Version : v2.0
+* Update  : 2016/03/08
 
 Description
 ========
-SmartIMU 是一個集成微控制器 ( STM32F441C )、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤、氣壓計等感測器 ( MPU9250、LPS25H ) 於一體的模組，可以透過 UART/I2C、SPI、USB 來讀取計算出載體的角度、加速度、速度、位移、高度 ... 等等資訊，除了上述，SmartIMU 也另外引出了第二個 SPI 和 4CH PWM，可以獨立成一片飛控板，微型四軸飛行器 [QCopterNano](https://github.com/QCopter/QCopterNano) 即使用 SmartIMU 作為飛控。 
+SmartIMU 是一個集成微控制器（STM32F411C）、3-Axis 加速度計、3-Axis 陀螺儀、3-Axis 電子羅盤與氣壓計（MPU9250、LPS25H）於一體的 10DOF 模組，可以直接透過 SPI/I2C 來獲取原始感測器資料，也可以透過另外的 SPI、I2C、UART 或是 USB 來讀取微控制器處理好的資訊，像是載具的角度、加速度、速度、位移、高度 ... 等等，除了上述功能外，也預留的了十幾個 I/O 與其對應功能來做擴充的應用，[QCopterNano](https://github.com/QCopter/QCopterNano) 即使用 SmartIMU 作為飛控。
 > 預計建立兩種模式：  
 > 1. 透過 SPI 讀取 Sensor  
 > 　 此方案不須使用到 MCU，可以比"模式2"更接近實時，同時 MCU 也可以做其他處理。  
@@ -27,31 +27,12 @@ Hardware
 ========
 * 控制器　 : [STM32F411C](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1877/PF260148) 48Pin 100MHz DSP FPU
 * 感測器　 : [MPU9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [LPS25H](http://www.st.com/web/catalog/sense_power/FM89/SC1316/PF255230)
-* 其他　　 : 1*LED
-* 外接介面 : 1*UART/I2C、2*SPI、1*USB、2*GPIO
-* PCB 尺寸 : 12.70 * 15.24mm
-* 設計軟體 [Altium Designer 15](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib ?]() )
+* 其他　　 : 1xLED
+* 外接介面 : 3 x UART、2 x SPI、1 x I2C、1 x USB、2 x ADC、...
+* PCB 尺寸 : 12.70 x 15.24 mm
+* 設計軟體 [Altium Designer 16](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v2.0](https://github.com/KitSprout/AltiumDesigner_PcbLibrary/releases/tag/v2.0) )
 
-SmartIMU v2.0 預計修改：  
->1. 修改部分腳位以兼容 MPU65x0。
->2. 修改部分元件 footprint 以方便焊接。
->3. 將氣壓計與慣性元件共用 SPI。
->4. 將 STM32F401 更換成 STM32F411 增加處理效能。
->5. 將 MS5611 更換成 LPS25HB。
->6. 修正 VCAP 電路問題。
->7. 設計新的測試座，以方便測試半孔板。
->8. 分成兩種開發板，DIP 與 SMD 兩種，方便麵包板測試與應用。
-
-**** TestBoard  
-* PCB 尺寸 : 26.16 * 31.75mm
-* 設計軟體 [Altium Designer 14](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v0.12](https://github.com/OpenPCB/AltiumDesigner_PcbLibrary/releases/tag/v0.12) )
-
-<img src="https://lh3.googleusercontent.com/-utxuzgyjc8o/U1PQgXltkQI/AAAAAAAAHpw/5_EWkP11yPE/w1200-h618-no/System_v1.2.png" />
-
-**** SmartIMU-E  
-* PCB 尺寸 : 
-* 設計軟體 [Altium Designer 15](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib ?]() )
-
+<img src="https://lh3.googleusercontent.com/licxJsxRTuTLnPZZlofxS0ZMqrvBqYvuA-FqHDHxf8Oq6VUwYCk2uyAkr22z7EwHdeuyAnASocn5vM7uItCAZi5S3wWhRUFsGZMYnZrQiewkpgBc7S_-pd6NFrvHHTzyzLAEdI57nBOKRzxo-sV7nLZvLuy5dDp8kWAx5G9Iylb2brZFcyH3f5IcD4Y78eah89jBiIQfb6Omhc_-aSjhUXzB2hvIwAFj3thQ3bZsQW-9Jiy1rNDQKSnmwmY3IBmCTqiU_VATd6uq-Z4RW1W17xR88L22QXLcPiyQsKeTe5eQBlxzujmmOIpny1PlDelgeG6PQ9elcFpqGlSPiKmEmMl5QQYrtfquhti4lXoPWiavtQkvg3ZlF9YxY6RAf3dHQNhOEr8gcYc7m6tczmdy5lTY0F6PgDAZXVVxbnNWXq6N-QVrAEKPsewGP4mg17A-MoHurVD5PyCvI8l-MXWh2_WvgUktvqanB5jq69m_uUjDts7o4UIsXKphPlFTSpr7Q7Sj4BprPOsBF89t6-ZJbq2Vu2WmZsCb6usBPXLMV2E5HF-tgOAre3XMwK7Yb3Rsf637=w820-h640-no"/>
 
 Software
 ========
@@ -66,16 +47,15 @@ Related Documents
 
 View
 ========
-<img src="https://lh4.googleusercontent.com/-D_xvblRS01U/U2cgfyH5foI/AAAAAAAAIOA/RJmb9rC6jjs/s1600/DSC_2175.jpg" />
-<img src="https://lh3.googleusercontent.com/-IDrVWKv29KM/U2cge4Dcw-I/AAAAAAAAIOI/Mdec4T33aDY/s1600/DSC_2152.jpg" />
-<img src="https://lh5.googleusercontent.com/-STk0VoAsyt8/U2cgfYZAiFI/AAAAAAAAIN4/LG56PU2AU6Y/s1600/DSC_2162.jpg" />
-<img src="https://lh4.googleusercontent.com/-ENO7XYzZRIc/U2cgeEFghGI/AAAAAAAAIOo/irh-smYJEDI/s1600/DSC_2142.jpg"/>
+<img src="https://lh3.googleusercontent.com/KXd2Y2Ptsf-PeH4lp2HCvZcebQV8Frodng1kN31TEERZ4A9GtYcO_6lQ6U-5C1ykVlfk5uw7Ohzipect9kMQDbHPYUZsgy7wxOBs34mEhkiBOvrTfbf0daDnmokohrkQde7yNl6_4HiePosvKPpWIkaL3WYN4upAiJ3WQldcl7o9gix6jXPbsk0XH4Po0l3CMOd7_cBHKCyHmbtmQgzPqg_0Z0VBEyM7vU6JbW8NRoSsELZ04CGhMnQ8W1UxdY0HpQ4i144YhPwnXoun9sEB6bSyvVOyfAVjkBMwtmSg6tKQthUOJlse7Wlr3bey8H1frH53UuiIRdGHxcXjS6i7ECXDxtTjtx0M_Ep3J0HnoD8YVfkt8pSWaWi0t0yiBxTRrd5_skJtTQMrrGd6n7mtok50kZ4ocYhZmez0WrcNg9wq1szxZw5nzUq197u-ua_BaErFCm0aUtWcpSxPn8egzY_0B5vJvzM5PE0c_M7HemDsKXEK1AE5Six2PmP7lj2B2qgrjpI4-jXBf7qB5Kb7-yR9XjDVjREVY6TEYIwHuDU-hM6BhA6YNpVhtWOTh3Pj518r=w1034-h775-no"/>
 
 <br />
-更多圖片 [Google+ albums](https://plus.google.com/photos/112822505513154783828/albums/5973678489492691265)
+[more photo...](https://goo.gl/photos/fu2XTdUS5BwgrGjs7)
 
 Config
 ========
+<img src="https://lh3.googleusercontent.com/RAMiYRZOy7m7Q0N_PZFFitTtqaHwYe5qoBMcVmYCqb3L-loH2jtSlmJA4qScpVQKGNPhIfHEF2yB6P9qxlPrWauWn7GRzqYt7qk4pjLcXcVKB-S1AThwhuPk5dJ2xNg_YefzMYc_ifM0d8ro17nZMtYYocnfrmt7YRiJJnDw1LRM8un5VDwjLLx_wefNSfOuNHZZjrYY3H4UDSvpnBdyFgtcFG3azX3JefdaDegvEJ7MMe0gCFqlKdNDeGnALlkSn-znvb-u8yb4eFNdCsgg5ezHbeOCDoWPuyBtohuh2FcaURUcng1AQdF5SJ-F_F0MiytPY5lrn7Sra2gWxwz0zUGjpCaEUNniH3qfH4UxMOiaVrw--kryyArDugbQOFhJHzmUg9xGx1PY-K_XYlsDEdlLhUZjovEuRcReGG4sBPpgATewOkIEwLOfKt_pDfRlGQdZSUTqomt3dctXFInFKBhQXinjTUupyjtoBG-O-ZlvpehDrlyIoEZwmkH1h8izInWL-c5ePwdJiof_7fIZ4TEoJkE9PRs2GFNDhCeNGl3q7uWNmGIBDIEIi47kO03LXljb=w1360-h592-no"/>
 
 Schematic
 ========
+<img src="https://lh3.googleusercontent.com/qN5Hbv1okKa01bgwoN7vs8byPCMUJP4qZ-C6ZlSpeMgfWP3NFnccEpOz0BfWu_E-trDqinmqd7AofU-VKiO_yuaKxpM8sPxZr0_oSe618ZuxZB6KqozDLCrNBnbGZFf08cG1f9twkgjlIK2iNv_rZo6sYObJqewSwO1EjStzv5hLqjaqm9E3we8KCusbbAup9aSjvQ5WTDM-D8fC7tnQXKFzJKNFQ03ugOIi-UFxm3BtxVVBoTN3lnX1XWGTcbtvTa3zBTebm0CM11JZGIrAPJ9oozUBDiynvIToM2KfedjGJq5_QH0xvEXVJ5AaXYtj6RpoJye0PIB8giiego2QG-IECcpV4vsNBotHkjXjJvb5PFMyfoxpTbL6WAPPHMHkum3zkb4avw_ne4wZwaCqUVY02fBYy7cGVjizlEi11xCf_peOGnTsS-eUHVbn4YIBrPwo9xAGqE652WlcCPbbkkGh_t3FjBStrxRRFwIKNgJ3J4XfTFUntdU824YO8KHq5JFyEkV1fNttTrjvJgJTdD3PKjFqK03KRs1AvNJVZOP3N1tKWNsPKytAL4dwLJ_OI2T3=w2643-h2641-no" />
