@@ -27,7 +27,7 @@ Hardware
 ========
 * 控制器　 : [STM32F411C](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1877/PF260148) 48Pin 100MHz DSP FPU
 * 感測器　 : [MPU9250](http://www.invensense.com/mems/gyro/mpu9250.html) + [LPS25H](http://www.st.com/web/catalog/sense_power/FM89/SC1316/PF255230)
-* 其他　　 : 1xLED
+* 其他　　 : 1 x LED
 * 外接介面 : 3 x UART、2 x SPI、1 x I2C、1 x USB、2 x ADC、...
 * PCB 尺寸 : 12.70 x 15.24 mm
 * 設計軟體 [Altium Designer 16](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v2.0](https://github.com/KitSprout/AltiumDesigner_PcbLibrary/releases/tag/v2.0) )
@@ -36,6 +36,7 @@ Hardware
 
 Software
 ========
+* [SmartIMU_TestHardware](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_TestHardware)
 * [SmartIMU_ModuleHAL_MPU6500](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_ModuleHAL_MPU6500)
 * [SmartIMU_ModuleHAL_MPU9250](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_ModuleHAL_MPU9250)
 * [SmartIMU_PeripheralHAL_GPIO](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_PeripheralHAL_GPIO)
