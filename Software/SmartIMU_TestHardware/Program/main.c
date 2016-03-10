@@ -64,7 +64,7 @@ int main( void )
   while(1) {
     LED_G_Toggle();
     GPIO_EX_Toggle();
-    printf("IMU : %6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\r\n", IMU.Gyr[0], IMU.Gyr[1], IMU.Gyr[2], IMU.Acc[0], IMU.Acc[1], IMU.Acc[2], IMU.Mag[0], IMU.Mag[1], IMU.Mag[2]);
+//    printf("IMU : %6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\r\n", IMU.Gyr[0], IMU.Gyr[1], IMU.Gyr[2], IMU.Acc[0], IMU.Acc[1], IMU.Acc[2], IMU.Mag[0], IMU.Mag[1], IMU.Mag[2]);
     delay_ms(100);
   }
 }

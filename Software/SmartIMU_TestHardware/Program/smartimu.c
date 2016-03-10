@@ -33,6 +33,8 @@ double arrayX[row_X * col_X] = { 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0 };
 Matrix_TypeDef matrixX   = { row_X, col_X, arrayX, MSTATE_NONE };
 Matrix_TypeDef matrixAcc = { 3, CORR_SAMPLE, accCorrData, MSTATE_NONE };
 Matrix_TypeDef matrixMag = { 3, CORR_SAMPLE, magCorrData, MSTATE_NONE };
+
+int16_t IMU_Buf[10] = {0};
 /*====================================================================================================*/
 /*====================================================================================================*/
 void SIMU_Init( void )
@@ -96,7 +98,7 @@ void SIMU_UpdateEven( TIM_HandleTypeDef *htim )
   }
 
   /* 200 Hz, Read Accelerometer, Gyroscope, Magnetometer */
-  IMU_getDataCorr(&IMU);
+//  IMU_getDataCorr(&IMU);
 
   #define MAFIFO_SIZE       (SampleRateFreg)      // 200
   #define CORRECTION_TIME   (SampleRateFreg * 2)  // 2 seconds
@@ -277,6 +279,16 @@ void SIMU_UpdateEven( TIM_HandleTypeDef *htim )
     /************************** Debug *******************************************/
     case SENSOR_DEBUG:
       IMU_getData(&IMU);
+      IMU_Buf[0] = IMU.Acc[0];
+      IMU_Buf[1] = IMU.Acc[1];
+      IMU_Buf[2] = IMU.Acc[2];
+      IMU_Buf[3] = IMU.Gyr[0];
+      IMU_Buf[4] = IMU.Gyr[1];
+      IMU_Buf[5] = IMU.Gyr[2];
+      IMU_Buf[6] = IMU.Mag[0];
+      IMU_Buf[7] = IMU.Mag[1];
+      IMU_Buf[8] = IMU.Mag[2];
+      Serial_SendDataMATLAB(IMU_Buf, 10);
 //      printf("%5d,%5d,%5d\r\n", IMU.Acc[0], IMU.Acc[1], IMU.Acc[2]);
       break;
 
