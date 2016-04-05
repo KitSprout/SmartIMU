@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](http://about.me/Hom)
 * Version : v2.0
-* Update  : 2016/03/08
+* Update  : 2016/04/05
 
 Description
 ========
@@ -30,7 +30,7 @@ Hardware
 * 其他　　 : 1 x LED
 * 外接介面 : 3 x UART、2 x SPI、1 x I2C、1 x USB、2 x ADC、...
 * PCB 尺寸 : 12.70 x 15.24 mm
-* 設計軟體 [Altium Designer 16](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v2.0](https://github.com/KitSprout/AltiumDesigner_PcbLibrary/releases/tag/v2.0) )
+* 設計軟體 [Altium Designer 16](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v2.2](https://github.com/KitSprout/AltiumDesigner_PcbLibrary/releases/tag/v2.2) )
 
 <img src="https://lh3.googleusercontent.com/licxJsxRTuTLnPZZlofxS0ZMqrvBqYvuA-FqHDHxf8Oq6VUwYCk2uyAkr22z7EwHdeuyAnASocn5vM7uItCAZi5S3wWhRUFsGZMYnZrQiewkpgBc7S_-pd6NFrvHHTzyzLAEdI57nBOKRzxo-sV7nLZvLuy5dDp8kWAx5G9Iylb2brZFcyH3f5IcD4Y78eah89jBiIQfb6Omhc_-aSjhUXzB2hvIwAFj3thQ3bZsQW-9Jiy1rNDQKSnmwmY3IBmCTqiU_VATd6uq-Z4RW1W17xR88L22QXLcPiyQsKeTe5eQBlxzujmmOIpny1PlDelgeG6PQ9elcFpqGlSPiKmEmMl5QQYrtfquhti4lXoPWiavtQkvg3ZlF9YxY6RAf3dHQNhOEr8gcYc7m6tczmdy5lTY0F6PgDAZXVVxbnNWXq6N-QVrAEKPsewGP4mg17A-MoHurVD5PyCvI8l-MXWh2_WvgUktvqanB5jq69m_uUjDts7o4UIsXKphPlFTSpr7Q7Sj4BprPOsBF89t6-ZJbq2Vu2WmZsCb6usBPXLMV2E5HF-tgOAre3XMwK7Yb3Rsf637=w820-h640-no"/>
 
@@ -48,6 +48,8 @@ Related Documents
 
 View
 ========
+<img src="https://lh3.googleusercontent.com/uQ88Q_gPXKgzSeStGQ-kGKBkgspJCNxCLVJEgJLyI2bOD6iCXu7vgKVb-sB1rm_2UdyNVsLckJeZDEsUs09l9bM1T7Zjx0xA0bXVbK6fJ07o5EJalJ3M4-LBCQ2Tf1mD4B7ZNaQ0yV9a0zehk06_iopncFqL3-mh-cNHpyHlX10utQy0yLPy_zVD6qcMk5QrytOvkRjKa5MUPi3irwiDNKGREHcH69BT-ZlBgN4UvjMarEvlWiu4Royo-rjPEPUEqcOPabIp4_zVM3PxC_TZSKQPFxSJMcAV0L3ftk52WU3g4F9wgoZD2Cfkz7nH3jLn0K-Q4heF0RcTXSVi2dZcXA1VYM0dPkqaZtyksGftCJUcU6BgGJK-vyrPK4c09LbxyvBLRjyCGWWb85tcGKuqMe8yDdrPB42ekp7R9JZGvVdcle4UnaAbf0T48Sz2ZjNIfh284tPhNBFTsV2FCIuV5BigISUcS3hNgJB8uFOb0-2GI3rY_V6MOZsWU4-eOfP_G3v5GVEfQTJMOHrznM0yxXdxbcuY75bp8WiN-OBi9_IMcycR3903zQWbrBs_WgTz8y97=w1034-h775-no"/>
+<img src="https://lh3.googleusercontent.com/oCyDTi2Uh-SvK_QKjdw3HS-J1dwxIBlZTHVIbk71G106X3wA9O--8fw-Hm7cx8NuqmxbyS1XNw_WEPMcGO55gf-Gm7N_5SRLJYYF6pL3jGwT1-vkHcFL4fdYbmapGc7mP0XkyzicTwAlD7Hsjap35jFi3D4zbJh3BeAkgfUY1zR4J-IK9h5qrsyRMi5WQVgADcjEdDR6eZe45ruD_UKeiVBduCHZ77ULRT_gYF-WHGna7zMQDVRdQOX1FNQeex9BiPEc0yIUJp6H5mf12n7n3wRkOMiwurekXVc2tJUXAV849rOfx7rBI9_BgU_pBG6Hgicj2CQqL48nP6ouuY6pm5m27IT3KjPF-GE9IsDhdLhfAyYsxfDr4BfJ4PzYKkXDlXWpFri73uCD6BqtvyKV38x2EU0K2OUQeJoGVMax2DTyRLhGW7TkNt6ggz2gyYakrDPRl-z31X_qHViuklyptnqwBx5XuIWt6VQOMK9X6cZrq-zf2oJJgIwGU6XcIkNrOcj3f-aycWVdXDWhdGWOY9oR5xYijZmeh1ObMjPG2sL1UVoNF853Wa4RzxNmnrF5pt-o=w1034-h775-no"/>
 <img src="https://lh3.googleusercontent.com/KXd2Y2Ptsf-PeH4lp2HCvZcebQV8Frodng1kN31TEERZ4A9GtYcO_6lQ6U-5C1ykVlfk5uw7Ohzipect9kMQDbHPYUZsgy7wxOBs34mEhkiBOvrTfbf0daDnmokohrkQde7yNl6_4HiePosvKPpWIkaL3WYN4upAiJ3WQldcl7o9gix6jXPbsk0XH4Po0l3CMOd7_cBHKCyHmbtmQgzPqg_0Z0VBEyM7vU6JbW8NRoSsELZ04CGhMnQ8W1UxdY0HpQ4i144YhPwnXoun9sEB6bSyvVOyfAVjkBMwtmSg6tKQthUOJlse7Wlr3bey8H1frH53UuiIRdGHxcXjS6i7ECXDxtTjtx0M_Ep3J0HnoD8YVfkt8pSWaWi0t0yiBxTRrd5_skJtTQMrrGd6n7mtok50kZ4ocYhZmez0WrcNg9wq1szxZw5nzUq197u-ua_BaErFCm0aUtWcpSxPn8egzY_0B5vJvzM5PE0c_M7HemDsKXEK1AE5Six2PmP7lj2B2qgrjpI4-jXBf7qB5Kb7-yR9XjDVjREVY6TEYIwHuDU-hM6BhA6YNpVhtWOTh3Pj518r=w1034-h775-no"/>
 
 <br />
@@ -59,4 +61,4 @@ Config
 
 Schematic
 ========
-<img src="https://lh3.googleusercontent.com/qN5Hbv1okKa01bgwoN7vs8byPCMUJP4qZ-C6ZlSpeMgfWP3NFnccEpOz0BfWu_E-trDqinmqd7AofU-VKiO_yuaKxpM8sPxZr0_oSe618ZuxZB6KqozDLCrNBnbGZFf08cG1f9twkgjlIK2iNv_rZo6sYObJqewSwO1EjStzv5hLqjaqm9E3we8KCusbbAup9aSjvQ5WTDM-D8fC7tnQXKFzJKNFQ03ugOIi-UFxm3BtxVVBoTN3lnX1XWGTcbtvTa3zBTebm0CM11JZGIrAPJ9oozUBDiynvIToM2KfedjGJq5_QH0xvEXVJ5AaXYtj6RpoJye0PIB8giiego2QG-IECcpV4vsNBotHkjXjJvb5PFMyfoxpTbL6WAPPHMHkum3zkb4avw_ne4wZwaCqUVY02fBYy7cGVjizlEi11xCf_peOGnTsS-eUHVbn4YIBrPwo9xAGqE652WlcCPbbkkGh_t3FjBStrxRRFwIKNgJ3J4XfTFUntdU824YO8KHq5JFyEkV1fNttTrjvJgJTdD3PKjFqK03KRs1AvNJVZOP3N1tKWNsPKytAL4dwLJ_OI2T3=w2643-h2641-no" />
+<img src="https://lh3.googleusercontent.com/Wz42-g8WTMgHZuymzmldEyIsFB5sqpW8hFKtbWQQ1VcDU9jjA3311LxeLBI-Eq5yMkXGoZ5-TF05VmNV293OH3j5y3q98Ozh9xEjeNNHTGwiJ2Y274jtScMRg6u6MvLnkJxUYiUg0UaBR4UMC7dW4DGQL_lO64HnASZmKPUCBdsiiEr7eHU3PBR0D4p1fm7r-_bYynFhiqFPNWhhi3D-IKzb6_eqEvnpzl-ULleG0vAQb8TwLKLYNRWIGVqeSIcpjnZu0V9010m2u42pN9fjPj81jpcAEnhN5CEO03FaXJLwmWBSsAJUiK9M9fZZxqG8ICKop2mP1k1HgUJMsyplmqrP063QfoYNQ4yL28WAfRguI2tSwBQlWGPpSEhJkmiMoTI5moAFeUYN3mXLNhrAyAvaJUVCi5cwOg3Vhy_qFnJj_dnf0ccLAnps38R_LeTw1A1gFpT_aMSALl1a0cPrSRDqrMdGQl4y0kAT0ZH4hfztry25gFQQWidx-ZNpmZuf8F_kUAOrkeHg6R_637cfUNlo1UZuMz33s0umS7RdCA7aHCY8iG31Lp-CumTEmyj9wIBO=w2576-h2572-no" />
