@@ -39,7 +39,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=SmartIMU_Pcb.PcbDoc
+DocumentPath=SmartIMU-BAT_Pcb.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -56,7 +56,7 @@ GenerateClassCluster=0
 DocumentUniqueId=PGCPAFHT
 
 [Document2]
-DocumentPath=SmartIMU_Sch.SchDoc
+DocumentPath=SmartIMU-BAT_Sch.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
