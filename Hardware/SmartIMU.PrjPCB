@@ -947,6 +947,36 @@ SelectedOnly=0
 UpdateVariants=1
 PartTypes=0
 
+[NetInfos]
+Net1=NetName=GPIO10|NetColor=$00FF6EFF
+Net2=NetName=SDO|NetColor=$00FF6E6E
+Net3=NetName=GPIO9|NetColor=$00FF6EFF
+Net4=NetName=SDI|NetColor=$00FF6E6E
+Net5=NetName=GPIO6|NetColor=$00FF6EFF
+Net6=NetName=SWCLK|NetColor=$006E6EFF
+Net7=NetName=LED_R|NetColor=clYellow
+Net8=NetName=TX|NetColor=$00FF6EFF
+Net9=NetName=RX|NetColor=$00FF6EFF
+Net10=NetName=GPIO8|NetColor=$00FF6EFF
+Net11=NetName=GPIO1|NetColor=$00FF6EFF
+Net12=NetName=USB.DP|NetColor=$00FFFF6E
+Net13=NetName=GPIO7|NetColor=$00FF6EFF
+Net14=NetName=CSB|NetColor=$00FF6E6E
+Net15=NetName=INTM|NetColor=$00FF6E6E
+Net16=NetName=LED_B|NetColor=clYellow
+Net17=NetName=USB.ID|NetColor=$00FFFF6E
+Net18=NetName=USB.DM|NetColor=$00FFFF6E
+Net19=NetName=GPIO3|NetColor=$00FF6EFF
+Net20=NetName=LED_G|NetColor=clYellow
+Net21=NetName=USB.VB|NetColor=$00FFFF6E
+Net22=NetName=CSM|NetColor=$00FF6E6E
+Net23=NetName=SCK|NetColor=$00FF6E6E
+Net24=NetName=GPIO4|NetColor=$00FF6EFF
+Net25=NetName=SWDIO|NetColor=$006E6EFF
+Net26=NetName=GPIO5|NetColor=$00FF6EFF
+Net27=NetName=INTB|NetColor=$00FF6E6E
+Net28=NetName=GPIO2|NetColor=$00FF6EFF
+
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=0|UseName=-1|InclAllRules=0
 ComparisonOptions1=Kind=Net Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
