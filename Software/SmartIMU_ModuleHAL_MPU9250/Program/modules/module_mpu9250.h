@@ -252,8 +252,7 @@ void    MPU9250_Mag_ReadRegs( uint8_t readAddr, uint8_t *readData, uint8_t lens 
 
 void    MPU9250_SetSpeed( uint8_t SpeedSel );
 
-void    MPU9250_GPIO_Config( void );
-void    MPU9250_SPI_Config( void );
+void    MPU9250_Config( void );
 uint8_t MPU9250_Init( MPU_InitTypeDef *MPUx );
 
 uint8_t MPU9250_Check( void );

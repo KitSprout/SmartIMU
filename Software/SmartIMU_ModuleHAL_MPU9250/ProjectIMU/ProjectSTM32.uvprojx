@@ -10,12 +10,12 @@
       <TargetName>STM32F411CE</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060020::V5.06 (build 20)::ARMCC</pCCUsed>
+      <pCCUsed>5060183::V5.06 update 2 (build 183)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F411CEUx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F4xx_DFP.2.6.0</PackID>
+          <PackID>Keil.STM32F4xx_DFP.2.8.0</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
           <Cpu>IROM(0x08000000,0x80000) IRAM(0x20000000,0x20000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -125,47 +125,6 @@
             <HexOffset>0</HexOffset>
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
-          <Simulator>
-            <UseSimulator>0</UseSimulator>
-            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
-            <RunToMain>1</RunToMain>
-            <RestoreBreakpoints>1</RestoreBreakpoints>
-            <RestoreWatchpoints>1</RestoreWatchpoints>
-            <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
-            <RestoreFunctions>1</RestoreFunctions>
-            <RestoreToolbox>1</RestoreToolbox>
-            <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
-          </Simulator>
-          <Target>
-            <UseTarget>1</UseTarget>
-            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
-            <RunToMain>0</RunToMain>
-            <RestoreBreakpoints>1</RestoreBreakpoints>
-            <RestoreWatchpoints>1</RestoreWatchpoints>
-            <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
-            <RestoreFunctions>0</RestoreFunctions>
-            <RestoreToolbox>1</RestoreToolbox>
-            <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-          </Target>
-          <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
-          <SimDlls>
-            <CpuDll></CpuDll>
-            <CpuDllArguments></CpuDllArguments>
-            <PeripheralDll></PeripheralDll>
-            <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile></InitializationFile>
-          </SimDlls>
-          <TargetDlls>
-            <CpuDll></CpuDll>
-            <CpuDllArguments></CpuDllArguments>
-            <PeripheralDll></PeripheralDll>
-            <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile></InitializationFile>
-            <Driver>Segger\JL2CM3.dll</Driver>
-          </TargetDlls>
         </DebugOption>
         <Utilities>
           <Flash1>
@@ -369,6 +328,8 @@
             <v6LangP>0</v6LangP>
             <vShortEn>0</vShortEn>
             <vShortWch>0</vShortWch>
+            <v6Lto>0</v6Lto>
+            <v6WtE>0</v6WtE>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F411xE</Define>
@@ -477,6 +438,11 @@
           <GroupName>Driver</GroupName>
           <Files>
             <File>
+              <FileName>stm32f4_msp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\drivers\stm32f4_msp.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f4_delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\drivers\stm32f4_delay.c</FilePath>
@@ -497,19 +463,34 @@
           <GroupName>Program</GroupName>
           <Files>
             <File>
-              <FileName>experiment_stm32f4.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Program\experiment_stm32f4.c</FilePath>
+              <FilePath>..\Program\main.c</FilePath>
             </File>
             <File>
-              <FileName>experiment_stm32f4_it.c</FileName>
+              <FileName>smartimu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Program\experiment_stm32f4_it.c</FilePath>
+              <FilePath>..\Program\smartimu.c</FilePath>
             </File>
             <File>
-              <FileName>experiment_stm32f4_msp.c</FileName>
+              <FileName>smartimu_bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Program\experiment_stm32f4_msp.c</FilePath>
+              <FilePath>..\Program\smartimu_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>smartimu_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\smartimu_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application</GroupName>
+          <Files>
+            <File>
+              <FileName>app_kSerial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\applications\app_kSerial.c</FilePath>
             </File>
           </Files>
         </Group>

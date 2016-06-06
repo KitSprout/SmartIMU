@@ -33,10 +33,10 @@
 #define SPIx_SDI_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOA_CLK_ENABLE()
 #define SPIx_SDI_AF                 GPIO_AF5_SPI1
 
-#define SPIx_INTM_PIN               GPIO_PIN_1
-#define SPIx_INTM_GPIO_PORT         GPIOA
-#define SPIx_INTM_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE()
-#define SPIx_INTM_IRQ               EXTI1_IRQn
+//#define SPIx_INTM_PIN               GPIO_PIN_1
+//#define SPIx_INTM_GPIO_PORT         GPIOA
+//#define SPIx_INTM_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE()
+//#define SPIx_INTM_IRQ               EXTI1_IRQn
 
 #define _USE_MAG_AK8963
 #define MAG_READ_DELAY 256
@@ -44,7 +44,7 @@
 /*====================================================================================================*/
 static SPI_HandleTypeDef MPU_HandleStruct;
 #ifdef _USE_MAG_AK8963
-static int16_t AK8963_ASA[3] = {0};
+int16_t AK8963_ASA[3] = {0};
 #endif
 /*====================================================================================================*/
 /*====================================================================================================*
@@ -132,17 +132,17 @@ void MPU9250_Mag_WriteReg( uint8_t writeAddr, uint8_t writeData )
   uint32_t timeout = MAG_READ_DELAY;
 
   MPU9250_WriteReg(MPU6500_I2C_SLV4_ADDR, AK8963_I2C_ADDR);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV4_REG, writeAddr);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV4_DO, writeData);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV4_CTRL, MPU6500_I2C_SLVx_EN);
-  Delay_1ms(1);
+  delay_ms(1);
 
   do {
     status = MPU9250_ReadReg(MPU6500_I2C_MST_STATUS);
-    Delay_1ms(1);
+    delay_ms(1);
   } while(((status & MPU6500_I2C_SLV4_DONE) == 0) && (timeout--));
 }
 #endif
@@ -162,14 +162,14 @@ void MPU9250_Mag_WriteRegs( uint8_t writeAddr, uint8_t *writeData, uint8_t lens 
   uint32_t timeout = MAG_READ_DELAY;
 
   MPU9250_WriteReg(MPU6500_I2C_SLV4_ADDR, AK8963_I2C_ADDR);
-  Delay_1ms(1);
+  delay_ms(1);
   for(uint8_t i = 0; i < lens; i++) {
     MPU9250_WriteReg(MPU6500_I2C_SLV4_REG, writeAddr + i);
-    Delay_1ms(1);
+    delay_ms(1);
     MPU9250_WriteReg(MPU6500_I2C_SLV4_DO, writeData[i]);
-    Delay_1ms(1);
+    delay_ms(1);
     MPU9250_WriteReg(MPU6500_I2C_SLV4_CTRL, MPU6500_I2C_SLVx_EN);
-    Delay_1ms(1);
+    delay_ms(1);
 
     do {
       status = MPU9250_ReadReg(MPU6500_I2C_MST_STATUS);
@@ -194,15 +194,15 @@ uint8_t MPU9250_Mag_ReadReg( uint8_t readAddr )
   uint32_t timeout = MAG_READ_DELAY;
 
   MPU9250_WriteReg(MPU6500_I2C_SLV4_ADDR, AK8963_I2C_ADDR | 0x80);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV4_REG, readAddr);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV4_CTRL, MPU6500_I2C_SLVx_EN);
-  Delay_1ms(1);
+  delay_ms(1);
 
   do {
     status = MPU9250_ReadReg(MPU6500_I2C_MST_STATUS);
-    Delay_1ms(1);
+    delay_ms(1);
   } while(((status & MPU6500_I2C_SLV4_DONE) == 0) && (timeout--));
 
   readData = MPU9250_ReadReg(MPU6500_I2C_SLV4_DI);
@@ -226,19 +226,19 @@ void MPU9250_Mag_ReadRegs( uint8_t readAddr, uint8_t *readData, uint8_t lens )
   uint32_t timeout = MAG_READ_DELAY;
 
   MPU9250_WriteReg(MPU6500_I2C_SLV4_ADDR, AK8963_I2C_ADDR | 0x80);
-  Delay_1ms(1);
+  delay_ms(1);
   for(uint8_t i = 0; i< lens; i++) {
     MPU9250_WriteReg(MPU6500_I2C_SLV4_REG, readAddr + i);
-    Delay_1ms(1);
+    delay_ms(1);
     MPU9250_WriteReg(MPU6500_I2C_SLV4_CTRL, MPU6500_I2C_SLVx_EN);
-    Delay_1ms(1);
+    delay_ms(1);
 
     do {
       status = MPU9250_ReadReg(MPU6500_I2C_MST_STATUS);
     } while(((status & MPU6500_I2C_SLV4_DONE) == 0) && (timeout--));
 
     readData[i] = MPU9250_ReadReg(MPU6500_I2C_SLV4_DI);
-    Delay_1ms(1);
+    delay_ms(1);
   }
 }
 #endif
@@ -260,23 +260,24 @@ void MPU9250_SetSpeed( uint8_t speedSel )
 }
 /*====================================================================================================*/
 /*====================================================================================================*
-**函數 : MPU9250_GPIO_Config
+**函數 : MPU9250_Config
 **功能 : Init SPI GPIO
 **輸入 : None
 **輸出 : None
-**使用 : MPU9250_GPIO_Config();
+**使用 : MPU9250_Config();
 **====================================================================================================*/
 /*====================================================================================================*/
-void MPU9250_GPIO_Config( void )
+void MPU9250_Config( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
 
   /* SPI Clk ******************************************************************/
+  SPIx_CLK_ENABLE();
   SPIx_CS_GPIO_CLK_ENABLE();
   SPIx_SCK_GPIO_CLK_ENABLE();
   SPIx_SDO_GPIO_CLK_ENABLE();
   SPIx_SDI_GPIO_CLK_ENABLE();
-  SPIx_INTM_GPIO_CLK_ENABLE();
+//  SPIx_INTM_GPIO_CLK_ENABLE();
 
   /* SPI Pin ******************************************************************/
   GPIO_InitStruct.Mode      = GPIO_MODE_OUTPUT_PP;
@@ -304,29 +305,15 @@ void MPU9250_GPIO_Config( void )
 
   SPIx_CS_H();  // 低電位有效
 
-  // EXIT Config
-  GPIO_InitStruct.Mode  = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull  = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-  GPIO_InitStruct.Pin   = SPIx_INTM_PIN;
-  HAL_GPIO_Init(SPIx_INTM_GPIO_PORT, &GPIO_InitStruct);
+//  // EXIT Config
+//  GPIO_InitStruct.Mode  = GPIO_MODE_IT_RISING;
+//  GPIO_InitStruct.Pull  = GPIO_PULLUP;
+//  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+//  GPIO_InitStruct.Pin   = SPIx_INTM_PIN;
+//  HAL_GPIO_Init(SPIx_INTM_GPIO_PORT, &GPIO_InitStruct);
 
-  HAL_NVIC_SetPriority(SPIx_INTM_IRQ, 14, 0);
-  HAL_NVIC_EnableIRQ(SPIx_INTM_IRQ);
-}
-/*====================================================================================================*/
-/*====================================================================================================*
-**函數 : MPU9250_SPI_Config
-**功能 : Init SPI
-**輸入 : None
-**輸出 : None
-**使用 : MPU9250_SPI_Config();
-**====================================================================================================*/
-/*====================================================================================================*/
-void MPU9250_SPI_Config( void )
-{
-  /* SPI Clk ******************************************************************/
-  SPIx_CLK_ENABLE();
+//  HAL_NVIC_SetPriority(SPIx_INTM_IRQ, 14, 0);
+//  HAL_NVIC_EnableIRQ(SPIx_INTM_IRQ);
 
   /* SPI Init ****************************************************************/
   MPU_HandleStruct.Instance               = SPIx;
@@ -375,9 +362,6 @@ uint8_t MPU9250_Init( MPU_InitTypeDef *MPUx )
     {0x30, MPU6500_USER_CTRL},      // [10] Set I2C_MST_EN, I2C_IF_DIS
   };
 
-  MPU9250_GPIO_Config();
-  MPU9250_SPI_Config();
-
   MPU6500_InitData[6][0] = MPUx->MPU_Gyr_FullScale;       // MPU6500_GYRO_CONFIG
   MPU6500_InitData[8][0] = MPUx->MPU_Gyr_LowPassFilter;   // MPU6500_CONFIG
   MPU6500_InitData[7][0] = MPUx->MPU_Acc_FullScale;       // MPU6500_ACCEL_CONFIG
@@ -385,51 +369,51 @@ uint8_t MPU9250_Init( MPU_InitTypeDef *MPUx )
 
   for(uint8_t i = 0; i < MPU6500_InitRegNum; i++) {
     MPU9250_WriteReg(MPU6500_InitData[i][1], MPU6500_InitData[i][0]);
-    Delay_1ms(1);
+    delay_ms(1);
   }
 
   status = MPU9250_Check();
   if(status != SUCCESS)
     return ERROR;
 
-  Delay_10ms(1);
+  delay_ms(10);
 
 #ifdef _USE_MAG_AK8963
   MPU9250_Mag_WriteReg(AK8963_CNTL2, 0x01);       // Reset Device
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_Mag_WriteReg(AK8963_CNTL1, 0x10);       // Power-down mode
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_Mag_WriteReg(AK8963_CNTL1, 0x1F);       // Fuse ROM access mode
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_Mag_ReadRegs(AK8963_ASAX, tmpRead, 3);  // Read sensitivity adjustment values
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_Mag_WriteReg(AK8963_CNTL1, 0x10);       // Power-down mode
-  Delay_1ms(1);
+  delay_ms(1);
 
-	AK8963_ASA[0] = (int16_t)(tmpRead[0]) + 128;
-	AK8963_ASA[1] = (int16_t)(tmpRead[1]) + 128;
-	AK8963_ASA[2] = (int16_t)(tmpRead[2]) + 128;
+  AK8963_ASA[0] = (int16_t)(tmpRead[0]) + 128;
+  AK8963_ASA[1] = (int16_t)(tmpRead[1]) + 128;
+  AK8963_ASA[2] = (int16_t)(tmpRead[2]) + 128;
 
   MPU9250_WriteReg(MPU6500_I2C_MST_CTRL, 0x5D);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV0_ADDR, AK8963_I2C_ADDR | 0x80);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV0_REG, AK8963_ST1);
-  Delay_1ms(1);
+  delay_ms(1);
   MPU9250_WriteReg(MPU6500_I2C_SLV0_CTRL, MPU6500_I2C_SLVx_EN | 8);
-  Delay_1ms(1);
+  delay_ms(1);
 
   MPU9250_Mag_WriteReg(AK8963_CNTL1, 0x16);       // Continuous measurement mode 2
-  Delay_1ms(1);
+  delay_ms(1);
 
-	MPU9250_WriteReg(MPU6500_I2C_SLV4_CTRL, 0x09);
-	Delay_1ms(1);
-	MPU9250_WriteReg(MPU6500_I2C_MST_DELAY_CTRL, 0x81);
-	Delay_100ms(1);
+  MPU9250_WriteReg(MPU6500_I2C_SLV4_CTRL, 0x09);
+  delay_ms(1);
+  MPU9250_WriteReg(MPU6500_I2C_MST_DELAY_CTRL, 0x81);
+  delay_ms(100);
 #endif
 
   MPU9250_SetSpeed(SPIx_SPEED_HIGH);
-  Delay_10ms(1);
+  delay_ms(10);
 
   return SUCCESS;
 }

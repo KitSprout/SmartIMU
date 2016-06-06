@@ -1,8 +1,6 @@
 /*====================================================================================================*/
 /*====================================================================================================*/
 #include "drivers\stm32f4_system.h"
-
-#include "experiment_stm32f4.h"
 /*====================================================================================================*/
 /*====================================================================================================*/
 /*
@@ -50,37 +48,6 @@ void HAL_MspInit( void )
   state = HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3);
   if(state != HAL_OK)
     while(1) { ; }
-}
-/*====================================================================================================*/
-/*====================================================================================================*/
-void GPIO_Config( void )
-{
-  GPIO_InitTypeDef GPIO_InitStruct;
-
-  /* GPIO Clk ******************************************************************/
-  LED_R_GPIO_CLK_ENABLE();
-  LED_G_GPIO_CLK_ENABLE();
-  LED_B_GPIO_CLK_ENABLE();
-
-  /* GPIO Pin ******************************************************************/
-  /* LED */
-  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull  = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
-
-  GPIO_InitStruct.Pin   = LED_R_PIN;
-  HAL_GPIO_Init(LED_R_GPIO_PORT, &GPIO_InitStruct);
-
-  GPIO_InitStruct.Pin   = LED_G_PIN;
-  HAL_GPIO_Init(LED_G_GPIO_PORT, &GPIO_InitStruct);
-
-  GPIO_InitStruct.Pin   = LED_B_PIN;
-  HAL_GPIO_Init(LED_B_GPIO_PORT, &GPIO_InitStruct);
-
-  /* GPIO Pin ******************************************************************/
-  LED_R_Set();
-  LED_G_Set();
-  LED_B_Set();
 }
 /*====================================================================================================*/
 /*====================================================================================================*/
