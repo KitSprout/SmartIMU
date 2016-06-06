@@ -5,8 +5,8 @@ clear all
 % **** set parameters
 %comPort = 'COM5';
 baudRate = 115200;
-y_axisMax =  10000;
-y_axisMin = -10000;
+y_axisMax =  1000;
+y_axisMin = -1000;
 window_width = 800;
 recvDataLens = 24;      % recvDataLens = int16Lens * 2 + 4
 % ***********************
@@ -77,9 +77,9 @@ while ishandle(fig1)
 
         if state == 1
 %
-            plot(runtimes, data(2, :), 'r', runtimes, data(3, :), 'g', runtimes, data(4, :), 'b');  % acc
+%            plot(runtimes, data(2, :), 'r', runtimes, data(3, :), 'g', runtimes, data(4, :), 'b');  % acc
 %            plot(runtimes, data(5, :), 'r', runtimes, data(6, :), 'g', runtimes, data(7, :), 'b');  % gyr
-%            plot(runtimes, data(8, :), 'r', runtimes, data(9, :), 'g', runtimes, data(10, :), 'b'); % mag
+            plot(runtimes, data(8, :), 'r', runtimes, data(9, :), 'g', runtimes, data(10, :), 'b'); % mag
             axis([window, window + window_w, y_axisMin, y_axisMax]);
             window = window + count;
             drawnow

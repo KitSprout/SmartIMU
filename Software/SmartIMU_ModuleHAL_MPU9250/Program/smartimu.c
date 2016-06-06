@@ -23,12 +23,12 @@ void SIMU_Loop( void )
 
   while(1) {
     LED_G_Toggle();
-//    delay_ms(1);
+    delay_ms(100);
 
     MPU9250_getData(imu);
 //    Serial_SendDataMATLAB(imu, 10);
-    kSerial_sendData(imu + 1, KS_INT16, 9);
-//    printf("AX:%5i\tAY:%5i\tAZ:%5i\tGX:%5i\tGY:%5i\tGZ:%5i\tMX:%5i\tMY:%5i\tMZ:%5i\r\n", imu[1], imu[2], imu[3], imu[4], imu[5], imu[6], imu[7], imu[8], imu[9]);
+//    kSerial_sendData(imu + 1, KS_INT16, 9);
+    printf("AX:%5i\tAY:%5i\tAZ:%5i\tGX:%5i\tGY:%5i\tGZ:%5i\tMX:%5i\tMY:%5i\tMZ:%5i\r\n", imu[1], imu[2], imu[3], imu[4], imu[5], imu[6], imu[7], imu[8], imu[9]);
   }
 }
 /*====================================================================================================*/

@@ -3,6 +3,11 @@
 #include "drivers\stm32f4_system.h"
 
 #include "app_kSerial.h"
+
+/* 
+  source code and binary release
+  https://github.com/Hom-Wang/SerialDebugAssistant
+*/
 /*====================================================================================================*/
 /*====================================================================================================*/
 static ptrSerial pSerialFunc = NULL;
