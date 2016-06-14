@@ -2,23 +2,20 @@
 /*====================================================================================================*/
 #include "drivers\stm32f4_system.h"
 #include "drivers\stm32f4_usart.h"
+#include "modules\module_serial.h"
 #include "algorithms\algorithm_string.h"
-
-#include "module_serial.h"
 /*====================================================================================================*/
 /*====================================================================================================*/
 #define UARTx                       USART2
-#define UARTx_CLK                   RCC_APB2Periph_USART2
 #define UARTx_CLK_ENABLE()          __HAL_RCC_USART2_CLK_ENABLE()
+#define UARTx_IRQn                  USART2_IRQn
 
 #define UARTx_TX_PIN                GPIO_PIN_2
 #define UARTx_TX_GPIO_PORT          GPIOA
-#define UARTx_TX_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOA_CLK_ENABLE()
 #define UARTx_TX_AF                 GPIO_AF7_USART2
 
 #define UARTx_RX_PIN                GPIO_PIN_3
 #define UARTx_RX_GPIO_PORT          GPIOA
-#define UARTx_RX_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOA_CLK_ENABLE()
 #define UARTx_RX_AF                 GPIO_AF7_USART2
 
 #define UARTx_BAUDRATE              115200
@@ -28,9 +25,8 @@
 #define UARTx_HARDWARECTRL          UART_HWCONTROL_NONE
 #define UARTx_MODE                  UART_MODE_TX_RX
 #define UARTx_OVERSAMPLE            UART_OVERSAMPLING_16
-/*====================================================================================================*/
-/*====================================================================================================*/
-static UART_HandleTypeDef Serial_HandleStruct;
+
+UART_HandleTypeDef Serial_InitStruct;
 /*====================================================================================================*/
 /*====================================================================================================*
 **函數 : Serial_Config
@@ -45,13 +41,11 @@ void Serial_Config( void )
   GPIO_InitTypeDef GPIO_InitStruct;
 
   /* UART Clk ******************************************************************/
-  UARTx_TX_GPIO_CLK_ENABLE();
-  UARTx_RX_GPIO_CLK_ENABLE();
   UARTx_CLK_ENABLE();
 
   /* UART Pin ******************************************************************/
   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull      = GPIO_PULLUP;
+  GPIO_InitStruct.Pull      = GPIO_NOPULL;
   GPIO_InitStruct.Speed     = GPIO_SPEED_HIGH;
 
   GPIO_InitStruct.Pin       = UARTx_TX_PIN;
@@ -62,20 +56,25 @@ void Serial_Config( void )
   GPIO_InitStruct.Alternate = UARTx_RX_AF;
   HAL_GPIO_Init(UARTx_RX_GPIO_PORT, &GPIO_InitStruct);
 
+  /* UART IT *******************************************************************/
+  HAL_NVIC_SetPriority(UARTx_IRQn, 0, 1);
+  HAL_NVIC_EnableIRQ(UARTx_IRQn);
+
   /* UART Init *****************************************************************/
-  Serial_HandleStruct.Instance          = UARTx;
-  Serial_HandleStruct.Init.BaudRate     = UARTx_BAUDRATE;
-  Serial_HandleStruct.Init.WordLength   = UARTx_BYTESIZE;
-  Serial_HandleStruct.Init.StopBits     = UARTx_STOPBITS;
-  Serial_HandleStruct.Init.Parity       = UARTx_PARITY;
-  Serial_HandleStruct.Init.HwFlowCtl    = UARTx_HARDWARECTRL;
-  Serial_HandleStruct.Init.Mode         = UARTx_MODE;
-  Serial_HandleStruct.Init.OverSampling = UARTx_OVERSAMPLE;
-  HAL_UART_Init(&Serial_HandleStruct);
+  Serial_InitStruct.Instance          = UARTx;
+  Serial_InitStruct.Init.BaudRate     = UARTx_BAUDRATE;
+  Serial_InitStruct.Init.WordLength   = UARTx_BYTESIZE;
+  Serial_InitStruct.Init.StopBits     = UARTx_STOPBITS;
+  Serial_InitStruct.Init.Parity       = UARTx_PARITY;
+  Serial_InitStruct.Init.HwFlowCtl    = UARTx_HARDWARECTRL;
+  Serial_InitStruct.Init.Mode         = UARTx_MODE;
+  Serial_InitStruct.Init.OverSampling = UARTx_OVERSAMPLE;
+  HAL_UART_Init(&Serial_InitStruct);
 
   /* UART Enable ***************************************************************/
-  __HAL_UART_ENABLE(&Serial_HandleStruct);
-  __HAL_UART_CLEAR_FLAG(&Serial_HandleStruct, UART_FLAG_TC);
+//  __HAL_UART_ENABLE_IT(&Serial_InitStruct, UART_IT_RXNE);
+  __HAL_UART_ENABLE(&Serial_InitStruct);
+  __HAL_UART_CLEAR_FLAG(&Serial_InitStruct, UART_FLAG_TC);
 }
 /*====================================================================================================*/
 /*====================================================================================================*
@@ -221,7 +220,7 @@ int8_t Serial_RecvStrWTO( char *pWord, int32_t timeoutMs )
 /*====================================================================================================*/
 int fputc( int ch, FILE *f )
 {
-  UARTx->DR = ((uint8_t)ch & (uint16_t)0x00FF);
+  UARTx->DR = ((uint8_t)ch & (uint16_t)0x01FF);
   while(!(UARTx->SR & UART_FLAG_TXE));
   return (ch);
 }

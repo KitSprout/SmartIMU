@@ -9,6 +9,7 @@
 /*====================================================================================================*/
 void    Serial_Config( void );
 
+void    Serial_SendByte( uint8_t sendByte );
 void    Serial_SendData( uint8_t *sendData, uint16_t lens );
 void    Serial_SendStr( char *pWord );
 void    Serial_SendNum( StringType type, uint8_t lens, int32_t sendNum );

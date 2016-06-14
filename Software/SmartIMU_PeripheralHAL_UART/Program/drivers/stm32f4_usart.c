@@ -43,7 +43,7 @@ int8_t UART_RecvByteWTO( USART_TypeDef *USARTx, uint8_t *recvData, uint32_t time
 {
   while((USARTx->SR & UART_FLAG_RXNE) == RESET) {
     if(timeoutMs-- > 0)
-      Delay_1ms(1);
+      delay_ms(1);
     else
       return ERROR; // timeout
   }

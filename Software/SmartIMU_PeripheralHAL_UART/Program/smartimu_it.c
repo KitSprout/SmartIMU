@@ -1,6 +1,8 @@
 /*====================================================================================================*/
 /*====================================================================================================*/
 #include "drivers\stm32f4_system.h"
+
+#include "smartimu_bsp.h"
 /*====================================================================================================*/
 /*====================================================================================================*/
 void NMI_Handler( void ) { while(1); }
@@ -12,6 +14,9 @@ void SVC_Handler( void ) {}
 void DebugMon_Handler( void ) {}
 void PendSV_Handler( void ) {}
 void SysTick_Handler( void ) { HAL_IncTick(); }
+/*====================================================================================================*/
+/*====================================================================================================*/
+extern UART_HandleTypeDef Serial_InitStruct;
 /*====================================================================================================*/
 /*====================================================================================================*/
 //void WWDG_IRQHandler( void ) {}
@@ -51,8 +56,14 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 //void I2C2_ER_IRQHandler( void ) {}
 //void SPI1_IRQHandler( void ) {}
 //void SPI2_IRQHandler( void ) {}
-//void USART1_IRQHandler( void ) {}
-//void USART2_IRQHandler( void ) {}
+//void USART1_IRQHandler( void )
+void USART2_IRQHandler( void )
+{
+  if(__HAL_UART_GET_IT_SOURCE(&Serial_InitStruct, UART_IT_RXNE) != RESET) {
+    UART2_irqEven();
+  }
+  __HAL_UART_GET_IT_SOURCE(&Serial_InitStruct, UART_IT_RXNE);
+}
 //void USART3_IRQHandler( void ) {}
 //void EXTI15_10_IRQHandler( void ) {}
 //void RTC_Alarm_IRQHandler( void ) {}
