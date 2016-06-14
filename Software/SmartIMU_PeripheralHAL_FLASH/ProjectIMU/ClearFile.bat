@@ -25,5 +25,4 @@ del *.htm /s
 del *.sct /s
 del *.hex /s
 del *.map /s
-del JLinkSettings.ini /s
 exit

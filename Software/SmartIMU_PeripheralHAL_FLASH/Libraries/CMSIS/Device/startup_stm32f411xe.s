@@ -1,8 +1,8 @@
-;******************** (C) COPYRIGHT 2015 STMicroelectronics ********************
+;******************** (C) COPYRIGHT 2016 STMicroelectronics ********************
 ;* File Name          : startup_stm32f411xe.s
 ;* Author             : MCD Application Team
-;* Version            : V2.4.1
-;* Date               : 09-October-2015
+;* Version            : V2.4.3
+;* Date               : 22-January-2016
 ;* Description        : STM32F411xExx devices vector table for MDK-ARM toolchain. 
 ;*                      This module performs:
 ;*                      - Set the initial SP
@@ -56,7 +56,7 @@ __initial_sp
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
 
-Heap_Size       EQU     0x0001800
+Heap_Size       EQU     0x00000200
 
                 AREA    HEAP, NOINIT, READWRITE, ALIGN=3
 __heap_base
