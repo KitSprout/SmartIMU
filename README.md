@@ -2,7 +2,7 @@
 ========
 * Author  : [Hom](http://about.me/Hom)
 * Version : v2.0
-* Update  : 2016/04/06
+* Update  : 2016/10/13
 
 Description
 ========
@@ -53,7 +53,7 @@ View
 <img src="https://lh3.googleusercontent.com/KXd2Y2Ptsf-PeH4lp2HCvZcebQV8Frodng1kN31TEERZ4A9GtYcO_6lQ6U-5C1ykVlfk5uw7Ohzipect9kMQDbHPYUZsgy7wxOBs34mEhkiBOvrTfbf0daDnmokohrkQde7yNl6_4HiePosvKPpWIkaL3WYN4upAiJ3WQldcl7o9gix6jXPbsk0XH4Po0l3CMOd7_cBHKCyHmbtmQgzPqg_0Z0VBEyM7vU6JbW8NRoSsELZ04CGhMnQ8W1UxdY0HpQ4i144YhPwnXoun9sEB6bSyvVOyfAVjkBMwtmSg6tKQthUOJlse7Wlr3bey8H1frH53UuiIRdGHxcXjS6i7ECXDxtTjtx0M_Ep3J0HnoD8YVfkt8pSWaWi0t0yiBxTRrd5_skJtTQMrrGd6n7mtok50kZ4ocYhZmez0WrcNg9wq1szxZw5nzUq197u-ua_BaErFCm0aUtWcpSxPn8egzY_0B5vJvzM5PE0c_M7HemDsKXEK1AE5Six2PmP7lj2B2qgrjpI4-jXBf7qB5Kb7-yR9XjDVjREVY6TEYIwHuDU-hM6BhA6YNpVhtWOTh3Pj518r=w1034-h775-no"/>
 
 <br />
-[more photo...](https://goo.gl/photos/fu2XTdUS5BwgrGjs7)
+[more photo...](https://goo.gl/photos/EfpjMtSc4LyJ7H2Q7)
 
 Config
 ========
