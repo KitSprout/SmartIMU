@@ -1,8 +1,8 @@
 ﻿[SmartIMU](https://github.com/Hom-Wang/SmartIMU)
 ========
 * Author  : [Hom](http://about.me/Hom)
-* Version : v2.0
-* Update  : 2016/10/13
+* Version : v2.0, dev(1.0)
+* Update  : 2016/10/14
 
 Description
 ========
@@ -14,12 +14,14 @@ SmartIMU 是一個集成微控制器（STM32F411C）、3-Axis 加速度計、3-A
 > 　 此方案可以預先計算姿態來節省飛控負擔，同時會加載 IAP 功能，  
 > 　 可以直接透過飛控板來更新程式碼，不需要再做燒錄的動作。  
 
+另外新增 DEV 版本，暫時採用 STM32F405，但預計後續改版會更改成 LQFP64 STM32F412 芯片，DEV 版本是為了方便開發 SmartIMU 設計的，集成燒錄器、FLASH 等功能。  
+
 License
 ========
 * 硬體(Hardware)採用 [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW)  方式授權 
   
 　　<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW"><img alt="創用 CC 授權條款" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/tw/80x15.png" /></a>  
-　　<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> SmartIMU v2.0 </span>由<a xmlns:cc="http://creativecommons.org/ns#" href="http://about.me/Hom" property="cc:attributionName" rel="cc:attributionURL"> Hom </a>製作，以<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW"> 創用CC 姓名標示-相同方式分享 4.0 國際 授權條款 </a>釋出。  
+　　<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> SmartIMU v2.0 和 SmartIMU-Dev v1.0 </span>由<a xmlns:cc="http://creativecommons.org/ns#" href="http://about.me/Hom" property="cc:attributionName" rel="cc:attributionURL"> Hom </a>製作，以<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW"> 創用CC 姓名標示-相同方式分享 4.0 國際 授權條款 </a>釋出。  
 
 * 軟體(Software)採用 [MIT License](http://opensource.org/licenses/MIT) 方式授權  
 
@@ -33,14 +35,7 @@ Hardware
 * 設計軟體 [Altium Designer 16](http://www.altium.com/en/products/altium-designer) ( PcbLib use AD [PcbLib v2.2](https://github.com/KitSprout/AltiumDesigner_PcbLibrary/releases/tag/v2.2) )
 
 <img src="https://lh3.googleusercontent.com/licxJsxRTuTLnPZZlofxS0ZMqrvBqYvuA-FqHDHxf8Oq6VUwYCk2uyAkr22z7EwHdeuyAnASocn5vM7uItCAZi5S3wWhRUFsGZMYnZrQiewkpgBc7S_-pd6NFrvHHTzyzLAEdI57nBOKRzxo-sV7nLZvLuy5dDp8kWAx5G9Iylb2brZFcyH3f5IcD4Y78eah89jBiIQfb6Omhc_-aSjhUXzB2hvIwAFj3thQ3bZsQW-9Jiy1rNDQKSnmwmY3IBmCTqiU_VATd6uq-Z4RW1W17xR88L22QXLcPiyQsKeTe5eQBlxzujmmOIpny1PlDelgeG6PQ9elcFpqGlSPiKmEmMl5QQYrtfquhti4lXoPWiavtQkvg3ZlF9YxY6RAf3dHQNhOEr8gcYc7m6tczmdy5lTY0F6PgDAZXVVxbnNWXq6N-QVrAEKPsewGP4mg17A-MoHurVD5PyCvI8l-MXWh2_WvgUktvqanB5jq69m_uUjDts7o4UIsXKphPlFTSpr7Q7Sj4BprPOsBF89t6-ZJbq2Vu2WmZsCb6usBPXLMV2E5HF-tgOAre3XMwK7Yb3Rsf637=w820-h640-no"/>
-
-Software
-========
-* [SmartIMU_TestHardware](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_TestHardware)
-* [SmartIMU_ModuleHAL_MPU6500](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_ModuleHAL_MPU6500)
-* [SmartIMU_ModuleHAL_MPU9250](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_ModuleHAL_MPU9250)
-* [SmartIMU_PeripheralHAL_GPIO](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_PeripheralHAL_GPIO)
-* [SmartIMU_PeripheralHAL_UART](https://github.com/Hom-Wang/SmartIMU/tree/master/Software/SmartIMU_PeripheralHAL_UART)
+<img src="https://lh3.googleusercontent.com/PS6K8fqAXm_xBcWc_b7xoClNne4HpccdXXxs5nafgnEyrIxzCeDRUUshTNtQR8iuvN8L7cr-v8QnxSx7NLCZBpAJo2CqkUsY9A9jwXFb4AshrB4RifAjroEh4q4pXpxrxWa3Kev4-3ESvFyUinC-7xF2PZD_jC5uMzbl1k4UOI8nsvAAaLv4OCjsCYRxQlrud5Lqbi8aWWEnfcWZuq2leWRDTNZQv-ZylW2k4WP0JYxbRLKcjfMC5WuGHr9gg9HoQkL5FNXXj-MkKBsbALvsUMqG6xTg4o6GBtFZzo8cvxLQ1KWhWF2-UTBcjpTIWyT4wGrY6ZHPyhW7N3MWx3Y0VdMlqogmGjuHYk1dSGWWNqLycEW4zJ1T0K9BoMKmSVOsg9NqU2Qrqh2M6tYfokCYbDyO3onK4JzwAJ_7VPGuvCOKWYwt_Am_pT_KTfltMd9mA8li5WaV3er6ZSvzuMKnAOumJBNBaOZJOkeWYjxm-UY-Y3_YFxgH-_A9_SnVXSMcJXpHm3teswJPUvBhxJTjatahs72h2I83OMzfjJ70Ay453A3n0JqczXouUTuMOdmV33cggnbMV4_n7x-UFgRw1ThN71ylgKhv2ec0uj-lvS_ZWHuZ=w848-h950-no"/>
 
 Related Documents
 ========
@@ -49,16 +44,13 @@ Related Documents
 View
 ========
 <img src="https://lh3.googleusercontent.com/uQ88Q_gPXKgzSeStGQ-kGKBkgspJCNxCLVJEgJLyI2bOD6iCXu7vgKVb-sB1rm_2UdyNVsLckJeZDEsUs09l9bM1T7Zjx0xA0bXVbK6fJ07o5EJalJ3M4-LBCQ2Tf1mD4B7ZNaQ0yV9a0zehk06_iopncFqL3-mh-cNHpyHlX10utQy0yLPy_zVD6qcMk5QrytOvkRjKa5MUPi3irwiDNKGREHcH69BT-ZlBgN4UvjMarEvlWiu4Royo-rjPEPUEqcOPabIp4_zVM3PxC_TZSKQPFxSJMcAV0L3ftk52WU3g4F9wgoZD2Cfkz7nH3jLn0K-Q4heF0RcTXSVi2dZcXA1VYM0dPkqaZtyksGftCJUcU6BgGJK-vyrPK4c09LbxyvBLRjyCGWWb85tcGKuqMe8yDdrPB42ekp7R9JZGvVdcle4UnaAbf0T48Sz2ZjNIfh284tPhNBFTsV2FCIuV5BigISUcS3hNgJB8uFOb0-2GI3rY_V6MOZsWU4-eOfP_G3v5GVEfQTJMOHrznM0yxXdxbcuY75bp8WiN-OBi9_IMcycR3903zQWbrBs_WgTz8y97=w1034-h775-no"/>
-<img src="https://lh3.googleusercontent.com/oCyDTi2Uh-SvK_QKjdw3HS-J1dwxIBlZTHVIbk71G106X3wA9O--8fw-Hm7cx8NuqmxbyS1XNw_WEPMcGO55gf-Gm7N_5SRLJYYF6pL3jGwT1-vkHcFL4fdYbmapGc7mP0XkyzicTwAlD7Hsjap35jFi3D4zbJh3BeAkgfUY1zR4J-IK9h5qrsyRMi5WQVgADcjEdDR6eZe45ruD_UKeiVBduCHZ77ULRT_gYF-WHGna7zMQDVRdQOX1FNQeex9BiPEc0yIUJp6H5mf12n7n3wRkOMiwurekXVc2tJUXAV849rOfx7rBI9_BgU_pBG6Hgicj2CQqL48nP6ouuY6pm5m27IT3KjPF-GE9IsDhdLhfAyYsxfDr4BfJ4PzYKkXDlXWpFri73uCD6BqtvyKV38x2EU0K2OUQeJoGVMax2DTyRLhGW7TkNt6ggz2gyYakrDPRl-z31X_qHViuklyptnqwBx5XuIWt6VQOMK9X6cZrq-zf2oJJgIwGU6XcIkNrOcj3f-aycWVdXDWhdGWOY9oR5xYijZmeh1ObMjPG2sL1UVoNF853Wa4RzxNmnrF5pt-o=w1034-h775-no"/>
-<img src="https://lh3.googleusercontent.com/KXd2Y2Ptsf-PeH4lp2HCvZcebQV8Frodng1kN31TEERZ4A9GtYcO_6lQ6U-5C1ykVlfk5uw7Ohzipect9kMQDbHPYUZsgy7wxOBs34mEhkiBOvrTfbf0daDnmokohrkQde7yNl6_4HiePosvKPpWIkaL3WYN4upAiJ3WQldcl7o9gix6jXPbsk0XH4Po0l3CMOd7_cBHKCyHmbtmQgzPqg_0Z0VBEyM7vU6JbW8NRoSsELZ04CGhMnQ8W1UxdY0HpQ4i144YhPwnXoun9sEB6bSyvVOyfAVjkBMwtmSg6tKQthUOJlse7Wlr3bey8H1frH53UuiIRdGHxcXjS6i7ECXDxtTjtx0M_Ep3J0HnoD8YVfkt8pSWaWi0t0yiBxTRrd5_skJtTQMrrGd6n7mtok50kZ4ocYhZmez0WrcNg9wq1szxZw5nzUq197u-ua_BaErFCm0aUtWcpSxPn8egzY_0B5vJvzM5PE0c_M7HemDsKXEK1AE5Six2PmP7lj2B2qgrjpI4-jXBf7qB5Kb7-yR9XjDVjREVY6TEYIwHuDU-hM6BhA6YNpVhtWOTh3Pj518r=w1034-h775-no"/>
+<img src="https://lh3.googleusercontent.com/FvuTsuiwMtdf5rc7u7woPQBALcFJKRl8ZFQls50RI0xK3Ti6AvWbKV7irKp73L14JkFyWlINtSFJvhcJVGLsC0IHkmMoGzODzb6nVZizU5TDylNx7IdqLX6wruOqhyYySXOSRbr_OnGvxfcRs1QrbU3U4YzJqeRInXOEuLTug_A9DsMzmIkZSZA3gqZ1RdFFvOUQVWrODC_5qMWlSmQWjJh5OKmYW0IswbO0WkjVBwnwmBoBRPcMDADev7OiLfKZiuK-EGPT2i02wsY0bLeu7whp2BTm6M5TZuaAlraSwqULW4JljBCsG8Gu1V027tbvYHBNrOT14X05_yjaAn0XW_Xa80UrFCuNDlIW1OhthSCrY34g5CrgvD9zr3FsCl7VxODilMEivFHHa-k8sB3spJvvRjaLKPdr83mqkX1kSBnwcVFRGaPow4ElbEhTKTJGtDUSy64Vjx2nqMYRuHfzHmo8lz2pH_TXcqpb2rWQQsFs9LZtJ2DGkkNzRY9WQ0cp1YpYNykeJ_1Bzyq2sCui0rFv-QwBJh5DvVv5p6WWnTmMc1VQ4pYD6bbIZIFuJ8ZXN5xzlAicTczYHZeY8Iv2GygS99xAN2b1eDmkW-Gl66vPZKQc=w1267-h950-no"/>
 
 <br />
 [more photo...](https://goo.gl/photos/EfpjMtSc4LyJ7H2Q7)
 
-Config
-========
-<img src="https://lh3.googleusercontent.com/RAMiYRZOy7m7Q0N_PZFFitTtqaHwYe5qoBMcVmYCqb3L-loH2jtSlmJA4qScpVQKGNPhIfHEF2yB6P9qxlPrWauWn7GRzqYt7qk4pjLcXcVKB-S1AThwhuPk5dJ2xNg_YefzMYc_ifM0d8ro17nZMtYYocnfrmt7YRiJJnDw1LRM8un5VDwjLLx_wefNSfOuNHZZjrYY3H4UDSvpnBdyFgtcFG3azX3JefdaDegvEJ7MMe0gCFqlKdNDeGnALlkSn-znvb-u8yb4eFNdCsgg5ezHbeOCDoWPuyBtohuh2FcaURUcng1AQdF5SJ-F_F0MiytPY5lrn7Sra2gWxwz0zUGjpCaEUNniH3qfH4UxMOiaVrw--kryyArDugbQOFhJHzmUg9xGx1PY-K_XYlsDEdlLhUZjovEuRcReGG4sBPpgATewOkIEwLOfKt_pDfRlGQdZSUTqomt3dctXFInFKBhQXinjTUupyjtoBG-O-ZlvpehDrlyIoEZwmkH1h8izInWL-c5ePwdJiof_7fIZ4TEoJkE9PRs2GFNDhCeNGl3q7uWNmGIBDIEIi47kO03LXljb=w1360-h592-no"/>
-
 Schematic
 ========
 <img src="https://lh3.googleusercontent.com/1TX4mns8esvXUkUJbkO3DLjduwXPzqh_njAdmFrEUgbrfqa7nyj9Sy0QI2acpUgoZbLQXtM-0Sg-42d3TveDYvtD9V5hi94oXnS3LmK9e4yxuyfCRUNkDjwTRYT-3UV74_Pw1bKtGCoS6ZWtkqL7B8y9W5Q__1qOv7JwCA0i5Puaei5sFX8xXa60_zHRgkYQp9YULGPPvXqfavGJ_Shqae2e8GcgMMPNMZJSkcy6yaxHn7W3n27Aa__LCizYgr-AxG23FfmeRz8HEaV06kElCx_hFpXm6wBXP8AV6N_9TLFUYi1suGTpRv4h5k5XfmEkawSn7h4NPLInlYB2R9954INxRTrD7gjeckKix6Sme8atlVImXP6emUbAG6ZumIQpI2eHjU3XFmJxOBJGhSYxQUCe-06deO61G_CMVOg3oAtf1XbWEoTys4t0L5a9TDWLhfQXxY-nKwUQh0dwg69cMDMnWzNhhU2HPK4bohOWnWLhxX9srhgcBJosUWdUfC6fYxtS4WKHvaq_29geIeuMTjG3O2WkvJ5Ij2vGe2EVg0myH5OJL55L3OiEJPrNHobq3T9z=w1552-h1550-no" />
+<img src="https://lh3.googleusercontent.com/sCu2NZ7Dq0rMnvh5DKHCjmcGaO5s01gMnd7dKAEeAm4zj17Bzdd8ytYA7Qt2lxfXb3Z7gz6xsztcc2rkEeGpzgmHJtxLIFAcRPFtwQJHJiaKgB9KMFb6pUxsbwj8P-g1NBSgtmdiOmIUZjK4fGkCn0sEL-Ulw9KB-LIhukZReNGc1e9jlN26nVyT00tXpL13-jMgtIeZ5GpGPjbbsCGdQwmtRBS-r-afkub4lbof4M3KJs0kIeI0UQkEbn2ed9-wmHwmjXCfh7rkE7OXr1ptTfR-9Vs8BkCz4LANcOG8kkBiCQKa4vinbjy1tcxfrpo0Bau6WIebSH07HF8xxF6APxuG8R62Fgccsg1IwA9_DJLhvn4iRjcGkAauB2F_QUvqlPtOwKB7x_SB8O2eN-NRZzG2iJwQEyAoANDGbN9mwusuNI1OAuIqQ6aMPHb2Jq4KQPv8VTtcT3fFz0-NIxPS2uueo94ecPJ3_EHkS4gd-Vr7sHkUowpSZ_k_TKqk0k5kyE5I_6EAVeNTCcgSPFMxD1wOUEpIot_X5eXvACVsvh7vX-VfE9XEKKvEfiT58zS_wK6qECRMaWwWWONm8sZ1S01p33kADkAfik30MooPdv7DbGPq=w1425-h950-no"/>
+
