@@ -53,7 +53,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=PGCPAFHT
 
 [Document2]
 DocumentPath=SmartIMU_Sch.SchDoc
@@ -71,23 +71,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KBRYAYPA
-
-[Document3]
-DocumentPath=SmartIMU_Pcb.PCBDwf
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
 
 [Configuration1]
 Name=Default Configuration
@@ -261,18 +244,16 @@ OutputDefault4=0
 PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4
 OutputType5=Composite
 OutputName5=Composite Drawing
-OutputDocumentPath5=D:\My_Research\My_Design\Kit_SmartIMU\Hardware\SmartIMUDev v1.2\SmartIMU_Dev_Pcb.PcbDoc
+OutputDocumentPath5=D:\My_Research\My_Design\Kit_SmartIMU\Hardware\SmartIMU v1.4\SmartIMU_Pcb.PcbDoc
 OutputVariantName5=
 OutputDefault5=0
-PageOptions5=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=6.45|XCorrection=1.00|YCorrection=1.00|PrintKind=2|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+PageOptions5=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=9.93|XCorrection=1.00|YCorrection=1.00|PrintKind=2|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=1|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A3|PaperIndex=8
 Configuration5_Name1=OutputConfigurationParameter1
 Configuration5_Item1=DesignatorDisplayMode=Physical|PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=27900000|PrintAreaLowerLeftCornerY=21300000|PrintAreaUpperRightCornerX=44800000|PrintAreaUpperRightCornerY=37100000|Record=PcbPrintView
 Configuration5_Name2=OutputConfigurationParameter2
 Configuration5_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|IncludeViewports=True|Index=0|Mirror=True|Name=Multilayer Composite Print|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=True|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
 Configuration5_Name3=OutputConfigurationParameter3
 Configuration5_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration5_Name4=OutputConfigurationParameter4
-Configuration5_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical1|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
 OutputType6=OpenBus Print
 OutputName6=OpenBus Prints
 OutputDocumentPath6=
@@ -305,7 +286,7 @@ OutputDefault10=0
 PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4
 OutputType11=Schematic Print
 OutputName11=Schematic Prints
-OutputDocumentPath11=D:\My_Research\My_Design\Kit_SmartIMU\Hardware\SmartIMUDev v1.2\SmartIMU_Dev_Sch.SchDoc
+OutputDocumentPath11=D:\My_Research\My_Design\Kit_SmartIMU\Hardware\SmartIMU v1.4\SmartIMU_Sch.SchDoc
 OutputVariantName11=
 OutputDefault11=0
 PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-4|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4
@@ -1050,36 +1031,50 @@ UpdateVariants=1
 PartTypes=0
 
 [NetInfos]
-Net1=NetName=M_SDA|NetColor=$00FF6E6E
-Net2=NetName=JSC|NetColor=$008E00C5
-Net3=NetName=M_RDY|NetColor=$00FF6E6E
-Net4=NetName=USB_DP|NetColor=clOlive
-Net5=NetName=F_CS|NetColor=$006EFF6E
-Net6=NetName=ADC|NetColor=$006E6EFF
-Net7=NetName=F_CLK|NetColor=$006EFF6E
-Net8=NetName=JRST|NetColor=$008E00C5
-Net9=NetName=LED_R|NetColor=clYellow
-Net10=NetName=M_CSB|NetColor=$00FF6E6E
-Net11=NetName=M_SCK|NetColor=$00FF6E6E
-Net12=NetName=M_INTB|NetColor=$00FF6E6E
-Net13=NetName=F_D2|NetColor=$006EFF6E
-Net14=NetName=USB_VB|NetColor=clOlive
-Net15=NetName=USB_ID|NetColor=clOlive
-Net16=NetName=JTX|NetColor=$000083FD
-Net17=NetName=LED_B|NetColor=clYellow
-Net18=NetName=KEY|NetColor=$00FFFF6E
-Net19=NetName=LED_G|NetColor=clYellow
-Net20=NetName=M_SDO|NetColor=$00FF6E6E
-Net21=NetName=JSD|NetColor=$008E00C5
-Net22=NetName=F_D0|NetColor=$006EFF6E
-Net23=NetName=M_SCL|NetColor=$00FF6E6E
-Net24=NetName=USB_DM|NetColor=clOlive
-Net25=NetName=F_D3|NetColor=$006EFF6E
-Net26=NetName=M_INTM|NetColor=$00FF6E6E
-Net27=NetName=M_SDI|NetColor=$00FF6E6E
-Net28=NetName=M_CSM|NetColor=$00FF6E6E
-Net29=NetName=F_D1|NetColor=$006EFF6E
-Net30=NetName=JRX|NetColor=$000083FD
+Net1=NetName=PA15|NetColor=$00928E91
+Net2=NetName=M_RDY|NetColor=$00FF6E6E
+Net3=NetName=JSC|NetColor=$008E00C5
+Net4=NetName=M_SDA|NetColor=$00FF6E6E
+Net5=NetName=USB_DP|NetColor=clOlive
+Net6=NetName=PB3|NetColor=$00928E91
+Net7=NetName=PB12|NetColor=$00928E91
+Net8=NetName=PA2|NetColor=$00928E91
+Net9=NetName=PB10|NetColor=$00928E91
+Net10=NetName=PB9|NetColor=$00928E91
+Net11=NetName=PB4|NetColor=$00928E91
+Net12=NetName=F_CS|NetColor=$006EFF6E
+Net13=NetName=ADC|NetColor=$006E6EFF
+Net14=NetName=F_CLK|NetColor=$006EFF6E
+Net15=NetName=JRST|NetColor=$008E00C5
+Net16=NetName=LED_R|NetColor=clYellow
+Net17=NetName=M_CSB|NetColor=$00FF6E6E
+Net18=NetName=M_SCK|NetColor=$00FF6E6E
+Net19=NetName=M_INTB|NetColor=$00FF6E6E
+Net20=NetName=F_D2|NetColor=$006EFF6E
+Net21=NetName=USB_VB|NetColor=clOlive
+Net22=NetName=USB_ID|NetColor=clOlive
+Net23=NetName=PB14|NetColor=$00928E91
+Net24=NetName=JTX|NetColor=$000083FD
+Net25=NetName=PA3|NetColor=$00928E91
+Net26=NetName=LED_B|NetColor=clYellow
+Net27=NetName=PB8|NetColor=$00928E91
+Net28=NetName=KEY|NetColor=$00FFFF6E
+Net29=NetName=LED_G|NetColor=clYellow
+Net30=NetName=M_SDO|NetColor=$00FF6E6E
+Net31=NetName=JSD|NetColor=$008E00C5
+Net32=NetName=F_D0|NetColor=$006EFF6E
+Net33=NetName=M_SCL|NetColor=$00FF6E6E
+Net34=NetName=USB_DM|NetColor=clOlive
+Net35=NetName=PC11|NetColor=$00928E91
+Net36=NetName=F_D3|NetColor=$006EFF6E
+Net37=NetName=PB5|NetColor=$00928E91
+Net38=NetName=M_INTM|NetColor=$00FF6E6E
+Net39=NetName=M_SDI|NetColor=$00FF6E6E
+Net40=NetName=PB13|NetColor=$00928E91
+Net41=NetName=M_CSM|NetColor=$00FF6E6E
+Net42=NetName=F_D1|NetColor=$006EFF6E
+Net43=NetName=PB15|NetColor=$00928E91
+Net44=NetName=JRX|NetColor=$000083FD
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=0|UseName=-1|InclAllRules=0
