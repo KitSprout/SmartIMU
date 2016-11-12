@@ -8,7 +8,7 @@
   * 
   * @file    main.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    11-Nov-2016
   * @brief   
   * 
   */
@@ -36,20 +36,20 @@ int main( void )
 
   while (1) {
     LED_R_Toggle();
-    delay_ms(100);
+    delay_ms(80);
     LED_G_Toggle();
-    delay_ms(100);
+    delay_ms(80);
     LED_B_Toggle();
-    delay_ms(100);
+    delay_ms(80);
     while(KEY_Read()) {
       LED_R_Set();
       LED_G_Set();
       LED_B_Set();
-      delay_ms(200);
+      delay_ms(100);
       LED_R_Reset();
       LED_G_Reset();
       LED_B_Reset();
-      delay_ms(200);
+      delay_ms(100);
     }
   }
 }
