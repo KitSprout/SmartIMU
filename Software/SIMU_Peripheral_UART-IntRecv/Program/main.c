@@ -8,7 +8,7 @@
   * 
   * @file    main.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    11-Nov-2016
   * @brief   
   * 
   */
@@ -40,7 +40,7 @@ int main( void )
 
   while (1) {
     LED_B_Toggle();
-    delay_ms(50);
+    delay_ms(100);
     while (KEY_Read()) {
       printf("\f");
     }
