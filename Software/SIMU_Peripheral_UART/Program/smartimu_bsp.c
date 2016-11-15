@@ -26,8 +26,6 @@
 /* Private define --------------------------------------------------------------------------*/
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
-pFunc IRQEven_UART6 = NULL;
-
 /* Private function prototypes -------------------------------------------------------------*/
 /* Private functions -----------------------------------------------------------------------*/
 
@@ -79,10 +77,7 @@ void SIMU_GPIO_Config( void )
 
 void SIMU_UART_Config( pFunc pUARTx )
 {
-  uint8_t interrupt = (pUARTx == NULL) ? DISABLE : ENABLE;
-  IRQEven_UART6 = pUARTx;
-
-  Serial_Config(interrupt);
+  Serial_Config(pUARTx);
   printf("\r\nHello World!\r\n\r\n");
 }
 

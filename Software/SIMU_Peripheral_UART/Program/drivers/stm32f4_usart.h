@@ -8,7 +8,7 @@
   * 
   * @file    stm32f4_usart.h
   * @author  KitSprout
-  * @date    6-Oct-2016
+  * @date    14-Nov-2016
   * @brief   
   * 
   */
@@ -26,13 +26,38 @@
 
 /* Exported types --------------------------------------------------------------------------*/
 /* Exported constants ----------------------------------------------------------------------*/
+
+/* Serial */
+#define SERIAL_UARTx                  USART6
+#define SERIAL_UARTx_CLK_ENABLE()     __HAL_RCC_USART6_CLK_ENABLE()
+#define SERIAL_UARTx_IRQn             USART6_IRQn
+
+#define SERIAL_UARTx_FORCE_RESET()    __HAL_RCC_USART6_FORCE_RESET()
+#define SERIAL_UARTx_RELEASE_RESET()  __HAL_RCC_USART6_RELEASE_RESET()
+
+#define SERIAL_TX_PIN                 GPIO_PIN_6
+#define SERIAL_TX_GPIO_PORT           GPIOC
+#define SERIAL_TX_AF                  GPIO_AF8_USART6
+
+#define SERIAL_RX_PIN                 GPIO_PIN_7
+#define SERIAL_RX_GPIO_PORT           GPIOC
+#define SERIAL_RX_AF                  GPIO_AF8_USART6
+
+#define SERIAL_BAUDRATE               115200
+#define SERIAL_BYTESIZE               UART_WORDLENGTH_8B
+#define SERIAL_STOPBITS               UART_STOPBITS_1
+#define SERIAL_PARITY                 UART_PARITY_NONE
+#define SERIAL_HARDWARECTRL           UART_HWCONTROL_NONE
+#define SERIAL_MODE                   UART_MODE_TX_RX
+#define SERIAL_OVERSAMPLE             UART_OVERSAMPLING_16
+
 /* Exported functions ----------------------------------------------------------------------*/  
-void   UART_SendByte( USART_TypeDef *USARTx, uint8_t *sendByte );
-void   UART_RecvByte( USART_TypeDef *USARTx, uint8_t *recvByte );
-int8_t UART_RecvByteWTO( USART_TypeDef *USARTx, uint8_t *recvByte, uint32_t timeoutMs );
-void   UART_SendData( USART_TypeDef *USARTx, uint8_t *sendData, uint16_t lens );
-void   UART_RecvData( USART_TypeDef *USARTx, uint8_t *recvData, uint16_t lens );
-int8_t UART_RecvDataWTO( USART_TypeDef *USARTx, uint8_t *recvData, uint16_t lens, uint32_t timeoutMs );
+void    UART_SendByte( UART_HandleTypeDef *huart, uint8_t sendByte );
+void    UART_SendData( UART_HandleTypeDef *huart, uint8_t *sendData, uint16_t lens );
+uint8_t UART_RecvByte( UART_HandleTypeDef *huart );
+void    UART_RecvData( UART_HandleTypeDef *huart, uint8_t *recvData, uint16_t lens );
+int8_t  UART_RecvByteWTO( UART_HandleTypeDef *huart, uint8_t *recvByte, uint32_t timeout );
+int8_t  UART_RecvDataWTO( UART_HandleTypeDef *huart, uint8_t *recvData, uint16_t lens, uint32_t timeout );
 
 #ifdef __cplusplus
 }

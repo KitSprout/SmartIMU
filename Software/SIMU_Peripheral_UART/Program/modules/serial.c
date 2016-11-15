@@ -8,7 +8,7 @@
   * 
   * @file    serial.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    14-Nov-2016
   * @brief   
   * 
   */
@@ -24,75 +24,43 @@
 
 /* Private typedef -------------------------------------------------------------------------*/
 /* Private define --------------------------------------------------------------------------*/
-#define UARTx                 USART6
-#define UARTx_CLK_ENABLE()    __HAL_RCC_USART6_CLK_ENABLE()
-#define UARTx_IRQn            USART6_IRQn
-
-#define UARTx_TX_PIN          GPIO_PIN_6
-#define UARTx_TX_GPIO_PORT    GPIOC
-#define UARTx_TX_AF           GPIO_AF8_USART6
-
-#define UARTx_RX_PIN          GPIO_PIN_7
-#define UARTx_RX_GPIO_PORT    GPIOC
-#define UARTx_RX_AF           GPIO_AF8_USART6
-
-#define UARTx_BAUDRATE        115200
-#define UARTx_BYTESIZE        UART_WORDLENGTH_8B
-#define UARTx_STOPBITS        UART_STOPBITS_1
-#define UARTx_PARITY          UART_PARITY_NONE
-#define UARTx_HARDWARECTRL    UART_HWCONTROL_NONE
-#define UARTx_MODE            UART_MODE_TX_RX
-#define UARTx_OVERSAMPLE      UART_OVERSAMPLING_16
-
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
 UART_HandleTypeDef SerialHandle;
+pFunc SerialIRQEven = NULL;
 
 /* Private function prototypes -------------------------------------------------------------*/
 /* Private functions -----------------------------------------------------------------------*/
 
-void Serial_Config( uint8_t interrupt )
+void Serial_Config( pFunc pUARTx )
 {
-  GPIO_InitTypeDef GPIO_InitStruct;
-
   /* UART Clk ******************************************************************/
-  UARTx_CLK_ENABLE();
-
-  /* UART Pin ******************************************************************/
-  GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull      = GPIO_NOPULL;
-  GPIO_InitStruct.Speed     = GPIO_SPEED_HIGH;
-
-  GPIO_InitStruct.Pin       = UARTx_TX_PIN;
-  GPIO_InitStruct.Alternate = UARTx_TX_AF;
-  HAL_GPIO_Init(UARTx_TX_GPIO_PORT, &GPIO_InitStruct);
-
-  GPIO_InitStruct.Pin       = UARTx_RX_PIN;
-  GPIO_InitStruct.Alternate = UARTx_RX_AF;
-  HAL_GPIO_Init(UARTx_RX_GPIO_PORT, &GPIO_InitStruct);
-
-  /* UART IT *******************************************************************/
-  HAL_NVIC_SetPriority(UARTx_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(UARTx_IRQn);
+  SERIAL_UARTx_CLK_ENABLE();
 
   /* UART Init *****************************************************************/
-  SerialHandle.Instance          = UARTx;
-  SerialHandle.Init.BaudRate     = UARTx_BAUDRATE;
-  SerialHandle.Init.WordLength   = UARTx_BYTESIZE;
-  SerialHandle.Init.StopBits     = UARTx_STOPBITS;
-  SerialHandle.Init.Parity       = UARTx_PARITY;
-  SerialHandle.Init.HwFlowCtl    = UARTx_HARDWARECTRL;
-  SerialHandle.Init.Mode         = UARTx_MODE;
-  SerialHandle.Init.OverSampling = UARTx_OVERSAMPLE;
+  SerialHandle.Instance          = SERIAL_UARTx;
+  SerialHandle.Init.BaudRate     = SERIAL_BAUDRATE;
+  SerialHandle.Init.WordLength   = SERIAL_BYTESIZE;
+  SerialHandle.Init.StopBits     = SERIAL_STOPBITS;
+  SerialHandle.Init.Parity       = SERIAL_PARITY;
+  SerialHandle.Init.HwFlowCtl    = SERIAL_HARDWARECTRL;
+  SerialHandle.Init.Mode         = SERIAL_MODE;
+  SerialHandle.Init.OverSampling = SERIAL_OVERSAMPLE;
   HAL_UART_Init(&SerialHandle);
 
-  /* UART Enable ***************************************************************/
-  if (interrupt == ENABLE) {
+  /* UART IT *******************************************************************/
+  SerialIRQEven = pUARTx;
+  if (SerialIRQEven != NULL) {
+    HAL_NVIC_SetPriority(SERIAL_UARTx_IRQn, 0x0F, 1);
+    HAL_NVIC_EnableIRQ(SERIAL_UARTx_IRQn);
     __HAL_UART_ENABLE_IT(&SerialHandle, UART_IT_RXNE);
   }
   else {
+    HAL_NVIC_DisableIRQ(SERIAL_UARTx_IRQn);
     __HAL_UART_DISABLE_IT(&SerialHandle, UART_IT_RXNE);
   }
+
+  /* UART Enable ***************************************************************/
   __HAL_UART_ENABLE(&SerialHandle);
   __HAL_UART_CLEAR_FLAG(&SerialHandle, UART_FLAG_TC);
 }
@@ -104,7 +72,7 @@ void Serial_Config( uint8_t interrupt )
   */
 void Serial_SendByte( uint8_t sendByte )
 {
-  UART_SendByte(UARTx, &sendByte);
+  UART_SendByte(&SerialHandle, sendByte);
 }
 
 /**
@@ -115,7 +83,7 @@ void Serial_SendByte( uint8_t sendByte )
   */
 void Serial_SendData( uint8_t *sendData, uint16_t lens )
 {
-  UART_SendData(UARTx, sendData, lens);
+  UART_SendData(&SerialHandle, sendData, lens);
 }
 
 /**
@@ -126,7 +94,7 @@ void Serial_SendData( uint8_t *sendData, uint16_t lens )
 void Serial_SendStr( char *pWord )
 {
   while (*pWord != '\0') {
-    UART_SendByte(UARTx, (uint8_t*)pWord++);
+    UART_SendByte(&SerialHandle, *pWord++);
   }
 }
 
@@ -145,7 +113,7 @@ void Serial_SendNum( StringType_t type, uint8_t lens, int32_t number )
   num2Str(type, lens, tmpStr, number);
 
   while (*pWord != '\0') {
-    UART_SendByte(UARTx, (uint8_t*)pWord++);
+    UART_SendByte(&SerialHandle, *pWord++);
   }
 }
 
@@ -156,9 +124,7 @@ void Serial_SendNum( StringType_t type, uint8_t lens, int32_t number )
   */
 uint8_t Serial_RecvByte( void )
 {
-  uint8_t recvByte = 0;
-  UART_RecvByte(UARTx, &recvByte);
-  return recvByte;
+  return UART_RecvByte(&SerialHandle);
 }
 
 /**
@@ -169,19 +135,31 @@ uint8_t Serial_RecvByte( void )
   */
 void Serial_RecvData( uint8_t *recvData, uint16_t lens )
 {
-  UART_RecvData(UARTx, recvData, lens);
+  UART_RecvData(&SerialHandle, recvData, lens);
+}
+
+/**
+  * @brief  Serial_RecvByteWTO
+  * @param  recvByte: 
+  * @param  lens: 
+  * @param  timeout: 
+  * @retval state of receive
+  */
+int8_t Serial_RecvByteWTO( uint8_t *recvByte, int32_t timeout )
+{
+  return UART_RecvByteWTO(&SerialHandle, recvByte, timeout);
 }
 
 /**
   * @brief  Serial_RecvDataWTO
   * @param  recvData: 
   * @param  lens: 
-  * @param  timeoutMs: 
+  * @param  timeout: 
   * @retval state of receive
   */
-int8_t Serial_RecvDataWTO( uint8_t *recvData, uint16_t lens, int32_t timeoutMs )
+int8_t Serial_RecvDataWTO( uint8_t *recvData, uint16_t lens, int32_t timeout )
 {
-  return UART_RecvDataWTO(UARTx, recvData, lens, timeoutMs);
+  return UART_RecvDataWTO(&SerialHandle, recvData, lens, timeout);
 }
 
 /**
@@ -192,8 +170,8 @@ int8_t Serial_RecvDataWTO( uint8_t *recvData, uint16_t lens, int32_t timeoutMs )
 void Serial_RecvStr( char *pWord )
 {
   do {
-    UART_RecvByte(UARTx, (uint8_t*)pWord++);
-  } while (*(pWord-1) != '\0');
+    *pWord++ = UART_RecvByte(&SerialHandle);
+  } while (*(pWord - 1) != '\0');
   *pWord = '\0';
 }
 
@@ -208,7 +186,7 @@ int8_t Serial_RecvStrWTO( char *pWord, int32_t timeoutMs )
   int8_t state = ERROR;
 
   do {
-    state = UART_RecvByteWTO(UARTx, (uint8_t*)pWord++, timeoutMs);
+    state = UART_RecvByteWTO(&SerialHandle, (uint8_t*)pWord++, timeoutMs);
     if (state == ERROR)
       return ERROR;
   } while (*(pWord-1) != '\0');
@@ -219,15 +197,15 @@ int8_t Serial_RecvStrWTO( char *pWord, int32_t timeoutMs )
 
 int fputc( int ch, FILE *f )
 {
-  UARTx->DR = ((uint8_t)ch & (uint16_t)0x01FF);
-  while (!(UARTx->SR & UART_FLAG_TC));
+  SerialHandle.Instance->DR = ((uint8_t)ch & (uint16_t)0x01FF);
+  while (!(SerialHandle.Instance->SR & UART_FLAG_TC));
   return (ch);
 }
 
 int fgetc( FILE *f )
 {
-  while (!(UARTx->SR & UART_FLAG_RXNE));
-  return (uint16_t)(UARTx->DR & (uint16_t)0x01FF);
+  while (!(SerialHandle.Instance->SR & UART_FLAG_RXNE));
+  return (SerialHandle.Instance->DR & (uint16_t)0x01FF);
 }
 
 /*************************************** END OF FILE ****************************************/

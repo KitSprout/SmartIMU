@@ -22,7 +22,7 @@
 
 /* Private variables -----------------------------------------------------------------------*/
 extern UART_HandleTypeDef SerialHandle;
-extern pFunc IRQEven_UART6;
+extern pFunc SerialIRQEven;
 
 /* Private functions -----------------------------------------------------------------------*/
 
@@ -107,7 +107,7 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 void USART6_IRQHandler( void )
 {
   if (__HAL_UART_GET_IT_SOURCE(&SerialHandle, UART_IT_RXNE) != RESET) {
-    IRQEven_UART6();
+    SerialIRQEven();
   }
   __HAL_UART_GET_IT_SOURCE(&SerialHandle, UART_IT_RXNE);
 }
