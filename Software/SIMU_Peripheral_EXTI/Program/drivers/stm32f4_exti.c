@@ -25,6 +25,11 @@
 /* Private define --------------------------------------------------------------------------*/
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
+ExtiHandle_st hExti0 = {
+  .pin          = EXTI0_PIN,
+  .EvenCallback = NULL,
+};
+
 static pFunc EXTI0_Callback = NULL;
 
 /* Private function prototypes -------------------------------------------------------------*/
@@ -35,11 +40,9 @@ static pFunc EXTI0_Callback = NULL;
   * @param  None
   * @retval None
   */
-void EXTI0_Config( pFunc extix )
+void EXTI0_Config( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
-
-  EXTI0_Callback = extix;
 
   /* GPIO Pin ******************************************************************/
   GPIO_InitStruct.Mode  = GPIO_MODE_IT_RISING;
@@ -57,8 +60,8 @@ void EXTI0_Config( pFunc extix )
   */
 void HAL_GPIO_EXTI_Callback( uint16_t GPIO_Pin )
 {
-  if (GPIO_Pin == EXTI0_PIN) {
-    EXTI0_Callback();
+  if (GPIO_Pin == hExti0.pin) {
+    hExti0.EvenCallback();
   }
 }
 

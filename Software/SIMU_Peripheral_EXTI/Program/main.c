@@ -8,14 +8,14 @@
   * 
   * @file    main.c
   * @author  KitSprout
-  * @date    11-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
-#include "smartimu_bsp.h"
+#include "stm32f4xx_bsp.h"
 
 /** @addtogroup STM32_Program
   * @{
@@ -28,16 +28,18 @@
 static __IO uint8_t flag = 0;
 
 /* Private function prototypes -------------------------------------------------------------*/
-void EXTI0_IRQCallback( void );
-
 /* Private functions -----------------------------------------------------------------------*/
+
+void EXTI0_IRQCallback( void )
+{
+  flag = 1;
+}
 
 int main( void )
 {
   HAL_Init();
-
-  SIMU_GPIO_Config();
-  SIMU_EXTI0_Config(EXTI0_IRQCallback);
+  BSP_GPIO_Config();
+  BSP_EXTI0_Config(EXTI0_IRQCallback);
 
   while (1) {
     LED_R_Toggle();
@@ -53,9 +55,4 @@ int main( void )
   }
 }
 
-void EXTI0_IRQCallback( void )
-{
-  flag = 1;
-}
-  
 /*************************************** END OF FILE ****************************************/

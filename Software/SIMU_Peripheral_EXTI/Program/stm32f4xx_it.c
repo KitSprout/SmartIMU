@@ -6,9 +6,9 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    smartimu_it.c
+  * @file    stm32f4xx_it.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -42,7 +42,7 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 //void RCC_IRQHandler( void )
 void EXTI0_IRQHandler( void )
 {
-  HAL_GPIO_EXTI_IRQHandler(EXTI0_PIN);
+  HAL_GPIO_EXTI_IRQHandler(hExti0.pin);
 }
 //void EXTI1_IRQHandler( void )
 //void EXTI2_IRQHandler( void )

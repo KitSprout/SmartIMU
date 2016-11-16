@@ -6,7 +6,7 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    stm32f4_exti.h
+  * @file    stm32f4xx_bsp.h
   * @author  KitSprout
   * @date    16-Nov-2016
   * @brief   
@@ -14,27 +14,21 @@
   */
 
 /* Define to prevent recursive inclusion ---------------------------------------------------*/
-#ifndef __STM32F4_EXTI_H
-#define __STM32F4_EXTI_H
+#ifndef __STM32F4XX_BSP_H
+#define __STM32F4XX_BSP_H
 
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "stm32f4_system.h"
+#include "drivers\stm32f4_system.h"
 
 /* Exported types --------------------------------------------------------------------------*/
-typedef struct {
-  uint32_t pin;
-  pFunc EvenCallback;
-} ExtiHandle_st;
-
 /* Exported constants ----------------------------------------------------------------------*/
-/* Exported functions ----------------------------------------------------------------------*/  
-void EXTI0_Config( void );
-
-extern ExtiHandle_st hExti0;
+/* Exported functions ----------------------------------------------------------------------*/
+void BSP_GPIO_Config( void );
+void BSP_EXTI0_Config( pFunc extix );
 
 #ifdef __cplusplus
 }
