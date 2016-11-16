@@ -455,14 +455,14 @@
               <FilePath>..\Program\main.c</FilePath>
             </File>
             <File>
-              <FileName>smartimu_bsp.c</FileName>
+              <FileName>stm32f4xx_bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Program\smartimu_bsp.c</FilePath>
+              <FilePath>..\Program\stm32f4xx_bsp.c</FilePath>
             </File>
             <File>
-              <FileName>smartimu_it.c</FileName>
+              <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Program\smartimu_it.c</FilePath>
+              <FilePath>..\Program\stm32f4xx_it.c</FilePath>
             </File>
           </Files>
         </Group>

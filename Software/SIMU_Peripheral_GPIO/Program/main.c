@@ -8,14 +8,14 @@
   * 
   * @file    main.c
   * @author  KitSprout
-  * @date    11-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
-#include "smartimu_bsp.h"
+#include "stm32f4xx_bsp.h"
 
 /** @addtogroup STM32_Program
   * @{
@@ -31,8 +31,7 @@
 int main( void )
 {
   HAL_Init();
-
-  SIMU_GPIO_Config();
+  BSP_GPIO_Config();
 
   while (1) {
     LED_R_Toggle();

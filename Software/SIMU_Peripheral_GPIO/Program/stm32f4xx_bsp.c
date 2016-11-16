@@ -6,16 +6,16 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    smartimu_bsp.c
+  * @file    stm32f4xx_bsp.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
-#include "smartimu_bsp.h"
+#include "stm32f4xx_bsp.h"
 
 /** @addtogroup STM32_Program
   * @{
@@ -28,7 +28,7 @@
 /* Private function prototypes -------------------------------------------------------------*/
 /* Private functions -----------------------------------------------------------------------*/
 
-void SIMU_GPIO_Config( void )
+void BSP_GPIO_Config( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
 
