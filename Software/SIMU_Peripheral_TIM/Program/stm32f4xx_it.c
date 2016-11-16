@@ -6,26 +6,22 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    smartimu_it.c
+  * @file    stm32f4xx_it.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
+#include "drivers\stm32f4_tim.h"
 
 /** @addtogroup STM32_Interrupt
   * @{
   */
 
 /* Private variables -----------------------------------------------------------------------*/
-extern TIM_HandleTypeDef Timer2Handle;
-extern TIM_HandleTypeDef Timer3Handle;
-extern pFunc IRQEven_TIM2;
-extern pFunc IRQEven_TIM3;
-
 /* Private functions -----------------------------------------------------------------------*/
 
 void NMI_Handler( void ) { while(1); }
@@ -68,23 +64,33 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 //void TIM1_CC_IRQHandler( void )
 void TIM2_IRQHandler( void )
 {
-  if (__HAL_TIM_GET_FLAG(&Timer2Handle, TIM_FLAG_UPDATE) != RESET) {
-    if (__HAL_TIM_GET_IT_SOURCE(&Timer2Handle, TIM_IT_UPDATE) != RESET) {
-      __HAL_TIM_CLEAR_IT(&Timer2Handle, TIM_IT_UPDATE);
-      IRQEven_TIM2();
+  if (__HAL_TIM_GET_FLAG(hTimer2.handle, TIM_FLAG_UPDATE) != RESET) {
+    if (__HAL_TIM_GET_IT_SOURCE(hTimer2.handle, TIM_IT_UPDATE) != RESET) {
+      __HAL_TIM_CLEAR_IT(hTimer2.handle, TIM_IT_UPDATE);
+      hTimer2.EvenCallback();
     }
   }
 }
+
 void TIM3_IRQHandler( void )
 {
-  if (__HAL_TIM_GET_FLAG(&Timer3Handle, TIM_FLAG_UPDATE) != RESET) {
-    if (__HAL_TIM_GET_IT_SOURCE(&Timer3Handle, TIM_IT_UPDATE) != RESET) {
-      __HAL_TIM_CLEAR_IT(&Timer3Handle, TIM_IT_UPDATE);
-      IRQEven_TIM3();
+  if (__HAL_TIM_GET_FLAG(hTimer3.handle, TIM_FLAG_UPDATE) != RESET) {
+    if (__HAL_TIM_GET_IT_SOURCE(hTimer3.handle, TIM_IT_UPDATE) != RESET) {
+      __HAL_TIM_CLEAR_IT(hTimer3.handle, TIM_IT_UPDATE);
+      hTimer3.EvenCallback();
     }
   }
 }
-//void TIM4_IRQHandler( void )
+
+void TIM4_IRQHandler( void )
+{
+  if (__HAL_TIM_GET_FLAG(hTimer4.handle, TIM_FLAG_UPDATE) != RESET) {
+    if (__HAL_TIM_GET_IT_SOURCE(hTimer4.handle, TIM_IT_UPDATE) != RESET) {
+      __HAL_TIM_CLEAR_IT(hTimer4.handle, TIM_IT_UPDATE);
+      hTimer4.EvenCallback();
+    }
+  }
+}
 //void I2C1_EV_IRQHandler( void )
 //void I2C1_ER_IRQHandler( void )
 //void I2C2_EV_IRQHandler( void )

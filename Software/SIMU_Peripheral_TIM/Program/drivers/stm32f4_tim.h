@@ -6,7 +6,7 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    stm32f4_delay.h
+  * @file    stm32f4_tim.h
   * @author  KitSprout
   * @date    16-Nov-2016
   * @brief   
@@ -14,22 +14,37 @@
   */
 
 /* Define to prevent recursive inclusion ---------------------------------------------------*/
-#ifndef __STM32F4_DELAY_H
-#define __STM32F4_DELAY_H
+#ifndef __STM32F4_TIM_H
+#define __STM32F4_TIM_H
 
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "core_cm4.h"
+#include "stm32f4_system.h"
 
 /* Exported types --------------------------------------------------------------------------*/
-/* Exported constants ----------------------------------------------------------------------*/
-#define delay_ms(__ms)    HAL_Delay(__ms)
+typedef struct {
+  TIM_HandleTypeDef *handle;
+  pFunc EvenCallback;
+} TimHandle_st;
 
-/* Exported functions ----------------------------------------------------------------------*/  
-void delay_us( __IO uint32_t __us );
+/* Exported constants ----------------------------------------------------------------------*/
+#define TIMx_CLOCK( __PRES, __PERIOD )  (SystemCoreClock / (__PRES * __PERIOD))
+
+/* Exported functions ----------------------------------------------------------------------*/
+void Timer2_Config( uint32_t prescaler, uint32_t period );
+void Timer3_Config( uint32_t prescaler, uint32_t period );
+void Timer4_Config( uint32_t prescaler, uint32_t period );
+
+void Timer2_Cmd( uint8_t cmd );
+void Timer3_Cmd( uint8_t cmd );
+void Timer4_Cmd( uint8_t cmd );
+
+extern TimHandle_st hTimer2;
+extern TimHandle_st hTimer3;
+extern TimHandle_st hTimer4;
 
 #ifdef __cplusplus
 }

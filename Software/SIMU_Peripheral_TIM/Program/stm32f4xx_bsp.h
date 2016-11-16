@@ -6,7 +6,7 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    stm32f4_delay.h
+  * @file    stm32f4xx_bsp.h
   * @author  KitSprout
   * @date    16-Nov-2016
   * @brief   
@@ -14,22 +14,23 @@
   */
 
 /* Define to prevent recursive inclusion ---------------------------------------------------*/
-#ifndef __STM32F4_DELAY_H
-#define __STM32F4_DELAY_H
+#ifndef __STM32F4XX_BSP_H
+#define __STM32F4XX_BSP_H
 
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "core_cm4.h"
+#include "drivers\stm32f4_system.h"
 
 /* Exported types --------------------------------------------------------------------------*/
 /* Exported constants ----------------------------------------------------------------------*/
-#define delay_ms(__ms)    HAL_Delay(__ms)
-
-/* Exported functions ----------------------------------------------------------------------*/  
-void delay_us( __IO uint32_t __us );
+/* Exported functions ----------------------------------------------------------------------*/
+void BSP_GPIO_Config( void );
+void BSP_TIMER2_Config( pFunc pTIMx, uint16_t freq );
+void BSP_TIMER3_Config( pFunc pTIMx, uint16_t freq );
+void BSP_TIMER4_Config( pFunc pTIMx, uint16_t freq );
 
 #ifdef __cplusplus
 }
