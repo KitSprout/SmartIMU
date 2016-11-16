@@ -8,7 +8,7 @@
   * 
   * @file    stm32f4_delay.c
   * @author  KitSprout
-  * @date    4-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -30,14 +30,14 @@
 
 /**
   * @brief  delay_us
-  * @param  vCnt_us: delay us time.
+  * @param  __us: delay us time.
   * @retval None
   */
-void delay_us( __IO uint32_t vCnt_us )
+void delay_us( __IO uint32_t __us )
 {
-  __IO uint32_t vCnt;
-  while (vCnt_us--) {
-    for (vCnt = 7; vCnt != 0; vCnt--);
+  __IO uint32_t count;
+  while (__us--) {
+    for (count = 7; count != 0; count--);
   }
 }
 

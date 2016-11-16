@@ -8,7 +8,7 @@
   * 
   * @file    mathUnit.h
   * @author  KitSprout
-  * @date    6-Oct-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -22,13 +22,13 @@
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "stm32f4xx.h"
+#include "core_cm4.h"
 #include "arm_math.h"
 
 /* Exported types --------------------------------------------------------------------------*/
 
 /** 
-  * @brief   euler angle structure definition  
+  * @brief  euler angle structure definition
   */ 
 typedef struct {
   float32_t pitch;
@@ -38,10 +38,21 @@ typedef struct {
 
 /* Exported constants ----------------------------------------------------------------------*/
 /* Exported macro --------------------------------------------------------------------------*/
-#define invSqrtf( iSq )   (1.0f / sqrtf((float32_t)(iSq)))
-#define squa( Sq )        (((float32_t)Sq) * ((float32_t)(Sq)))
+#define invSqrtf( _iSq )  (1.0f / sqrtf((float32_t)(_iSq)))
+#define squa( _Sq )       (((float32_t)_Sq) * ((float32_t)(_Sq)))
 #define toRad( _mathD )   ((_mathD) * 0.0174532925f)
 #define toDeg( _mathR )   ((_mathR) * 57.2957795f)
+
+__STATIC_INLINE float32_t invSqrtf_fast( const float32_t _iSq )
+{
+  float32_t x2 = 0.5f * _iSq;
+  float32_t y = _iSq;
+  int32_t i = *(int32_t*)&y;
+  i = 0x5F3759DF - (i >> 1);
+  y = *(float32_t*)&i;
+  y = y * (1.5f - (x2 * y * y));
+  return y;
+}
 
 /* Exported functions ----------------------------------------------------------------------*/  
 

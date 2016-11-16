@@ -8,7 +8,7 @@
   * 
   * @file    string.h
   * @author  KitSprout
-  * @date    6-Oct-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -23,7 +23,7 @@
 
 /* Includes --------------------------------------------------------------------------------*/
 #include <string.h>
-#include "stm32f4xx.h"
+#include <stdint.h>
 
 /* Exported types --------------------------------------------------------------------------*/
 typedef enum {

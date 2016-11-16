@@ -8,14 +8,13 @@
   * 
   * @file    serial.c
   * @author  KitSprout
-  * @date    14-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
-#include "drivers\stm32f4_usart.h"
 #include "modules\serial.h"
 
 /** @addtogroup STM32_Module
@@ -27,12 +26,21 @@
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
 UART_HandleTypeDef SerialHandle;
-pFunc SerialIRQEven = NULL;
+uint8_t serialTxBuf[SERIAL_MAX_TXBUF] = {0};
+uint8_t serialRxBuf[SERIAL_MAX_RXBUF] = {0};
+
+UartHandle_st hSerial = {
+  .handle     = &SerialHandle,
+  .TxCallback = NULL,
+  .RxCallback = NULL,
+  .pTxBuf     = serialTxBuf,
+  .pRxBuf     = serialRxBuf
+};
 
 /* Private function prototypes -------------------------------------------------------------*/
 /* Private functions -----------------------------------------------------------------------*/
 
-void Serial_Config( pFunc pUARTx )
+void Serial_Config( void )
 {
   /* UART Clk ******************************************************************/
   SERIAL_UARTx_CLK_ENABLE();
@@ -48,153 +56,81 @@ void Serial_Config( pFunc pUARTx )
   SerialHandle.Init.OverSampling = SERIAL_OVERSAMPLE;
   HAL_UART_Init(&SerialHandle);
 
+#if defined(KS_HW_UART_HAL_LIBRARY)
+
+#else
   /* UART IT *******************************************************************/
-  SerialIRQEven = pUARTx;
-  if (SerialIRQEven != NULL) {
-    HAL_NVIC_SetPriority(SERIAL_UARTx_IRQn, 0x0F, 1);
-    HAL_NVIC_EnableIRQ(SERIAL_UARTx_IRQn);
+  if (hSerial.TxCallback != NULL)
+    __HAL_UART_ENABLE_IT(&SerialHandle, UART_IT_TXE);
+  else
+    __HAL_UART_DISABLE_IT(&SerialHandle, UART_IT_TXE);
+
+  if (hSerial.RxCallback != NULL)
     __HAL_UART_ENABLE_IT(&SerialHandle, UART_IT_RXNE);
-  }
-  else {
-    HAL_NVIC_DisableIRQ(SERIAL_UARTx_IRQn);
+  else
     __HAL_UART_DISABLE_IT(&SerialHandle, UART_IT_RXNE);
-  }
 
   /* UART Enable ***************************************************************/
   __HAL_UART_ENABLE(&SerialHandle);
   __HAL_UART_CLEAR_FLAG(&SerialHandle, UART_FLAG_TC);
+
+#endif
+
 }
 
 /**
-  * @brief  Serial_SendByte
-  * @param  sendByte: 
-  * @retval None
+  * @brief  Serial Send Data
   */
-void Serial_SendByte( uint8_t sendByte )
+__INLINE int8_t Serial_SendData( uint8_t *sendData, uint16_t lens, uint32_t timuout )
 {
-  UART_SendByte(&SerialHandle, sendByte);
+  return UART_SendData(&SerialHandle, sendData, lens, timuout);
 }
 
 /**
-  * @brief  Serial_SendData
-  * @param  sendData: 
-  * @param  lens: 
-  * @retval None
+  * @brief  Serial Recv Data
   */
-void Serial_SendData( uint8_t *sendData, uint16_t lens )
+__INLINE int8_t Serial_RecvData( uint8_t *recvData, uint16_t lens, uint32_t timeout )
 {
-  UART_SendData(&SerialHandle, sendData, lens);
+  return UART_RecvData(&SerialHandle, recvData, lens, timeout);
+}
+
+#if defined(KS_HW_UART_HAL_LIBRARY)
+/**
+  * @brief  Serial Send Data IT
+  */
+__INLINE int8_t Serial_SendDataIT( uint8_t *sendData, uint16_t lens)
+{
+  return HAL_UART_Transmit_IT(&SerialHandle, sendData, lens);
 }
 
 /**
-  * @brief  Serial_SendStr
-  * @param  pWord: 
-  * @retval None
+  * @brief  Serial Recv Data IT
   */
-void Serial_SendStr( char *pWord )
+__INLINE int8_t Serial_RecvDataIT( uint8_t *recvData, uint16_t lens )
 {
-  while (*pWord != '\0') {
-    UART_SendByte(&SerialHandle, *pWord++);
-  }
+  return HAL_UART_Receive_IT(&SerialHandle, recvData, lens);
 }
 
 /**
-  * @brief  Serial_SendNum
-  * @param  type: 
-  * @param  lens: 
-  * @param  sendNum: 
-  * @retval None
+  * @brief  Serial Send Data DMA
   */
-void Serial_SendNum( StringType_t type, uint8_t lens, int32_t number )
+__INLINE int8_t Serial_SendDataDMA( uint8_t *sendData, uint16_t lens )
 {
-  char tmpStr[32] = {0};
-  char *pWord = tmpStr;
-
-  num2Str(type, lens, tmpStr, number);
-
-  while (*pWord != '\0') {
-    UART_SendByte(&SerialHandle, *pWord++);
-  }
+  return HAL_UART_Transmit_DMA(&SerialHandle, sendData, lens);
 }
 
 /**
-  * @brief  Serial_RecvByte
-  * @param  None
-  * @retval receive byte
+  * @brief  Serial Recv Data DMA
   */
-uint8_t Serial_RecvByte( void )
+__INLINE int8_t Serial_RecvDataDMA( uint8_t *recvData, uint16_t lens )
 {
-  return UART_RecvByte(&SerialHandle);
+  return HAL_UART_Receive_DMA(&SerialHandle, recvData, lens);
 }
+#endif
 
 /**
-  * @brief  Serial_RecvData
-  * @param  recvData: 
-  * @param  lens: 
-  * @retval None
+  * @brief  fputc
   */
-void Serial_RecvData( uint8_t *recvData, uint16_t lens )
-{
-  UART_RecvData(&SerialHandle, recvData, lens);
-}
-
-/**
-  * @brief  Serial_RecvByteWTO
-  * @param  recvByte: 
-  * @param  lens: 
-  * @param  timeout: 
-  * @retval state of receive
-  */
-int8_t Serial_RecvByteWTO( uint8_t *recvByte, int32_t timeout )
-{
-  return UART_RecvByteWTO(&SerialHandle, recvByte, timeout);
-}
-
-/**
-  * @brief  Serial_RecvDataWTO
-  * @param  recvData: 
-  * @param  lens: 
-  * @param  timeout: 
-  * @retval state of receive
-  */
-int8_t Serial_RecvDataWTO( uint8_t *recvData, uint16_t lens, int32_t timeout )
-{
-  return UART_RecvDataWTO(&SerialHandle, recvData, lens, timeout);
-}
-
-/**
-  * @brief  Serial_RecvStr
-  * @param  pWord: 
-  * @retval None
-  */
-void Serial_RecvStr( char *pWord )
-{
-  do {
-    *pWord++ = UART_RecvByte(&SerialHandle);
-  } while (*(pWord - 1) != '\0');
-  *pWord = '\0';
-}
-
-/**
-  * @brief  Serial_RecvStrWTO
-  * @param  pWord: 
-  * @param  timeoutMs: 
-  * @retval state of receive
-  */
-int8_t Serial_RecvStrWTO( char *pWord, int32_t timeoutMs )
-{
-  int8_t state = ERROR;
-
-  do {
-    state = UART_RecvByteWTO(&SerialHandle, (uint8_t*)pWord++, timeoutMs);
-    if (state == ERROR)
-      return ERROR;
-  } while (*(pWord-1) != '\0');
-  *pWord = '\0';
-
-  return SUCCESS;
-}
-
 int fputc( int ch, FILE *f )
 {
   SerialHandle.Instance->DR = ((uint8_t)ch & (uint16_t)0x01FF);
@@ -202,6 +138,9 @@ int fputc( int ch, FILE *f )
   return (ch);
 }
 
+/**
+  * @brief  fgetc
+  */
 int fgetc( FILE *f )
 {
   while (!(SerialHandle.Instance->SR & UART_FLAG_RXNE));

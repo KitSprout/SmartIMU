@@ -8,7 +8,7 @@
   * 
   * @file    main.c
   * @author  KitSprout
-  * @date    11-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -16,7 +16,7 @@
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
 #include "modules\serial.h"
-#include "smartimu_bsp.h"
+#include "stm32f4xx_bsp.h"
 
 /** @addtogroup STM32_Program
   * @{
@@ -26,8 +26,10 @@
 /* Private define --------------------------------------------------------------------------*/
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
+extern UartHandle_st hSerial;
+
 /* Private function prototypes -------------------------------------------------------------*/
-void Serial_RecvIRQ( void );
+void Serial_RecvIRQCallback( void );
 
 /* Private functions -----------------------------------------------------------------------*/
 
@@ -36,36 +38,38 @@ int main( void )
   static uint8_t i = 0;
 
   HAL_Init();
-
-  SIMU_GPIO_Config();
+  BSP_GPIO_Config();
 
   if(!KEY_Read()) {
-    SIMU_UART_Config(NULL);
+    BSP_UART_Config(NULL, NULL);
 
     while (1) {
-      uint8_t recvData = 0;
-      int8_t status = Serial_RecvByteWTO(&recvData, 500);
+      int8_t status = Serial_RecvData(hSerial.pRxBuf, 1, 500);
 
       if(status == HAL_TIMEOUT) {
         LED_R_Toggle();
         printf("Timeout ... %d\r\n", i);
         i = (i == 255) ? 0 : i + 1;
       }
-      else if(recvData == 0x0D) { // if press enter
+      else if(hSerial.pRxBuf[0] == 0x0D) { // if press enter
         LED_G_Toggle();
-        Serial_SendStr("\r\n");
+        printf("\r\n");
       }
       else {
         LED_B_Toggle();
-        Serial_SendData(&recvData, 1);
+        Serial_SendData(hSerial.pRxBuf, 1, 2000);
       }
       if(KEY_Read()) {
-        Serial_SendStr("\f");
+        printf("\f");
       }
     }
   }
   else {
-    SIMU_UART_Config(Serial_RecvIRQ);
+    BSP_UART_Config(NULL, Serial_RecvIRQCallback);
+
+#if defined(KS_HW_UART_HAL_LIBRARY)
+    Serial_RecvDataIT(hSerial.pRxBuf, 1);
+#endif
 
     while (1) {
       LED_B_Toggle();
@@ -77,15 +81,21 @@ int main( void )
   }
 }
 
-void Serial_RecvIRQ( void )
+void Serial_RecvIRQCallback( void )
 {
-  uint8_t recvData = Serial_RecvByte();
+#if defined(KS_HW_UART_HAL_LIBRARY)
+  Serial_RecvDataIT(hSerial.pRxBuf, 1);
+
+#else
+  Serial_RecvData(hSerial.pRxBuf, 1, 500);
+
+#endif
 
   LED_G_Toggle();
-  if (recvData == 0x0D)
-    Serial_SendStr("\r\n");
+  if (hSerial.pRxBuf[0] == 0x0D)
+    printf("\r\n");
   else
-    Serial_SendByte(recvData);
+    Serial_SendData(hSerial.pRxBuf, 1, 1000);
 }
 
 /*************************************** END OF FILE ****************************************/
