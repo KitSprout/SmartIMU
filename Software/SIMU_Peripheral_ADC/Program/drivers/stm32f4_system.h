@@ -8,7 +8,7 @@
   * 
   * @file    stm32f4_system.h
   * @author  KitSprout
-  * @date    4-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -23,28 +23,14 @@
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "stm32f4xx.h"
+#include "boardConfig.h"
 #include "stm32f4_delay.h"
 #include "algorithms\mathUnit.h"
 
 /* Exported types --------------------------------------------------------------------------*/
-typedef void (*pFunc)(void);
+typedef void (*pFunc)( void );
 
 /* Exported constants ----------------------------------------------------------------------*/
-
-#define U8_MAX    ((uint8_t)255)
-#define S8_MAX    ((int8_t)127)
-#define S8_MIN    ((int8_t)-128)
-#define U16_MAX   ((uint16_t)65535u)
-#define S16_MAX   ((int16_t)32767)
-#define S16_MIN   ((int16_t)-32768)
-#define U32_MAX   ((uint32_t)4294967295uL)
-#define S32_MAX   ((int32_t)2147483647)
-#define S32_MIN   ((int32_t)-2147483648)
-
-#if !defined(NULL)
-#define NULL 0
-#endif
-
 /* Exported macro --------------------------------------------------------------------------*/
 #define __GPIO_SET(_PORT, _PIN)         ((_PORT)->BSRR = (_PIN))
 #define __GPIO_RST(_PORT, _PIN)         ((_PORT)->BSRR = ((uint32_t)_PIN << 16U))

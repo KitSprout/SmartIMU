@@ -22,13 +22,22 @@
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "stm32f4xx.h"
+#include "stm32f4_system.h"
 
 /* Exported types --------------------------------------------------------------------------*/
+typedef struct {
+  ADC_HandleTypeDef *handle;
+  uint16_t *convValue;
+} AdcHandle_st;
+
 /* Exported constants ----------------------------------------------------------------------*/
+#define ADC_CONV    1.611328125f  // R = R2/(R1+R2) = 0.5, 3300mV / (2^12 * R)
+
 /* Exported functions ----------------------------------------------------------------------*/  
 void     ADC_Config( void );
 uint16_t ADC_GetValue( void );
+
+extern AdcHandle_st hAdc1;
 
 #ifdef __cplusplus
 }

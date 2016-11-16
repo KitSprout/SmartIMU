@@ -6,25 +6,23 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    smartimu_it.c
+  * @file    stm32f4xx_it.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
+#include "drivers\stm32f4_adc.h"
+#include "modules\serial.h"
 
 /** @addtogroup STM32_Interrupt
   * @{
   */
 
 /* Private variables -----------------------------------------------------------------------*/
-extern ADC_HandleTypeDef AdcHandle;
-extern UART_HandleTypeDef SerialHandle;
-extern pFunc IRQEven_UART6;
-
 /* Private functions -----------------------------------------------------------------------*/
 
 void NMI_Handler( void ) { while(1); }
@@ -92,7 +90,7 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 //void TIM7_IRQHandler( void )
 void DMA2_Stream0_IRQHandler( void )
 {
-  HAL_DMA_IRQHandler(AdcHandle.DMA_Handle);
+  HAL_DMA_IRQHandler(hAdc1.handle->DMA_Handle);
 }
 //void DMA2_Stream1_IRQHandler( void )
 //void DMA2_Stream2_IRQHandler( void )
@@ -110,10 +108,20 @@ void DMA2_Stream0_IRQHandler( void )
 //void DMA2_Stream7_IRQHandler( void )
 void USART6_IRQHandler( void )
 {
-  if (__HAL_UART_GET_IT_SOURCE(&SerialHandle, UART_IT_RXNE) != RESET) {
-    IRQEven_UART6();
+#if defined(KS_HW_UART_HAL_LIBRARY)
+  HAL_UART_IRQHandler(hSerial.handle);
+
+#else
+  if (__HAL_UART_GET_IT_SOURCE(hSerial.handle, UART_IT_TXE) != RESET) {
+    __HAL_UART_GET_IT_SOURCE(hSerial.handle, UART_IT_TXE);
+    HAL_UART_TxCpltCallback(hSerial.handle);
   }
-  __HAL_UART_GET_IT_SOURCE(&SerialHandle, UART_IT_RXNE);
+  if (__HAL_UART_GET_IT_SOURCE(hSerial.handle, UART_IT_RXNE) != RESET) {
+    __HAL_UART_GET_IT_SOURCE(hSerial.handle, UART_IT_RXNE);
+    HAL_UART_RxCpltCallback(hSerial.handle);
+  }
+
+#endif
 }
 //void I2C3_EV_IRQHandler( void )
 //void I2C3_ER_IRQHandler( void )

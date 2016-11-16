@@ -8,7 +8,7 @@
   * 
   * @file    string.c
   * @author  KitSprout
-  * @date    6-Oct-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */

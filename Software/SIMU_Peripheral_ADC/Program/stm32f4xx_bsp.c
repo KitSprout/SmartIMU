@@ -6,9 +6,9 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    smartimu_bsp.c
+  * @file    stm32f4xx_bsp.c
   * @author  KitSprout
-  * @date    13-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -17,7 +17,7 @@
 #include "drivers\stm32f4_system.h"
 #include "drivers\stm32f4_adc.h"
 #include "modules\serial.h"
-#include "smartimu_bsp.h"
+#include "stm32f4xx_bsp.h"
 
 /** @addtogroup STM32_Program
   * @{
@@ -27,12 +27,10 @@
 /* Private define --------------------------------------------------------------------------*/
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
-pFunc IRQEven_UART6 = NULL;
-
 /* Private function prototypes -------------------------------------------------------------*/
 /* Private functions -----------------------------------------------------------------------*/
 
-void SIMU_GPIO_Config( void )
+void BSP_GPIO_Config( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
 
@@ -78,17 +76,16 @@ void SIMU_GPIO_Config( void )
   LED_B_Set();
 }
 
-void SIMU_ADC_Config( void )
+void BSP_ADC_Config( void )
 {
   ADC_Config();
 }
 
-void SIMU_UART_Config( pFunc pUARTx )
+void BSP_UART_Config( pFunc txEven, pFunc rxEven )
 {
-  uint8_t interrupt = (pUARTx == NULL) ? DISABLE : ENABLE;
-  IRQEven_UART6 = pUARTx;
-
-  Serial_Config(interrupt);
+  hSerial.RxCallback = txEven;
+  hSerial.RxCallback = rxEven;
+  Serial_Config();
   printf("\r\nHello World!\r\n\r\n");
 }
 

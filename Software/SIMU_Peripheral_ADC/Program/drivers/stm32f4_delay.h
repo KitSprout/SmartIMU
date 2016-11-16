@@ -8,7 +8,7 @@
   * 
   * @file    stm32f4_delay.h
   * @author  KitSprout
-  * @date    4-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -22,14 +22,14 @@
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "stm32f4xx.h"
+#include "core_cm4.h"
 
 /* Exported types --------------------------------------------------------------------------*/
 /* Exported constants ----------------------------------------------------------------------*/
 #define delay_ms(__ms)    HAL_Delay(__ms)
 
 /* Exported functions ----------------------------------------------------------------------*/  
-void delay_us( __IO uint32_t vCnt_us );
+void delay_us( __IO uint32_t __us );
 
 #ifdef __cplusplus
 }

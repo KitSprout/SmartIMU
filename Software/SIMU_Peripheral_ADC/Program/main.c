@@ -8,7 +8,7 @@
   * 
   * @file    main.c
   * @author  KitSprout
-  * @date    5-Nov-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
@@ -17,7 +17,7 @@
 #include "drivers\stm32f4_system.h"
 #include "drivers\stm32f4_adc.h"
 #include "modules\serial.h"
-#include "smartimu_bsp.h"
+#include "stm32f4xx_bsp.h"
 
 /** @addtogroup STM32_Program
   * @{
@@ -33,10 +33,9 @@
 int main( void )
 {
   HAL_Init();
-
-  SIMU_GPIO_Config();
-  SIMU_ADC_Config();
-  SIMU_UART_Config(NULL);
+  BSP_GPIO_Config();
+  BSP_ADC_Config();
+  BSP_UART_Config(NULL, NULL);
 
   while (1) {
     printf("VIN = %4d mV\r\n", ADC_GetValue());

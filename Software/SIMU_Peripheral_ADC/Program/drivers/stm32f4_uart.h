@@ -6,33 +6,37 @@
   *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
   *                    /_/   github.com/KitSprout    
   * 
-  * @file    stm32f4_usart.h
+  * @file    stm32f4_uart.h
   * @author  KitSprout
-  * @date    6-Oct-2016
+  * @date    16-Nov-2016
   * @brief   
   * 
   */
 
 /* Define to prevent recursive inclusion ---------------------------------------------------*/
-#ifndef __STM32F4_USART_H
-#define __STM32F4_USART_H
+#ifndef __STM32F4_UART_H
+#define __STM32F4_UART_H
 
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "stm32f4xx.h"
+#include "stm32f4_system.h"
 
 /* Exported types --------------------------------------------------------------------------*/
+typedef struct {
+  UART_HandleTypeDef *handle;
+  pFunc TxCallback;
+  pFunc RxCallback;
+  uint8_t *pTxBuf;
+  uint8_t *pRxBuf;
+} UartHandle_st;
+
 /* Exported constants ----------------------------------------------------------------------*/
 /* Exported functions ----------------------------------------------------------------------*/  
-void   UART_SendByte( USART_TypeDef *USARTx, uint8_t *sendByte );
-void   UART_RecvByte( USART_TypeDef *USARTx, uint8_t *recvByte );
-int8_t UART_RecvByteWTO( USART_TypeDef *USARTx, uint8_t *recvByte, uint32_t timeoutMs );
-void   UART_SendData( USART_TypeDef *USARTx, uint8_t *sendData, uint16_t lens );
-void   UART_RecvData( USART_TypeDef *USARTx, uint8_t *recvData, uint16_t lens );
-int8_t UART_RecvDataWTO( USART_TypeDef *USARTx, uint8_t *recvData, uint16_t lens, uint32_t timeoutMs );
+int8_t  UART_SendData( UART_HandleTypeDef *huart, uint8_t *sendData, uint16_t lens, uint32_t timeout );
+int8_t  UART_RecvData( UART_HandleTypeDef *huart, uint8_t *recvData, uint16_t lens, uint32_t timeout );
 
 #ifdef __cplusplus
 }

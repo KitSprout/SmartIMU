@@ -23,75 +23,133 @@
 
 /* Private typedef -------------------------------------------------------------------------*/
 /* Private define --------------------------------------------------------------------------*/
-#define ADCx                    ADC1
-#define ADCx_CLK_ENABLE()       __HAL_RCC_ADC1_CLK_ENABLE()
-#define DMAx_CLK_ENABLE()       __HAL_RCC_DMA2_CLK_ENABLE()
-
-#define ADCx_CHANNEL_PIN        GPIO_PIN_1
-#define ADCx_CHANNEL_GPIO_PORT  GPIOB
-
-#define ADCx_CHANNEL            ADC_CHANNEL_9
-
-#define ADCx_DMA_CHANNEL        DMA_CHANNEL_0
-#define ADCx_DMA_STREAM         DMA2_Stream0
-#define ADCx_DMA_IRQn           DMA2_Stream0_IRQn
-
 /* Private macro ---------------------------------------------------------------------------*/
 /* Private variables -----------------------------------------------------------------------*/
-ADC_HandleTypeDef AdcHandle;
-__IO uint16_t ADCxConvertedValue = 0;
+static ADC_HandleTypeDef AdcHandle;
+static __IO uint16_t AdcConvBuf[BAT_MAX_CONVBUF]= {0};
+
+AdcHandle_st hAdc1 = {
+  .handle    = &AdcHandle,
+  .convValue = (uint16_t*)AdcConvBuf,
+};
 
 /* Private function prototypes -------------------------------------------------------------*/
-/* Private functions -----------------------------------------------------------------------*/
+
+/* MSP functions ---------------------------------------------------------------------------*/
 
 void HAL_ADC_MspInit( ADC_HandleTypeDef *hadc )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
-  static DMA_HandleTypeDef hdma_adc;
+  static DMA_HandleTypeDef hadcDma;
 
-  /* ADC and DMA Clk ***********************************************************/
-  ADCx_CLK_ENABLE();
-  DMAx_CLK_ENABLE();
+  if (hadc->Instance == BAT_ADCx) {
 
-  /* ADC Pin *******************************************************************/
-  GPIO_InitStruct.Pin  = ADCx_CHANNEL_PIN;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(ADCx_CHANNEL_GPIO_PORT, &GPIO_InitStruct);
+    /* ADC and DMA Clk ***********************************************************/
+    BAT_ADCx_CLK_ENABLE();
+    BAT_DMAx_CLK_ENABLE();
 
-  /* DMA Init ******************************************************************/
-  hdma_adc.Instance                 = ADCx_DMA_STREAM;
-  hdma_adc.Init.Channel             = ADCx_DMA_CHANNEL;
-  hdma_adc.Init.Direction           = DMA_PERIPH_TO_MEMORY;
-  hdma_adc.Init.PeriphInc           = DMA_PINC_DISABLE;
-  hdma_adc.Init.MemInc              = DMA_MINC_ENABLE;
-  hdma_adc.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-  hdma_adc.Init.MemDataAlignment    = DMA_MDATAALIGN_WORD;
-  hdma_adc.Init.Mode                = DMA_CIRCULAR;
-  hdma_adc.Init.Priority            = DMA_PRIORITY_HIGH;
-  hdma_adc.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
-  hdma_adc.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_HALFFULL;
-  hdma_adc.Init.MemBurst            = DMA_MBURST_SINGLE;
-  hdma_adc.Init.PeriphBurst         = DMA_PBURST_SINGLE;
-  HAL_DMA_Init(&hdma_adc);
-  __HAL_LINKDMA(hadc, DMA_Handle, hdma_adc);
+    /* ADC Pin *******************************************************************/
+    GPIO_InitStruct.Pin  = BAT_ADCx_CHANNEL_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(BAT_ADCx_CHANNEL_GPIO_PORT, &GPIO_InitStruct);
 
-  /* DMA IT ********************************************************************/
-  HAL_NVIC_SetPriority(ADCx_DMA_IRQn, 0x0F, 0x0F);
-  HAL_NVIC_EnableIRQ(ADCx_DMA_IRQn);
+    /* DMA Init ******************************************************************/
+    hadcDma.Instance                 = BAT_ADCx_DMA_STREAM;
+    hadcDma.Init.Channel             = BAT_ADCx_DMA_CHANNEL;
+    hadcDma.Init.Direction           = DMA_PERIPH_TO_MEMORY;
+    hadcDma.Init.PeriphInc           = DMA_PINC_DISABLE;
+    hadcDma.Init.MemInc              = DMA_MINC_ENABLE;
+    hadcDma.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hadcDma.Init.MemDataAlignment    = DMA_MDATAALIGN_WORD;
+    hadcDma.Init.Mode                = DMA_CIRCULAR;
+    hadcDma.Init.Priority            = DMA_PRIORITY_HIGH;
+    hadcDma.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
+    hadcDma.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_HALFFULL;
+    hadcDma.Init.MemBurst            = DMA_MBURST_SINGLE;
+    hadcDma.Init.PeriphBurst         = DMA_PBURST_SINGLE;
+    HAL_DMA_Init(&hadcDma);
+    __HAL_LINKDMA(hadc, DMA_Handle, hadcDma);
+
+    /* DMA IT ********************************************************************/
+    HAL_NVIC_SetPriority(BAT_ADCx_DMA_IRQn, 0x0F, 0x0F);
+    HAL_NVIC_EnableIRQ(BAT_ADCx_DMA_IRQn);
+  }
 }
 
 /**
+  * @brief ADC MSP De-Initialization
+  */
+void HAL_ADC_MspDeInit( ADC_HandleTypeDef *hadc )
+{
+  if (hadc->Instance == BAT_ADCx) {
+    BAT_ADCx_FORCE_RESET();
+    BAT_ADCx_RELEASE_RESET();
+    HAL_GPIO_DeInit(BAT_ADCx_CHANNEL_GPIO_PORT, BAT_ADCx_CHANNEL_PIN);
+  }
+}
+
+/**
+  * @brief  Regular conversion complete callback in non blocking mode 
+  */
+void HAL_ADC_ConvCpltCallback( ADC_HandleTypeDef* hadc )
+{
+  if (hadc->Instance == BAT_ADCx) {
+    // ...
+  }
+}
+
+/**
+  * @brief  Regular conversion half DMA transfer callback in non blocking mode 
+  */
+void HAL_ADC_ConvHalfCpltCallback( ADC_HandleTypeDef* hadc )
+{
+  if (hadc->Instance == BAT_ADCx) {
+    // ...
+  }
+}
+
+/**
+  * @brief  Analog watchdog callback in non blocking mode 
+  */
+void HAL_ADC_LevelOutOfWindowCallback( ADC_HandleTypeDef* hadc )
+{
+  if (hadc->Instance == BAT_ADCx) {
+    // ...
+  }
+}
+
+/**
+  * @brief  Error ADC callback.
+  */
+void HAL_ADC_ErrorCallback( ADC_HandleTypeDef *hadc )
+{
+  if (hadc->Instance == BAT_ADCx) {
+    // ...
+  }
+}
+
+/**
+  * @brief  Injected conversion complete callback in non blocking mode 
+  */
+void HAL_ADCEx_InjectedConvCpltCallback( ADC_HandleTypeDef* hadc )
+{
+  if (hadc->Instance == BAT_ADCx) {
+    // ...
+  }
+}
+
+/* Private functions -----------------------------------------------------------------------*/
+
+/**
   * @brief  ADC_Config
-  * @param  None
-  * @retval None
   */
 void ADC_Config( void )
 {
   ADC_ChannelConfTypeDef ADC_ChannelConfStruct;
 
   /* ADC Init ******************************************************************/
-  AdcHandle.Instance                   = ADCx;
+  AdcHandle.Instance                   = BAT_ADCx;
   AdcHandle.Init.ClockPrescaler        = ADC_CLOCKPRESCALER_PCLK_DIV4;
   AdcHandle.Init.Resolution            = ADC_RESOLUTION_12B;
   AdcHandle.Init.ScanConvMode          = DISABLE;
@@ -101,34 +159,28 @@ void ADC_Config( void )
   AdcHandle.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
   AdcHandle.Init.ExternalTrigConv      = ADC_EXTERNALTRIGCONV_T1_CC1;
   AdcHandle.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
-  AdcHandle.Init.NbrOfConversion       = 1;
+  AdcHandle.Init.NbrOfConversion       = BAT_MAX_CONVBUF;
   AdcHandle.Init.DMAContinuousRequests = ENABLE;
   AdcHandle.Init.EOCSelection          = DISABLE;
   if (HAL_ADC_Init(&AdcHandle) != HAL_OK)
     while (1) { ; }
 
   /* ADC Channel Init **********************************************************/
-  ADC_ChannelConfStruct.Channel      = ADCx_CHANNEL;
-  ADC_ChannelConfStruct.Rank         = 1;
+  ADC_ChannelConfStruct.Channel      = BAT_ADCx_CHANNEL;
+  ADC_ChannelConfStruct.Rank         = BAT_ADCx_RANK;
   ADC_ChannelConfStruct.SamplingTime = ADC_SAMPLETIME_480CYCLES;
   ADC_ChannelConfStruct.Offset       = 0;
   if (HAL_ADC_ConfigChannel(&AdcHandle, &ADC_ChannelConfStruct) != HAL_OK)
     while (1) { ; }
 
   /* ADC Start *****************************************************************/
-  if(HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)&ADCxConvertedValue, 1) != HAL_OK)
+  if(HAL_ADC_Start_DMA(&AdcHandle, (uint32_t*)AdcConvBuf, BAT_MAX_CONVBUF) != HAL_OK)
     while (1) { ; }
 }
 
-#define ADC_CONV  1.611328125f  // R = R2/(R1+R2) = 0.5, 3300mV / (2^12 * R)
 uint16_t ADC_GetValue( void )
 {
-  return ((uint16_t)(ADCxConvertedValue * 1.611328125f));
-}
-
-void HAL_ADC_ConvCpltCallback( ADC_HandleTypeDef* AdcHandle )
-{
-  UNUSED(AdcHandle);
+  return ((uint16_t)(AdcConvBuf[0] * 1.611328125f));
 }
 
 /*************************************** END OF FILE ****************************************/
