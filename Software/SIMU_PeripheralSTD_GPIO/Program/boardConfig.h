@@ -29,6 +29,7 @@
 #define KS_HW_MCU_NAME                "STM32F412Rx"
 
 #define NVIC_IRQn_GROUP               NVIC_PriorityGroup_4
+#define SYSCFG_CLK_ENABLE()           RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
 /* -------- LED and KEY */
 #define LED_R_PIN                     GPIO_Pin_15

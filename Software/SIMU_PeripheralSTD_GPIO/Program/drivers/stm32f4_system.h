@@ -50,6 +50,16 @@ typedef void (*pFunc)( void );
 #define Byte16U8H(_B16U8)               ((uint8_t)(((uint16_t)(_B16U8)&0xFF00)>>8))
 #define Byte16U8L(_B16U8)               ((uint8_t)( (uint16_t)(_B16U8)&0x00FF))
 
+/* Compatible HAL Library */
+#define HAL_MAX_DELAY   0xFFFFFFFFU
+
+typedef enum {
+  HAL_OK       = 0x00U,
+  HAL_ERROR    = 0x01U,
+  HAL_BUSY     = 0x02U,
+  HAL_TIMEOUT  = 0x03U
+} HAL_StatusTypeDef;
+
 /* Exported functions ----------------------------------------------------------------------*/  
 
 #ifdef __cplusplus
