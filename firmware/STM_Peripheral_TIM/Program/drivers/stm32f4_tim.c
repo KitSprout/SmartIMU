@@ -1,4 +1,4 @@
- /**
+/**
  *      __            ____
  *     / /__ _  __   / __/                      __  
  *    / //_/(_)/ /_ / /  ___   ____ ___  __ __ / /_ 
@@ -57,7 +57,7 @@ void Timer2_Config( uint32_t prescaler, uint32_t period )
   HAL_TIM_Base_Start_IT(hTimer2.handle);
 }
 
-void Timer2_Cmd( uint8_t cmd )
+void Timer2_Cmd( uint32_t cmd )
 {
   if (cmd == ENABLE) {
     HAL_TIM_Base_Start_IT(hTimer2.handle);

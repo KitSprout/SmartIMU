@@ -8,7 +8,7 @@
  * 
  *  @file    main.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -22,47 +22,51 @@
  */
 
 /* Define ----------------------------------------------------------------------------------*/
+#define TIMER_TICK_FREQ   1000
+
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
-__IO uint32_t sec = 0, msc = 0;
-uint32_t counter_10ms = 0;
-uint32_t counter_100ms = 0;
-uint32_t counter_1000ms = 0;
+static uint32_t sec = 0;
+static uint32_t msc = 0;
+
+//uint32_t tick_10ms = 0;
+//uint32_t tick_100ms = 0;
+uint32_t tick_1000ms = 0;
 
 /* Prototypes ------------------------------------------------------------------------------*/
-void IRQEvent_TimerTick( void );
+void timer_tick_event( void );
 
 /* Functions -------------------------------------------------------------------------------*/
 
 int main( void )
 {
-  HAL_Init();
-  BSP_GPIO_Config();
-  BSP_TIMER2_Config(IRQEvent_TimerTick, 1000);
+  bsp_gpio_init();
+  bsp_timer_init(timer_tick_event, 1000);
+  bsp_timer_enable(ENABLE);
 
   while (1) {
-    if (counter_10ms == 10) {
-      counter_10ms = 0;
-      LED_B_Toggle();
-    }
-    if (counter_100ms == 100) {
-      counter_100ms = 0;
-      LED_G_Toggle();
-    }
-    if (counter_1000ms == 1000) {
-      counter_1000ms = 0;
+//    if (tick_10ms == 10) {
+//      tick_10ms = 0;
+//      LED_B_Toggle();
+//    }
+//    if (tick_100ms == 100) {
+//      tick_100ms = 0;
+//      LED_G_Toggle();
+//    }
+    if (tick_1000ms == 1000) {
+      tick_1000ms = 0;
       LED_R_Toggle();
     }
   }
 }
 
-void IRQEvent_TimerTick( void )
+void timer_tick_event( void )
 {
-  counter_10ms++;
-  counter_100ms++;
-  counter_1000ms++;
-  if (++msc == 60) {
+//  tick_10ms++;
+//  tick_100ms++;
+  tick_1000ms++;
+  if (++msc >= TIMER_TICK_FREQ) {
     msc = 0;
     sec++;
   }

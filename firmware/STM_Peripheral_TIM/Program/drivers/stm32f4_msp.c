@@ -8,7 +8,7 @@
  * 
  *  @file    stm32f4_msp.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -52,7 +52,7 @@ void HAL_MspInit( void )
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-#if KS_HW_HCLOCK_SOUCE
+#if KS_HW_HCLOCK_SOUCE == KS_HW_USE_CLOCK_SOUCE_EXT
   /* Enable HSE Oscillator and activate PLL with HSE as source */
   RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState            = RCC_HSE_ON;

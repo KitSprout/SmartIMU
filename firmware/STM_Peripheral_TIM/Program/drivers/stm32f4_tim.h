@@ -40,7 +40,7 @@ extern TimHandle_st hTimer2;
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
 void Timer2_Config( uint32_t prescaler, uint32_t period );
-void Timer2_Cmd( uint8_t cmd );
+void Timer2_Cmd( uint32_t cmd );
 
 #ifdef __cplusplus
 }

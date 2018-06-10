@@ -29,9 +29,11 @@
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
 
-void BSP_GPIO_Config( void )
+void bsp_gpio_init( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
+
+  HAL_Init();
 
   /* Enable all GPIO Clk *******************************************************/
   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -68,11 +70,15 @@ void BSP_GPIO_Config( void )
   LED_B_Off();
 }
 
-void BSP_TIMER2_Config( pFunc event, uint16_t freq )
+void bsp_timer_init( pFunc event, uint32_t freq )
 {
   hTimer2.tickEventCallback = event;
   Timer2_Config(TIMx_CLOCK(freq, 1000), 1000);
-  Timer2_Cmd(ENABLE);
+}
+
+void bsp_timer_enable( uint32_t state )
+{
+  Timer2_Cmd(state);
 }
 
 /*************************************** END OF FILE ****************************************/

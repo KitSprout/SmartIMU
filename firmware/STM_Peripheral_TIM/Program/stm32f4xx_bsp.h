@@ -8,7 +8,7 @@
  * 
  *  @file    stm32f4xx_bsp.h
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -30,8 +30,9 @@
 /* Variables -------------------------------------------------------------------------------*/
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
-void BSP_GPIO_Config( void );
-void BSP_TIMER2_Config( pFunc event, uint16_t freq );
+void      bsp_gpio_init( void );
+void      bsp_timer_init( pFunc event, uint32_t freq );
+void      bsp_timer_enable( uint32_t state );
 
 #ifdef __cplusplus
 }
