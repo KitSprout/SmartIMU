@@ -104,6 +104,8 @@ void testFlash( void )
   FLASH_ReadPageU8(FLASH_USER_ADDR, ReadDataU8, 1024);
   if (compareArray(KS_U8, WriteDataU8, ReadDataU8, 1024) == KS_OK) {
     LED_R_On();
+    LED_G_Off();
+    LED_B_Off();
   }
   delay_ms(500);
 #endif
@@ -113,7 +115,9 @@ void testFlash( void )
   FLASH_WritePageU16(FLASH_USER_ADDR, WriteDataU16, 512);
   FLASH_ReadPageU16(FLASH_USER_ADDR, ReadDataU16, 512);
   if (compareArray(KS_U16, WriteDataU16, ReadDataU16, 512) == KS_OK) {
+    LED_R_Off();
     LED_G_On();
+    LED_B_Off();
   }
   delay_ms(500);
 #endif
@@ -123,6 +127,8 @@ void testFlash( void )
   FLASH_WritePageU32(FLASH_USER_ADDR, WriteDataU32, 256);
   FLASH_ReadPageU32(FLASH_USER_ADDR, ReadDataU32, 256);
   if (compareArray(KS_U32, WriteDataU32, ReadDataU32, 256) == KS_OK) {
+    LED_R_Off();
+    LED_G_Off();
     LED_B_On();
   }
   delay_ms(500);
@@ -142,12 +148,15 @@ void testFlash( void )
 #endif
 
   delay_ms(1000);
+
+  LED_R_Off();
+  LED_G_Off();
+  LED_B_Off();
 }
 
 int main( void )
 {
-  HAL_Init();
-  BSP_GPIO_Config();
+  bsp_gpio_init();
 
   testFlash();
 
