@@ -8,7 +8,7 @@
  * 
  *  @file    main.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -30,22 +30,21 @@
 
 int main( void )
 {
-  HAL_Init();
-  BSP_GPIO_Config();
+  bsp_gpio_init();
 
   while (1) {
     LED_R_On();
-    delay_ms(80);
+    delay_ms(200);
     LED_R_Off();
-    delay_ms(80);
+    delay_ms(200);
     LED_G_On();
-    delay_ms(80);
+    delay_ms(200);
     LED_G_Off();
-    delay_ms(80);
+    delay_ms(200);
     LED_B_On();
-    delay_ms(80);
+    delay_ms(200);
     LED_B_Off();
-    delay_ms(80);
+    delay_ms(200);
   }
 }
 

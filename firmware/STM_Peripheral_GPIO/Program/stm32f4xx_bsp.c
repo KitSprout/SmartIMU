@@ -8,7 +8,7 @@
  * 
  *  @file    stm32f4xx_bsp.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -28,9 +28,11 @@
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
 
-void BSP_GPIO_Config( void )
+void bsp_gpio_init( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
+
+  HAL_Init();
 
   /* Enable all GPIO Clk *******************************************************/
   __HAL_RCC_GPIOA_CLK_ENABLE();
