@@ -22,18 +22,20 @@
 #endif
 
 /* Includes --------------------------------------------------------------------------------*/
-#include "stm32f4xx.h"
+#include "drivers\stm32f4_system.h"
 #include "algorithms\mathUnit.h"
 
 /* Define ----------------------------------------------------------------------------------*/
 #define KSERIAL_SEND_ENABLE   (1U)
-#define KSERIAL_RECV_ENABLE   (0U)
+#define KSERIAL_RECV_ENABLE   (1U)
 
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Extern ----------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
-void      kSerial_Config( USART_TypeDef *USARTx );
+//void      kSerial_SetSendFunction( uint32_t (*fptr)(uint8_t *, uint32_t) );
+//void      kSerial_SetRecvByteFunction( uint8_t (*fptr)(void) );
+
 uint32_t  kSerial_Check( uint8_t *packet, void *param, uint16_t *lens, uint8_t *type );
 uint32_t  kSerial_Pack( uint8_t *packet, void *param, void *data, const uint16_t lens, const uint8_t type );
 uint32_t  kSerial_Unpack( uint8_t *packet, void *param, void *data, uint16_t *lens, uint8_t *type );

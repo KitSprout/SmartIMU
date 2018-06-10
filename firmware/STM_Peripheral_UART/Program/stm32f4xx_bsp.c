@@ -29,11 +29,15 @@
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
 /* Prototypes ------------------------------------------------------------------------------*/
+void HW_BoardInformation( void );
+
 /* Functions -------------------------------------------------------------------------------*/
 
-void BSP_GPIO_Config( void )
+void bsp_gpio_init( void )
 {
   GPIO_InitTypeDef GPIO_InitStruct;
+
+  HAL_Init();
 
   /* Enable all GPIO Clk *******************************************************/
   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -70,19 +74,24 @@ void BSP_GPIO_Config( void )
   LED_B_Off();
 }
 
-void BSP_TIM_TICK_Config( pFunc event, uint16_t freq )
+void bsp_timer_init( pFunc event, uint32_t freq )
 {
-  hTim10.tickEventCallback = event;
+  hTimer10.tickEventCallback = event;
   Timer10_Config(TIMx_CLOCK(freq, 1000), 1000);
-  Timer10_Cmd(ENABLE);
 }
 
-void BSP_UART_SERIAL_Config( pFunc event )
+void bsp_timer_enable( uint32_t state )
+{
+  Timer10_Cmd(state);
+}
+
+void bsp_uart_serial_init( pFunc event )
 {
   hSerial.rxEventCallback = event;
 
   Serial_Config();
-  kSerial_Config(SERIAL_UARTx);
+
+  HW_BoardInformation();
   printf("\r\nHello World!\r\n\r\n");
 }
 

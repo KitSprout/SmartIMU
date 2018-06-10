@@ -24,6 +24,7 @@
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\stm32f4_system.h"
+#include "modules\serial.h"
 #include "modules\kSerial.h"
 
 /** @addtogroup STM32_Module
@@ -37,54 +38,41 @@
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
-#if KSERIAL_SEND_ENABLE || KSERIAL_RECV_ENABLE
-static USART_TypeDef *kSerialUart = NULL;
-#endif
-
 #if KSERIAL_SEND_ENABLE
 static uint8_t ksSendBuffer[KS_MAX_SEND_BUFF_SIZE] = {0};
+//static uint32_t (*pKSerialSend)( uint8_t *, uint32_t) = NULL;
+#define pKSerialSend(__DATA, __LENS)    Serial_SendData(__DATA, __LENS, HAL_MAX_DELAY)
 #endif
 
 #if KSERIAL_RECV_ENABLE
 static uint8_t ksRecvBuffer[KS_MAX_RECV_BUFF_SIZE] = {0};
+//static uint32_t (*pKSerialRecv)( uint8_t *, uint32_t) = NULL;
+//static uint8_t (*pKSerialRecvByte)( void ) = NULL;
+#define pKSerialRecvByte()              Serial_RecvByte()
 #endif
 
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
 
-#if KSERIAL_SEND_ENABLE
-/**
- *  @brief  kSerial_Send
- */
-static void kSerial_Send( uint8_t *sendData, uint16_t lens )
-{
-  do {
-    kSerialUart->DR = (*sendData++ & (uint16_t)0x01FF);
-    while (!(kSerialUart->SR & UART_FLAG_TXE));
-  } while (--lens);
-}
-#endif
+//#if KSERIAL_SEND_ENABLE
+///**
+// *  @brief  kSerial_SetSendFunction
+// */
+//void kSerial_SetSendFunction( uint32_t (*fptr)(uint8_t *, uint32_t) )
+//{
+//  pKSerialSend = fptr;
+//}
+//#endif
 
-#if KSERIAL_RECV_ENABLE
-/**
- *  @brief  kSerial_Recv
- */
-static uint8_t kSerial_Recv( void )
-{
-  while (!(kSerialUart->SR & UART_FLAG_RXNE));
-  return ((uint16_t)(kSerialUart->DR & (uint16_t)0x01FF));
-}
-#endif
-
-/**
- *  @brief  kSerial_Config
- */
-void kSerial_Config( USART_TypeDef *USARTx )
-{
-#if KSERIAL_SEND_ENABLE || KSERIAL_RECV_ENABLE
-  kSerialUart = USARTx;
-#endif
-}
+//#if KSERIAL_RECV_ENABLE
+///**
+// *  @brief  kSerial_SetSendFunction
+// */
+//void kSerial_SetRecvByteFunction( uint8_t (*fptr)(void) )
+//{
+//  pKSerialRecvByte = fptr;
+//}
+//#endif
 
 /**
  *  @brief  kSerial_Check
@@ -174,7 +162,7 @@ uint32_t kSerial_SendPacket( void *param, void *data, const uint16_t lens, const
 
   kSerial_Pack(ksSendBuffer, param, data, lens, type);
   totalLens = (((uint16_t)ksSendBuffer[3] << 2) & 0x0300) | ksSendBuffer[2];
-  kSerial_Send(ksSendBuffer, totalLens);
+  pKSerialSend(ksSendBuffer, totalLens);
 
   return KS_OK;
 }
@@ -192,7 +180,7 @@ uint32_t kSerial_RecvPacket( void *param, void *data, uint16_t *lens, uint8_t *t
 
   uint32_t state;
 
-  ksRecvBuffer[point] = kSerial_Recv();
+  ksRecvBuffer[point] = pKSerialRecvByte();
 
   if (point > 1) {
     if ((ksRecvBuffer[point - 2] == 'K') && (ksRecvBuffer[point - 1] == 'S')) {

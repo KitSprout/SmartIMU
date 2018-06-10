@@ -27,39 +27,40 @@
 #define UART_POLLING      (0U)
 #define UART_INTERRUPT    (1U)
 #define UART_KSERIAL      (2U)
-#define UAER_MODE         UART_POLLING
+#define UAER_MODE         UART_INTERRUPT
 
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
+
 #if UAER_MODE == UART_KSERIAL
-static uint32_t sec = 0, msc = 0;
+static uint32_t sec = 0;
+static uint32_t msc = 0;
 #endif
 
 /* Prototypes ------------------------------------------------------------------------------*/
+
 #if UAER_MODE == UART_INTERRUPT
-void IRQEvent_SerialRecv( void );
+void uart_serial_recv_event( void );
 #elif UAER_MODE == UART_KSERIAL
-void IRQEvent_TimerTick( void );
+void timer_tick_event( void );
 #endif
 
 /* Functions -------------------------------------------------------------------------------*/
 
 int main( void )
 {
-  HAL_Init();
-  BSP_GPIO_Config();
+  bsp_gpio_init();
 
 #if UAER_MODE == UART_POLLING
 
-  BSP_UART_SERIAL_Config(NULL);
-  static uint8_t i = 0;
+  uint32_t i = 0;
+  bsp_uart_serial_init(NULL);
   while (1) {
     uint32_t status = Serial_RecvData(hSerial.pRxBuf, 1, 500);
     if (status == KS_TIMEOUT) {
       LED_R_Toggle();
-      printf("Timeout ... %d\r\n", i);
-      i = (i == 255) ? 0 : i + 1;
+      printf("Timeout ... %d\r\n", i++);
     }
     else if (hSerial.pRxBuf[0] == 0x0D) { // if press enter
       LED_G_Toggle();
@@ -74,7 +75,7 @@ int main( void )
 
 #elif UAER_MODE == UART_INTERRUPT
 
-  BSP_UART_SERIAL_Config(IRQEvent_SerialRecv);
+  bsp_uart_serial_init(uart_serial_recv_event);
 #if KS_FW_UART_HAL_LIBRARY
   Serial_RecvDataIT(hSerial.pRxBuf, 1);
 #endif
@@ -85,17 +86,18 @@ int main( void )
 
 
 #elif UAER_MODE == UART_KSERIAL
-#define TIM_TICK_FREQ   1000
+#define TIMER_TICK_FREQ   1000
 
-  BSP_TIM_TICK_Config(IRQEvent_TimerTick, TIM_TICK_FREQ);
-  BSP_UART_SERIAL_Config(NULL);
+  bsp_timer_init(timer_tick_event, TIMER_TICK_FREQ);
+  bsp_timer_enable(ENABLE);
+  bsp_uart_serial_init(NULL);
+
   while (1) {
     LED_G_Toggle();
-//    delay_ms(100);
 
     int16_t buff[2];
     buff[0] = sec;
-    buff[1] = msc * (1000.0f / TIM_TICK_FREQ);
+    buff[1] = msc * (1000.0f / TIMER_TICK_FREQ);
     kSerial_SendPacket(NULL, buff, 2, KS_I16);
   }
 
@@ -108,7 +110,7 @@ int main( void )
 }
 
 #if UAER_MODE == UART_INTERRUPT
-void IRQEvent_SerialRecv( void )
+void uart_serial_recv_event( void )
 {
 #if KS_FW_UART_HAL_LIBRARY
   Serial_RecvDataIT(hSerial.pRxBuf, 1);
@@ -126,9 +128,9 @@ void IRQEvent_SerialRecv( void )
 }
 
 #elif UAER_MODE == UART_KSERIAL
-void IRQEvent_TimerTick( void )
+void timer_tick_event( void )
 {
-  if (++msc == TIM_TICK_FREQ) {
+  if (++msc == TIMER_TICK_FREQ) {
     msc = 0;
     sec++;
   }

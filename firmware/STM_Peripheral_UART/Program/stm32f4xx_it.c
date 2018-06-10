@@ -8,7 +8,7 @@
  * 
  *  @file    stm32f4xx_it.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -63,10 +63,10 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 
 void TIM1_UP_TIM10_IRQHandler( void )
 {
-  if (__HAL_TIM_GET_FLAG(hTim10.handle, TIM_FLAG_UPDATE) != RESET) {
-    if (__HAL_TIM_GET_IT_SOURCE(hTim10.handle, TIM_IT_UPDATE) != RESET) {
-      __HAL_TIM_CLEAR_IT(hTim10.handle, TIM_IT_UPDATE);
-      hTim10.tickEventCallback();
+  if (__HAL_TIM_GET_FLAG(hTimer10.handle, TIM_FLAG_UPDATE) != RESET) {
+    if (__HAL_TIM_GET_IT_SOURCE(hTimer10.handle, TIM_IT_UPDATE) != RESET) {
+      __HAL_TIM_CLEAR_IT(hTimer10.handle, TIM_IT_UPDATE);
+      hTimer10.tickEventCallback();
     }
   }
 }

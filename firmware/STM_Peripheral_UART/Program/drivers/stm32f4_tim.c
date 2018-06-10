@@ -1,4 +1,4 @@
- /**
+/**
  *      __            ____
  *     / /__ _  __   / __/                      __  
  *    / //_/(_)/ /_ / /  ___   ____ ___  __ __ / /_ 
@@ -25,10 +25,10 @@
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
-static TIM_HandleTypeDef htim_tim10;
+static TIM_HandleTypeDef htim_timer10;
 
-TimHandle_st hTim10 = {
-  .handle            = &htim_tim10,
+TimHandle_st hTimer10 = {
+  .handle            = &htim_timer10,
   .tickEventCallback = NULL,
 };
 
@@ -45,25 +45,25 @@ void Timer10_Config( uint32_t prescaler, uint32_t period )
   HAL_NVIC_EnableIRQ(TIMER10_IRQn);
 
   /* TIM Base Config ************************************************************/
-  hTim10.handle->Instance               = TIMER10;
-  hTim10.handle->Init.Prescaler         = prescaler - 1;
-  hTim10.handle->Init.Period            = period - 1;
-  hTim10.handle->Init.ClockDivision     = 0;
-  hTim10.handle->Init.CounterMode       = TIM_COUNTERMODE_UP;
-  hTim10.handle->Init.RepetitionCounter = 0;
-  HAL_TIM_Base_Init(hTim10.handle);
+  hTimer10.handle->Instance               = TIMER10;
+  hTimer10.handle->Init.Prescaler         = prescaler - 1;
+  hTimer10.handle->Init.Period            = period - 1;
+  hTimer10.handle->Init.ClockDivision     = 0;
+  hTimer10.handle->Init.CounterMode       = TIM_COUNTERMODE_UP;
+  hTimer10.handle->Init.RepetitionCounter = 0;
+  HAL_TIM_Base_Init(hTimer10.handle);
 
   /* TIM Enable *****************************************************************/
-  HAL_TIM_Base_Start_IT(hTim10.handle);
+  HAL_TIM_Base_Start_IT(hTimer10.handle);
 }
 
 void Timer10_Cmd( uint32_t cmd )
 {
   if (cmd == ENABLE) {
-    HAL_TIM_Base_Start_IT(hTim10.handle);
+    HAL_TIM_Base_Start_IT(hTimer10.handle);
   }
   else {
-    HAL_TIM_Base_Stop_IT(hTim10.handle);
+    HAL_TIM_Base_Stop_IT(hTimer10.handle);
   }
 }
 
