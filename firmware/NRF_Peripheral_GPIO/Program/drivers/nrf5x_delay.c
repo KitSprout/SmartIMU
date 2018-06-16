@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_delay.c
  *  @author  KitSprout
- *  @date    21-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -47,7 +47,8 @@ void delay_us( __IO uint32_t __us )
 
 /**
  *  @brief  delay_ms
- */void delay_ms( __IO uint32_t __ms )
+ */
+void delay_ms( __IO uint32_t __ms )
 {
   while (__ms != 0) {
     __ms--;

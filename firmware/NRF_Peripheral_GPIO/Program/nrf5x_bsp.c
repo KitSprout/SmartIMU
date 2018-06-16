@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_bsp.c
  *  @author  KitSprout
- *  @date    21-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -29,13 +29,10 @@
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
 
-void BSP_CLOCK_Config( void )
+void bsp_gpio_init( void )
 {
   CLOCK_Config();
-}
 
-void BSP_GPIO_Config( void )
-{
   nrf_gpio_cfg_output(LED_PIN);
   nrf_gpio_cfg_input(KEY_PIN, NRF_GPIO_PIN_PULLUP);
 

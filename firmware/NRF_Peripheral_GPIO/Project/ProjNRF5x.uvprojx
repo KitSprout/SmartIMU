@@ -10,7 +10,7 @@
       <TargetName>NRF52810</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -324,6 +324,7 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
+            <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>0</v6Lang>
             <v6LangP>0</v6LangP>
@@ -449,12 +450,6 @@
               <FilePath>..\Program\algorithms\mathUnit.c</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>nRF_Drivers</GroupName>
-        </Group>
-        <Group>
-          <GroupName>nRF_Libraries</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

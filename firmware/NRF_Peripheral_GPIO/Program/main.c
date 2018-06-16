@@ -8,7 +8,7 @@
  * 
  *  @file    main.c
  *  @author  KitSprout
- *  @date    21-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -30,8 +30,7 @@
 
 int main( void )
 {
-  BSP_CLOCK_Config();
-  BSP_GPIO_Config();
+  bsp_gpio_init();
 
   while (1) {
     LED_Toggle();
