@@ -8,7 +8,7 @@
  * 
  *  @file    main.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -23,36 +23,37 @@
 
 /* Define ----------------------------------------------------------------------------------*/
 #define TIMER_TICK_FREQ   1000
-#define LED_TOGGLE_FREQ   5
 
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
-static uint32_t sec = 0, msc = 0;
-static uint16_t toggleCount = 0;
+static uint32_t sec = 0;
+static uint32_t msc = 0;
+
+uint32_t tick_100ms = 0;
 
 /* Prototypes ------------------------------------------------------------------------------*/
-void IRQEvent_TimerTick( void );
+void timer_tick_event( void );
 
 /* Functions -------------------------------------------------------------------------------*/
 
 int main( void )
 {
-  BSP_CLOCK_Config();
-  BSP_GPIO_Config();
-  BSP_TIMER_Config(IRQEvent_TimerTick, TIMER_TICK_FREQ);
+  bsp_gpio_init();
+  bsp_timer_init(timer_tick_event, TIMER_TICK_FREQ);
+  bsp_timer_enable(ENABLE);
 
   while (1) {
-    if (toggleCount >= (TIMER_TICK_FREQ / LED_TOGGLE_FREQ)) {
-      toggleCount = 0;
+    if (tick_100ms >= 100) {
+      tick_100ms = 0;
       LED_Toggle();
     }
   }
 }
 
-void IRQEvent_TimerTick( void )
+void timer_tick_event( void )
 {
-  toggleCount++;
+  tick_100ms++;
   if (++msc >= TIMER_TICK_FREQ) {
     msc = 0;
     sec++;

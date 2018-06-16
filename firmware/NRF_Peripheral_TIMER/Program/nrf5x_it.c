@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_it.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -55,7 +55,7 @@ void TIMER0_IRQHandler( void )
 {
   if (TIMER_EVENTS_COPPARE(htimer.Instance, htimerCC.Channel) != RESET) {
     TIMER_EVENTS_COPPARE(htimer.Instance, htimerCC.Channel) = RESET;
-    TIMER_TASKS_CLEAR(htimer.Instance);
+    TIMER_TASKS_CLEAR(htimer.Instance) = SET;
     htimerCC.EventCallback();
   }
 }

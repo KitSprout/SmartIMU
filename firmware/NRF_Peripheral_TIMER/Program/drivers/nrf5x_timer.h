@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_timer.h
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -26,14 +26,14 @@
 
 /* Define ----------------------------------------------------------------------------------*/
 /* Macro -----------------------------------------------------------------------------------*/
-#define TIMER_TASKS_START(__INS)            (__INS->TASKS_START = SET)            // Start Timer
-#define TIMER_TASKS_STOP(__INS)             (__INS->TASKS_STOP = SET)             // Stop Timer
-#define TIMER_TASKS_COUNT(__INS)            (__INS->TASKS_COUNT = SET)            // Increment Timer (Counter mode only)
-#define TIMER_TASKS_CLEAR(__INS)            (__INS->TASKS_CLEAR = SET)            // Clear time
-#define TIMER_TASKS_SHUTDOWN(__INS)         (__INS->TASKS_SHUTDOWN = SET)         // Shut down timer
-#define TIMER_TASKS_CAPTURE(__INS, __CH)    (__INS->TASKS_CAPTURE[__CH] = SET)    // Capture Timer value to CC[x] register
+#define TIMER_TASKS_START(__INS)            __INS->TASKS_START            // Start Timer
+#define TIMER_TASKS_STOP(__INS)             __INS->TASKS_STOP             // Stop Timer
+#define TIMER_TASKS_COUNT(__INS)            __INS->TASKS_COUNT            // Increment Timer (Counter mode only)
+#define TIMER_TASKS_CLEAR(__INS)            __INS->TASKS_CLEAR            // Clear time
+#define TIMER_TASKS_SHUTDOWN(__INS)         __INS->TASKS_SHUTDOWN         // Shut down timer
+#define TIMER_TASKS_CAPTURE(__INS, __CH)    __INS->TASKS_CAPTURE[__CH]    // Capture Timer value to CC[x] register
 
-#define TIMER_EVENTS_COPPARE(__INS, __CH)   __INS->EVENTS_COMPARE[__CH]           // Compare event on CC[x] match
+#define TIMER_EVENTS_COPPARE(__INS, __CH)   __INS->EVENTS_COMPARE[__CH]   // Compare event on CC[x] match
 
 /* Typedef ---------------------------------------------------------------------------------*/
 

@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_timer.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -52,11 +52,11 @@ void TIMER_ChannelInit( TIMER_BaseInitTypeDef *htimer, TIMER_ChannelInitTypeDef 
 void TIMER_Cmd( TIMER_BaseInitTypeDef *htimer, uint8_t state )
 {
   if (state != ENABLE) {
-    TIMER_TASKS_STOP(htimer->Instance);
+    TIMER_TASKS_STOP(htimer->Instance) = SET;
   }
   else {
-    TIMER_TASKS_CLEAR(htimer->Instance);
-    TIMER_TASKS_START(htimer->Instance);
+    TIMER_TASKS_CLEAR(htimer->Instance) = SET;
+    TIMER_TASKS_START(htimer->Instance) = SET;
   }
 }
 

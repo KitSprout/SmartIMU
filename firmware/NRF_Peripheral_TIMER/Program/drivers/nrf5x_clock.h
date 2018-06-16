@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_clock.h
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -59,8 +59,8 @@ typedef struct {
 
 /* Extern ----------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
-void CLOCK_Config( void );
-void CLOCK_Init( CLOCK_InitTypeDef *hclock );
+void      CLOCK_Config( void );
+void      CLOCK_Init( CLOCK_InitTypeDef *hclock );
 
 #ifdef __cplusplus
 }

@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_bsp.h
  *  @author  KitSprout
- *  @date    21-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -29,9 +29,9 @@
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Extern ----------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
-void BSP_CLOCK_Config( void );
-void BSP_GPIO_Config( void );
-void BSP_TIMER_Config( pFunc event, uint32_t freq );
+void      bsp_gpio_init( void );
+void      bsp_timer_init( pFunc event, uint32_t freq );
+void      bsp_timer_enable( uint32_t state );
 
 #ifdef __cplusplus
 }
