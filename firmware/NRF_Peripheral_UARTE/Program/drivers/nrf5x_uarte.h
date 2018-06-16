@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_uarte.h
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -26,23 +26,23 @@
 
 /* Define ----------------------------------------------------------------------------------*/
 /* Macro -----------------------------------------------------------------------------------*/
-#define UARTE_TASKS_STARTRX(__INS)      (__INS->TASKS_STARTRX = SET)  // Start UART receiver
-#define UARTE_TASKS_STOPRX(__INS)       (__INS->TASKS_STOPRX = SET)   // Stop UART receiver
-#define UARTE_TASKS_STARTTX(__INS)      (__INS->TASKS_STARTTX = SET)  // Start UART transmitter
-#define UARTE_TASKS_STOPTX(__INS)       (__INS->TASKS_STOPTX = SET)   // Stop UART transmitter
-#define UARTE_TASKS_SUSPEND(__INS)      (__INS->TASKS_FLUSHRX = SET)  // Flush RX FIFO into RX buffer
+#define UARTE_TASKS_STARTRX(__INS)      __INS->TASKS_STARTRX      // Start UART receiver
+#define UARTE_TASKS_STOPRX(__INS)       __INS->TASKS_STOPRX       // Stop UART receiver
+#define UARTE_TASKS_STARTTX(__INS)      __INS->TASKS_STARTTX      // Start UART transmitter
+#define UARTE_TASKS_STOPTX(__INS)       __INS->TASKS_STOPTX       // Stop UART transmitter
+#define UARTE_TASKS_SUSPEND(__INS)      __INS->TASKS_FLUSHRX      // Flush RX FIFO into RX buffer
 
-#define UARTE_EVENTS_CTS(__INS)         __INS->EVENTS_CTS             // CTS is activated (set low). Clear To Send
-#define UARTE_EVENTS_NCTS(__INS)        __INS->EVENTS_NCTS            // CTS is deactivated (set high). Not Clear To Send
-#define UARTE_EVENTS_RXDRDY(__INS)      __INS->EVENTS_RXDRDY          // Data received in RXD.
-#define UARTE_EVENTS_ENDRX(__INS)       __INS->EVENTS_ENDRX           // Receive buffer is filled up
-#define UARTE_EVENTS_TXDRDY(__INS)      __INS->EVENTS_TXDRDY          // Data sent from TXD
-#define UARTE_EVENTS_ENDTX(__INS)       __INS->EVENTS_ENDTX           // Last TX byte transmitted
-#define UARTE_EVENTS_ERROR(__INS)       __INS->EVENTS_ERROR           // Error detected
-#define UARTE_EVENTS_RXTO(__INS)        __INS->EVENTS_RXTO            // Receiver timeout
-#define UARTE_EVENTS_RXSTARTED(__INS)   __INS->EVENTS_RXSTARTED       // UART receiver has started
-#define UARTE_EVENTS_TXSTARTED(__INS)   __INS->EVENTS_TXSTARTED       // UART transmitter has started
-#define UARTE_EVENTS_TXSTOPPED(__INS)   __INS->EVENTS_TXSTOPPED       // Transmitter stopped
+#define UARTE_EVENTS_CTS(__INS)         __INS->EVENTS_CTS         // CTS is activated (set low). Clear To Send
+#define UARTE_EVENTS_NCTS(__INS)        __INS->EVENTS_NCTS        // CTS is deactivated (set high). Not Clear To Send
+#define UARTE_EVENTS_RXDRDY(__INS)      __INS->EVENTS_RXDRDY      // Data received in RXD.
+#define UARTE_EVENTS_ENDRX(__INS)       __INS->EVENTS_ENDRX       // Receive buffer is filled up
+#define UARTE_EVENTS_TXDRDY(__INS)      __INS->EVENTS_TXDRDY      // Data sent from TXD
+#define UARTE_EVENTS_ENDTX(__INS)       __INS->EVENTS_ENDTX       // Last TX byte transmitted
+#define UARTE_EVENTS_ERROR(__INS)       __INS->EVENTS_ERROR       // Error detected
+#define UARTE_EVENTS_RXTO(__INS)        __INS->EVENTS_RXTO        // Receiver timeout
+#define UARTE_EVENTS_RXSTARTED(__INS)   __INS->EVENTS_RXSTARTED   // UART receiver has started
+#define UARTE_EVENTS_TXSTARTED(__INS)   __INS->EVENTS_TXSTARTED   // UART transmitter has started
+#define UARTE_EVENTS_TXSTOPPED(__INS)   __INS->EVENTS_TXSTOPPED   // Transmitter stopped
 
 /* Typedef ---------------------------------------------------------------------------------*/
 

@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_bsp.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -35,20 +35,17 @@ TIMER_ChannelInitTypeDef htimerCC;
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
 
-void BSP_CLOCK_Config( void )
+void bsp_gpio_init( void )
 {
   CLOCK_Config();
-}
 
-void BSP_GPIO_Config( void )
-{
   nrf_gpio_cfg_output(LED_PIN);
   nrf_gpio_cfg_input(KEY_PIN, NRF_GPIO_PIN_PULLUP);
 
   LED_Off();
 }
 
-void BSP_TIMER_Config( pFunc event, uint32_t freq )
+void bsp_timer_init( pFunc event, uint32_t freq )
 {
   htimer.Instance  = TIMERx;
   htimer.Mode      = TIMERx_MODE;
@@ -64,19 +61,19 @@ void BSP_TIMER_Config( pFunc event, uint32_t freq )
 
   NVIC_SetPriority(TIMERx_IRQn, TIMERx_IRQn_PRIORITY);
   NVIC_EnableIRQ(TIMERx_IRQn);
-
-  TIMER_Cmd(&htimer, ENABLE);
 }
 
-void BSP_UART_SERIAL_Config( pFunc event )
+void bsp_timer_enable( uint32_t state )
+{
+  TIMER_Cmd(&htimer, state);
+}
+
+void bsp_serial_init( pFunc event )
 {
   hSerial.RxEventCallback = event;
 
   Serial_Config();
   printf("\f\fHello World!\r\n\r\n");
-
-  kSerial_SetSendFunction(Serial_SendData);
-//  kSerial_SetRecvByteFunction(Serial_RecvByte);
 }
 
 /*************************************** END OF FILE ****************************************/

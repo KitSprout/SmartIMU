@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_uarte.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -116,7 +116,7 @@ void UARTE_SendByte( UARTE_InitTypeDef *huarte, uint8_t *sendByte )
   UARTE_EVENTS_TXSTOPPED(huarte->Instance) = RESET;
   huarte->Instance->TXD.PTR    = (uint32_t)sendByte;
   huarte->Instance->TXD.MAXCNT = 1;
-  UARTE_TASKS_STARTTX(huarte->Instance);
+  UARTE_TASKS_STARTTX(huarte->Instance) = SET;
   while ((UARTE_EVENTS_ENDTX(huarte->Instance) != SET) && (UARTE_EVENTS_TXSTOPPED(huarte->Instance) != SET));
 }
 
@@ -129,7 +129,7 @@ void UARTE_RecvByte( UARTE_InitTypeDef *huarte, uint8_t *recvByte )
   UARTE_EVENTS_RXTO(huarte->Instance) = RESET;
   huarte->Instance->RXD.PTR    = (uint32_t)recvByte;
   huarte->Instance->RXD.MAXCNT = 1;
-  UARTE_TASKS_STARTRX(huarte->Instance);
+  UARTE_TASKS_STARTRX(huarte->Instance) = SET;
   while ((UARTE_EVENTS_ENDRX(huarte->Instance) != SET) && (UARTE_EVENTS_RXTO(huarte->Instance) != SET) && (UARTE_EVENTS_ERROR(huarte->Instance) != SET));
 }
 
@@ -148,7 +148,7 @@ uint32_t UARTE_SendData( UARTE_InitTypeDef *huarte, uint8_t *sendData, uint32_t 
   UARTE_EVENTS_TXSTOPPED(huarte->Instance) = RESET;
   huarte->Instance->TXD.PTR    = (uint32_t)sendData;
   huarte->Instance->TXD.MAXCNT = lens;
-  UARTE_TASKS_STARTTX(huarte->Instance);
+  UARTE_TASKS_STARTTX(huarte->Instance) = SET;
   do {
     endtx     = UARTE_EVENTS_ENDTX(huarte->Instance);
     txstopped = UARTE_EVENTS_TXSTOPPED(huarte->Instance);
@@ -176,7 +176,7 @@ uint32_t UARTE_RecvData( UARTE_InitTypeDef *huarte, uint8_t *recvData, uint32_t 
   UARTE_EVENTS_RXTO(huarte->Instance) = RESET;
   huarte->Instance->RXD.PTR    = (uint32_t)recvData;
   huarte->Instance->RXD.MAXCNT = lens;
-  UARTE_TASKS_STARTRX(huarte->Instance);
+  UARTE_TASKS_STARTRX(huarte->Instance) = SET;
   do {
     endrx = UARTE_EVENTS_ENDRX(huarte->Instance);
     rxto  = UARTE_EVENTS_RXTO(huarte->Instance);
@@ -208,7 +208,7 @@ uint32_t UARTE_SendDataWaitTimeout( UARTE_InitTypeDef *huarte, uint8_t *sendData
   UARTE_EVENTS_TXSTOPPED(huarte->Instance) = RESET;
   huarte->Instance->TXD.PTR    = (uint32_t)sendData;
   huarte->Instance->TXD.MAXCNT = lens;
-  UARTE_TASKS_STARTTX(huarte->Instance);
+  UARTE_TASKS_STARTTX(huarte->Instance) = SET;
   do {
     endtx     = UARTE_EVENTS_ENDTX(huarte->Instance);
     txstopped = UARTE_EVENTS_TXSTOPPED(huarte->Instance);
@@ -247,7 +247,7 @@ uint32_t UARTE_RecvDataWaitTimeout( UARTE_InitTypeDef *huarte, uint8_t *recvData
   UARTE_EVENTS_RXTO(huarte->Instance) = RESET;
   huarte->Instance->RXD.PTR    = (uint32_t)recvData;
   huarte->Instance->RXD.MAXCNT = lens;
-  UARTE_TASKS_STARTRX(huarte->Instance);
+  UARTE_TASKS_STARTRX(huarte->Instance) = SET;
   do {
     endrx = UARTE_EVENTS_ENDRX(huarte->Instance);
     rxto  = UARTE_EVENTS_RXTO(huarte->Instance);

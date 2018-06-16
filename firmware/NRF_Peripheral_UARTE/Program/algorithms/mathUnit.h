@@ -8,7 +8,7 @@
  * 
  *  @file    mathUnit.h
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    03-Jun-2018
  *  @brief   
  * 
  */
@@ -31,20 +31,20 @@
 
 /* Define ----------------------------------------------------------------------------------*/
 /* Macro -----------------------------------------------------------------------------------*/
-#define invSqrt( __iSq )    (1.0 / sqrt(__iSq))
-#define invSqrtf( __iSq )   (1.0f / sqrtf(__iSq))
-#define squa( __sq )        ((__sq) * (__sq))
-#define squaf( __sq )       (((float32_t)(__sq)) * ((float32_t)(__sq)))
-#define swap( __a, __b )    (__a) = (int32_t)(__a) ^ (int32_t)(__b); \
-                            (__b) = (int32_t)(__a) ^ (int32_t)(__b); \
-                            (__a) = (int32_t)(__a) ^ (int32_t)(__b)
-#define swapf( __a, __b )   *(uint32_t*)(&(__a)) = *(uint32_t*)(&(__a)) ^ *(uint32_t*)(&(__b)); \
-                            *(uint32_t*)(&(__b)) = *(uint32_t*)(&(__a)) ^ *(uint32_t*)(&(__b)); \
-                            *(uint32_t*)(&(__a)) = *(uint32_t*)(&(__a)) ^ *(uint32_t*)(&(__b))
-#define abs( __n )          (((__n) > 0) ? (__n) : -(__n))
-#define toRad( __deg )      ((__deg) * 0.0174532925f)
-#define toDeg( __rad )      ((__rad) * 57.2957795f)
-#define arrayLens(__arr)    (sizeof(__arr) / sizeof((__arr)[0]))
+#define invSqrt( __iSq )      (1.0 / sqrt(__iSq))
+#define invSqrtf( __iSq )     (1.0f / sqrtf(__iSq))
+#define squa( __sq )          ((__sq) * (__sq))
+#define squaf( __sq )         (((float32_t)(__sq)) * ((float32_t)(__sq)))
+#define swap( __a, __b )      (__a) = (int32_t)(__a) ^ (int32_t)(__b); \
+                              (__b) = (int32_t)(__a) ^ (int32_t)(__b); \
+                              (__a) = (int32_t)(__a) ^ (int32_t)(__b)
+#define swapf( __a, __b )     *(uint32_t*)(&(__a)) = *(uint32_t*)(&(__a)) ^ *(uint32_t*)(&(__b)); \
+                              *(uint32_t*)(&(__b)) = *(uint32_t*)(&(__a)) ^ *(uint32_t*)(&(__b)); \
+                              *(uint32_t*)(&(__a)) = *(uint32_t*)(&(__a)) ^ *(uint32_t*)(&(__b))
+#define abs( __n )            (((__n) > 0) ? (__n) : -(__n))
+#define toRad( __deg )        ((__deg) * 0.0174532925f)
+#define toDeg( __rad )        ((__rad) * 57.2957795f)
+#define arrayLens(__arr)      (sizeof(__arr) / sizeof((__arr)[0]))
 
 /* Typedef ---------------------------------------------------------------------------------*/
 typedef enum {

@@ -8,7 +8,7 @@
  * 
  *  @file    nrf5x_it.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -31,6 +31,7 @@ extern TIMER_ChannelInitTypeDef htimerCC;
 
 /* Prototypes ------------------------------------------------------------------------------*/
 /* Functions -------------------------------------------------------------------------------*/
+
 void NMI_Handler( void ) { while(1); }
 void HardFault_Handler( void ) { while(1); }
 void MemoryManagement_Handler( void ) { while(1); }
@@ -47,11 +48,16 @@ void PendSV_Handler( void ) { while(1); }
 
 void UARTE0_IRQHandler( void )
 {
-  hSerial.RxEventCallback();
+  if (UARTE_EVENTS_ENDRX(hSerial.Instance) != RESET) {
+    UARTE_EVENTS_ENDRX(hSerial.Instance) = RESET;
+    hSerial.RxEventCallback();
+    UARTE_TASKS_STARTRX(hSerial.Instance) = SET;
+  }
 }
 
-//void TWIM0_TWIS0_IRQHandler( void )
-//void SPIM0_SPIS0_IRQHandler( void )
+//void SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQHandler( void )
+//void SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler( void )
+//void NFCT_IRQHandler( void )
 //void GPIOTE_IRQHandler( void )
 //void SAADC_IRQHandler( void )
 
@@ -59,7 +65,7 @@ void TIMER0_IRQHandler( void )
 {
   if (TIMER_EVENTS_COPPARE(htimer.Instance, htimerCC.Channel) != RESET) {
     TIMER_EVENTS_COPPARE(htimer.Instance, htimerCC.Channel) = RESET;
-    TIMER_TASKS_CLEAR(htimer.Instance);
+    TIMER_TASKS_CLEAR(htimer.Instance) = SET;
     htimerCC.EventCallback();
   }
 }
@@ -74,14 +80,29 @@ void TIMER0_IRQHandler( void )
 //void WDT_IRQHandler( void )
 //void RTC1_IRQHandler( void )
 //void QDEC_IRQHandler( void )
-//void COMP_IRQHandler( void )
+//void COMP_LPCOMP_IRQHandler( void )
 //void SWI0_EGU0_IRQHandler( void )
 //void SWI1_EGU1_IRQHandler( void )
-//void SWI2_IRQHandler( void )
-//void SWI3_IRQHandler( void )
-//void SWI4_IRQHandler( void )
-//void SWI5_IRQHandler( void )
+//void SWI2_EGU2_IRQHandler( void )
+//void SWI3_EGU3_IRQHandler( void )
+//void SWI4_EGU4_IRQHandler( void )
+//void SWI5_EGU5_IRQHandler( void )
+//void TIMER3_IRQHandler( void )
+//void TIMER4_IRQHandler( void )
 //void PWM0_IRQHandler( void )
 //void PDM_IRQHandler( void )
+//void MWU_IRQHandler( void )
+//void PWM1_IRQHandler( void )
+//void PWM2_IRQHandler( void )
+//void SPIM2_SPIS2_SPI2_IRQHandler( void )
+//void RTC2_IRQHandler( void )
+//void I2S_IRQHandler( void )
+//void FPU_IRQHandler( void )
+//void USBD_IRQHandler( void )
+//void UARTE1_IRQHandler( void )
+//void QSPI_IRQHandler( void )
+//void CRYPTOCELL_IRQHandler( void )
+//void SPIM3_IRQHandler( void )
+//void PWM3_IRQHandler( void )
 
 /*************************************** END OF FILE ****************************************/

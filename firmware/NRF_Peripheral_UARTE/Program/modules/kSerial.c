@@ -24,6 +24,7 @@
 
 /* Includes --------------------------------------------------------------------------------*/
 #include "drivers\nrf5x_system.h"
+#include "modules\serial.h"
 #include "modules\kSerial.h"
 
 /** @addtogroup STM32_Module
@@ -39,13 +40,15 @@
 /* Variables -------------------------------------------------------------------------------*/
 #if KSERIAL_SEND_ENABLE
 static uint8_t ksSendBuffer[KS_MAX_SEND_BUFF_SIZE] = {0};
-static uint32_t (*pKSerialSend)( uint8_t *, uint32_t) = NULL;
+//static uint32_t (*pKSerialSend)( uint8_t *, uint32_t) = NULL;
+#define pKSerialSend( __DATA, __LENS )  Serial_SendData(__DATA, __LENS)
 #endif
 
 #if KSERIAL_RECV_ENABLE
 static uint8_t ksRecvBuffer[KS_MAX_RECV_BUFF_SIZE] = {0};
 //static uint32_t (*pKSerialRecv)( uint8_t *, uint32_t) = NULL;
-static uint8_t (*pKSerialRecvByte)( void ) = NULL;
+//static uint8_t (*pKSerialRecvByte)( void ) = NULL;
+#define pKSerialRecvByte()  Serial_RecvByte()
 #endif
 
 /* Prototypes ------------------------------------------------------------------------------*/
@@ -55,20 +58,20 @@ static uint8_t (*pKSerialRecvByte)( void ) = NULL;
 /**
  *  @brief  kSerial_SetSendFunction
  */
-void kSerial_SetSendFunction( uint32_t (*fptr)(uint8_t *, uint32_t) )
-{
-  pKSerialSend = fptr;
-}
+//void kSerial_SetSendFunction( uint32_t (*fptr)(uint8_t *, uint32_t) )
+//{
+//  pKSerialSend = fptr;
+//}
 #endif
 
 #if KSERIAL_RECV_ENABLE
 /**
  *  @brief  kSerial_SetSendFunction
  */
-void kSerial_SetRecvByteFunction( uint8_t (*fptr)(void) )
-{
-  pKSerialRecvByte = fptr;
-}
+//void kSerial_SetRecvByteFunction( uint8_t (*fptr)(void) )
+//{
+//  pKSerialRecvByte = fptr;
+//}
 #endif
 
 /**

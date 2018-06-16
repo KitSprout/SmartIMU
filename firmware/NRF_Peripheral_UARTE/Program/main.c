@@ -8,7 +8,7 @@
  * 
  *  @file    main.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -24,35 +24,37 @@
  */
 
 /* Define ----------------------------------------------------------------------------------*/
-#define UART_POLLING      (0U)
-//#define UART_INTERRUPT    (1U)
-#define UART_KSERIAL      (2U)
-#define UAER_MODE         UART_POLLING
+#define UARTE_POLLING     (0U)
+#define UARTE_INTERRUPT   (1U)
+#define UARTE_KSERIAL     (2U)
+#define UARTE_MODE        UARTE_POLLING
+
+#define TIMER_TICK_FREQ   1000
 
 /* Macro -----------------------------------------------------------------------------------*/
 /* Typedef ---------------------------------------------------------------------------------*/
 /* Variables -------------------------------------------------------------------------------*/
-#if UAER_MODE == UART_KSERIAL
-static uint32_t sec = 0, msc = 0;
+#if UARTE_MODE == UARTE_KSERIAL
+static uint32_t sec = 0;
+static uint32_t msc = 0;
 #endif
 
 /* Prototypes ------------------------------------------------------------------------------*/
-#if UAER_MODE == UART_INTERRUPT
-void IRQEvent_SerialRecv( void );
-#elif UAER_MODE == UART_KSERIAL
-void IRQEvent_TimerTick( void );
+#if UARTE_MODE == UARTE_INTERRUPT
+void serial_receive_event( void );
+#elif UARTE_MODE == UARTE_KSERIAL
+void timer_tick_event( void );
 #endif
 
 /* Functions -------------------------------------------------------------------------------*/
 
 int main( void )
 {
-  BSP_CLOCK_Config();
-  BSP_GPIO_Config();
+  bsp_gpio_init();
 
-#if UAER_MODE == UART_POLLING
+#if UARTE_MODE == UART_POLLING
 
-  BSP_UART_SERIAL_Config(NULL);
+  bsp_serial_init(NULL);
   uint8_t recvByte = 0;
   while (1) {
     LED_Toggle();
@@ -66,23 +68,22 @@ int main( void )
   }
 
 
-#elif UAER_MODE == UART_INTERRUPT
+#elif UARTE_MODE == UARTE_INTERRUPT
 
-  BSP_UART_SERIAL_Config(IRQEvent_SerialRecv);
+  bsp_serial_init(serial_receive_event);
   while (1) {
-//    LED_Toggle();
-    delay_ms(100);
+    __WFI();
   }
 
 
-#elif UAER_MODE == UART_KSERIAL
+#elif UARTE_MODE == UARTE_KSERIAL
 #define TIMER_TICK_FREQ   1000
+  bsp_timer_init(timer_tick_event, TIMER_TICK_FREQ);
+  bsp_timer_enable(ENABLE);
+  bsp_serial_init(NULL);
 
-  BSP_TIMER_Config(IRQEvent_TimerTick, TIMER_TICK_FREQ);
-  BSP_UART_SERIAL_Config(NULL);
   while (1) {
     LED_Toggle();
-//    delay_ms(100);
 
     int16_t buff[2];
     buff[0] = sec;
@@ -92,13 +93,13 @@ int main( void )
 
 
 #else
-  #error UAER_MODE ERROR!!!
+  #error UARTE_MODE ERROR!!!
 
 #endif
 }
 
-#if UAER_MODE == UART_INTERRUPT
-void IRQEvent_SerialRecv( void )
+#if UARTE_MODE == UARTE_INTERRUPT
+void serial_receive_event( void )
 {
   uint8_t recvByte = hSerial.pRxBuf[0];
 
@@ -111,10 +112,10 @@ void IRQEvent_SerialRecv( void )
   }
 }
 
-#elif UAER_MODE == UART_KSERIAL
-void IRQEvent_TimerTick( void )
+#elif UARTE_MODE == UARTE_KSERIAL
+void timer_tick_event( void )
 {
-  if (++msc == TIMER_TICK_FREQ) {
+  if (++msc >= TIMER_TICK_FREQ) {
     msc = 0;
     sec++;
   }

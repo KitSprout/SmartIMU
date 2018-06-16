@@ -8,7 +8,7 @@
  * 
  *  @file    serial.c
  *  @author  KitSprout
- *  @date    22-Apr-2018
+ *  @date    16-Jun-2018
  *  @brief   
  * 
  */
@@ -57,9 +57,8 @@ void Serial_Config( void )
 
   /* UART IT *******************************************************************/
   if (hSerial.RxEventCallback != NULL) {
-    UARTE_Set_TxBuffer(&hSerial, hSerial.pTxBuf, hSerial.txBufLens);
-    UARTE_Set_RxBuffer(&hSerial, hSerial.pRxBuf, hSerial.rxBufLens);
-
+    UARTE_Set_TxBuffer(&hSerial, hSerial.pTxBuf, 1);
+    UARTE_Set_RxBuffer(&hSerial, hSerial.pRxBuf, 1);
     UARTE_InterruptCmd(&hSerial, SERIAL_INTERRUPT_MODE, ENABLE);
     NVIC_SetPriority(SERIAL_UARTEx_IRQn, SERIAL_UARTEx_IRQn_PRIORITY);
     NVIC_EnableIRQ(SERIAL_UARTEx_IRQn);
@@ -67,6 +66,10 @@ void Serial_Config( void )
 
   /* UART Enable ***************************************************************/
   UARTE_Cmd(&hSerial, ENABLE);
+
+  if (hSerial.RxEventCallback != NULL) {
+    UARTE_TASKS_STARTRX(hSerial.Instance) = SET;
+  }
 }
 
 /**
