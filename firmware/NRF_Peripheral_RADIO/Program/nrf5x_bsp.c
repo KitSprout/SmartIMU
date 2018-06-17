@@ -1,0 +1,98 @@
+/**
+ *      __            ____
+ *     / /__ _  __   / __/                      __  
+ *    / //_/(_)/ /_ / /  ___   ____ ___  __ __ / /_ 
+ *   / ,<  / // __/_\ \ / _ \ / __// _ \/ // // __/ 
+ *  /_/|_|/_/ \__//___// .__//_/   \___/\_,_/ \__/  
+ *                    /_/   github.com/KitSprout    
+ * 
+ *  @file    nrf5x_bsp.c
+ *  @author  KitSprout
+ *  @date    16-Jun-2018
+ *  @brief   
+ * 
+ */
+
+/* Includes --------------------------------------------------------------------------------*/
+#include "drivers\nrf5x_system.h"
+#include "drivers\nrf5x_clock.h"
+#include "drivers\nrf5x_timer.h"
+#include "drivers\nrf5x_radio.h"
+#include "modules\serial.h"
+#include "modules\kSerial.h"
+#include "nrf5x_bsp.h"
+
+/** @addtogroup NRF5x_Program
+ *  @{
+ */
+
+/* Define ----------------------------------------------------------------------------------*/
+/* Macro -----------------------------------------------------------------------------------*/
+/* Typedef ---------------------------------------------------------------------------------*/
+/* Variables -------------------------------------------------------------------------------*/
+static RADIO_InitTypeDef hradio;
+
+TIMER_BaseInitTypeDef htimer;
+TIMER_ChannelInitTypeDef htimerCC;
+
+/* Prototypes ------------------------------------------------------------------------------*/
+/* Functions -------------------------------------------------------------------------------*/
+
+void bsp_gpio_init( void )
+{
+  CLOCK_Config();
+
+  nrf_gpio_cfg_output(LED_PIN);
+  nrf_gpio_cfg_input(KEY_PIN, NRF_GPIO_PIN_PULLUP);
+
+  LED_Off();
+}
+
+void bsp_timer_init( pFunc event, uint32_t freq )
+{
+  htimer.Instance  = TIMERx;
+  htimer.Mode      = TIMERx_MODE;
+  htimer.BitMode   = TIMERx_BIT_MODE;
+  htimer.Prescaler = TIMERx_PRESCALER;
+  TIMER_BaseInit(&htimer);
+
+  htimerCC.Channel = TIMERx_CHANNEL;
+  htimerCC.Period  = freq;
+  htimerCC.EventCallback = event;
+  TIMER_ChannelInit(&htimer, &htimerCC);
+  TIMER_InterruptCmd(&htimer, htimerCC.Channel, ENABLE);
+
+  NVIC_SetPriority(TIMERx_IRQn, TIMERx_IRQn_PRIORITY);
+  NVIC_EnableIRQ(TIMERx_IRQn);
+}
+
+void bsp_timer_enable( uint32_t state )
+{
+  TIMER_Cmd(&htimer, state);
+}
+
+void bsp_serial_init( pFunc event )
+{
+  hSerial.RxEventCallback = event;
+
+  Serial_Config();
+  printf("\f\fHello World!\r\n\r\n");
+}
+
+void bsp_radio_init( void )
+{
+  uint8_t prefixAddr[8] = { 0x23, 0x00, 0x63, 0xE3, 0x03, 0x83, 0x43, 0xC3 };
+  uint32_t baseAddr[2] = { 0x80C4A2E6, 0x91D5B3F7 };
+
+  hradio.TxPower   = RADIO_TX_POWER;
+  hradio.Frequency = RADIO_RF_FREQ;
+  hradio.Mode      = RADIO_SPEED;
+  hradio.CRC       = RADIO_CRC;
+  hradio.Prefix    = prefixAddr;
+  hradio.BaseAddr  = baseAddr;
+  hradio.TxAddr    = 0x00;
+  hradio.RxAddr    = 0x01;
+  RADIO_Init(&hradio);
+}
+
+/*************************************** END OF FILE ****************************************/
